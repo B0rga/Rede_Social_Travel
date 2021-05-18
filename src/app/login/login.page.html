@@ -1,9 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
 
+  <div class="divSuperior">
+    <ion-buttons>
+      <ion-button>
+        <ion-icon slot="icon-only" name="chevron-back-outline" id="back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="divInferior">
+    <div class="ios">
+
+    <h3>Entrar</h3>
+    <p id="Descricao">preencha os dados abaixo para continuar</p>
+
+      <ion-item>
+        <ion-label position="floating">Email:</ion-label>
+        <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Senha:</ion-label>
+        <ion-input type="password" placeholder="Digite aqui a senha" required></ion-input>
+        <ion-icon slot="end" name="eye-outline" id="eye"></ion-icon>
+      </ion-item>
+
+    <a id="EsqueceuSenha">Esqueceu sua senha?</a>
+
+    <ion-button id="entrarConta">
+      Entrar
+    </ion-button>
+
+    <div id="divCriarConta">
+      <label>Não tem conta?&nbsp;</label>
+      <a id="cadastreSe">Cadastre-se</a>
+    </div>
+  </div>
+  </div>
 </ion-content>

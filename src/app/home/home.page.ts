@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router'; // dependência para passar de uma página para outra
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private router: Router // !!!!!!!
+  ) {}
 
+  btnEntrar(){ // função
+    this.router.navigate(['login'])
+  }
 }
