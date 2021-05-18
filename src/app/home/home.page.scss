@@ -1,7 +1,38 @@
- ion-content{
+ion-content{
   --ion-background-color: #00f9bb;
   --ion-background-color: -moz-linear-gradient(top,  #00f9bb 4%, #0afbc1 24%);
   --ion-background-color: -webkit-linear-gradient(top,  #00f9bb 4%,#0afbc1 24%);
   --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
- }
+}
+
+div{
+  margin-left: 20px;
+  margin-top: 300px;
+}
+
+#btnEntrar{
+  height: 32px;
+  width: 90%;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: bold; // negrito
+  font-family: "Segoe UI";
+  color: #00f9bb;
+  --border-radius: 20px;
+  --background: white;
+}
+
+#btnCadastrar{
+  height: 32px;
+  width: 90%;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: bold; // negrito
+  font-family: "Segoe UI";
+  --border-radius: 20px;
+  //--border-width: 3px;
+  --border-color: white;
+  color: white;
+}
+
