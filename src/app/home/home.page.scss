@@ -7,8 +7,9 @@ ion-content{
 }
 
 div{
-  margin-left: 20px;
-  margin-top: 300px;
+  display:grid;
+  place-items: center;
+  margin-top: 400px;
 }
 
 #btnEntrar{
