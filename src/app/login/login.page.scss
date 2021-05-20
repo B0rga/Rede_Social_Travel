@@ -1,3 +1,23 @@
+ion-header{
+  --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
+}
+
+ion-toolbar{
+  --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
+  margin-bottom: -4%; // espaçamento entre o header/toolbar e a div
+}
+
+#btnBack{
+  color: white;
+}
+
+#logoPrincipal{
+  width: 30px;
+  margin-left: 75px;
+}
+
+/*============================================================================================================*/
+
 ion-content{
   --ion-background-color: #00f9bb;
   --ion-background-color: -moz-linear-gradient(top,  #00f9bb 4%, #0afbc1 24%);
@@ -5,28 +25,22 @@ ion-content{
   --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
   font-family: "Segoe UI";
+  height: 100%;
 }
 
-#back{
-  color: white;
-}
+/*============================================================================================================*/
 
-.divSuperior{
-  margin-top: 40px;
-  margin-bottom: -4%;
-}
-
-.divInferior{
+#divPrincipal{
   background-color:white;
   color: black;
   height: 100%;
-  height: calc(100% - 93px);
+  height: calc(100% - 16px);
   text-align: center;
   border-radius: 20px 20px 0px 0px;
 }
 
 h3{
-  padding-top: 7%;
+  padding-top: 6%;
   font-weight: bold;
   font-size: 26px;
 }
@@ -35,6 +49,8 @@ h3{
   margin-top: -3%;
   font-size: 10px;
 }
+
+/*============================================================================================================*/
 
 ion-item{
   border-radius: 20px; // tamanho da linha inferior do ion-item
@@ -57,11 +73,13 @@ ion-item{
   font-weight: bold;
   position: absolute;
   right: 16px;
-  margin-top: 3%;
+  margin-top: 14px;
 }
 
+/*============================================================================================================*/
+
 #entrarConta{
-  margin-top: 42px;
+  margin-top: 16%;
   height: 30px;
   width: 88%;
   font-size: 12px;
@@ -72,8 +90,11 @@ ion-item{
   --background: #00f9bb;
 }
 
+/*============================================================================================================*/
+
 #divCriarConta{
-  margin-top: 12px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   color:black;
   font-size: 10px;
   font-weight: bold;
@@ -82,4 +103,45 @@ ion-item{
 #cadastreSe{
   color: black;
   text-decoration: underline;
+}
+
+/*============================================================================================================*/
+
+fieldset {
+  border-top: 1px solid #707070;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  display: block;
+  margin:auto;
+  position: center;
+  width: 89%;
+}
+
+fieldset legend {
+  padding: 5px 5px;
+  padding-top: 0px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*============================================================================================================*/
+
+#divAcessos {
+  margin-top: -4%;
+  padding-right: 8px; // este valor deve ser o mesmo do margin-left de ".redesSociais"
+}
+
+.redesSociais{
+  width: 36px;
+  height: 36px;
+  --border-radius: 20px;
+  margin-left: 8px; // !!!
+  --background: #ffffff;
+}
+
+ion-img{
+  width: 24px;
+  height: 26px;
+  margin-top: 45%;
 }

@@ -1,16 +1,19 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
 
-<ion-content>
-
-  <div class="divSuperior">
-    <ion-buttons>
+    <ion-buttons slot="start">
       <ion-button>
-        <ion-icon slot="icon-only" name="chevron-back-outline" id="back"></ion-icon>
+        <ion-icon slot="icon-only" name="chevron-back-outline" id="btnBack"></ion-icon>
       </ion-button>
     </ion-buttons>
-  </div>
 
-  <div class="divInferior">
-    <div class="ios">
+      <img src= "/assets/travellogo.png" id="logoPrincipal"> <!--Usar esta tag para utilizar imagens-->
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divPrincipal">
 
     <h3>Entrar</h3>
     <p id="Descricao">preencha os dados abaixo para continuar</p>
@@ -36,6 +39,30 @@
       <label>Não tem conta?&nbsp;</label>
       <a id="cadastreSe">Cadastre-se</a>
     </div>
-  </div>
+
+      <fieldset>
+        <legend>Ou entre com</legend>
+      </fieldset>
+
+    <div id="divAcessos">
+      <ion-button class="redesSociais">
+        <ion-thumbnail>
+          <ion-img src="/assets/facelogo.png"></ion-img>
+        </ion-thumbnail>
+      </ion-button>
+
+      <ion-button class="redesSociais">
+        <ion-thumbnail>
+          <ion-img src="/assets/twitterlogo.png"></ion-img>
+        </ion-thumbnail>
+      </ion-button>
+
+      <ion-button class="redesSociais">
+        <ion-thumbnail>
+          <ion-img src="/assets/googlelogo.png"></ion-img>
+        </ion-thumbnail>
+      </ion-button>
+    </div>
+
   </div>
 </ion-content>
