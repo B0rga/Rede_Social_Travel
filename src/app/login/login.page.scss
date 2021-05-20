@@ -11,9 +11,15 @@ ion-toolbar{
   color: white;
 }
 
+#divAjuste{ // centralizar o logo da div
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84%;
+}
+
 #logoPrincipal{
   width: 30px;
-  margin-left: 75px;
 }
 
 /*============================================================================================================*/
@@ -47,7 +53,7 @@ h3{
 
 #Descricao{
   margin-top: -3%;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 /*============================================================================================================*/
@@ -69,7 +75,7 @@ ion-item{
 #EsqueceuSenha{
   color: black;
   text-decoration: underline;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   position: absolute;
   right: 16px;
@@ -82,7 +88,7 @@ ion-item{
   margin-top: 16%;
   height: 30px;
   width: 88%;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: none;
   font-weight: bold;
   color: white;
@@ -96,7 +102,7 @@ ion-item{
   margin-top: 20px;
   margin-bottom: 20px;
   color:black;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -129,14 +135,14 @@ fieldset legend {
 
 #divAcessos {
   margin-top: -4%;
-  padding-right: 8px; // este valor deve ser o mesmo do margin-left de ".redesSociais"
+  padding-right: 15px; // este valor deve ser o mesmo do margin-left de ".redesSociais"
 }
 
 .redesSociais{
   width: 36px;
   height: 36px;
   --border-radius: 20px;
-  margin-left: 8px; // !!!
+  margin-left: 15px; // !!!
   --background: #ffffff;
 }
 
