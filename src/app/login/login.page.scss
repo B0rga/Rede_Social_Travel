@@ -15,7 +15,7 @@ ion-toolbar{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 84%;
+  width: 82%;
 }
 
 #logoPrincipal{
@@ -45,6 +45,8 @@ ion-content{
   border-radius: 20px 20px 0px 0px;
 }
 
+/*============================================================================================================*/
+
 h3{
   padding-top: 6%;
   font-weight: bold;
@@ -54,12 +56,16 @@ h3{
 #Descricao{
   margin-top: -3%;
   font-size: 12px;
+  margin-bottom: 5%
 }
 
 /*============================================================================================================*/
 
+#divDados{
+  padding: 0px 17px 0px 17px;
+}
+
 ion-item{
-  border-radius: 20px; // tamanho da linha inferior do ion-item
   font-size: 14px;
   color: black;
   --border-color: #707070;
@@ -72,20 +78,25 @@ ion-item{
   font-size: 20px;
 }
 
+/*============================================================================================================*/
+
 #EsqueceuSenha{
+  margin-top: 4%;
+  margin-bottom: 6%;
+  float: right; // conteudo para direita
+  padding-right: 17px;
+}
+
+#EsqueceuSenha a{
   color: black;
   text-decoration: underline;
   font-size: 12px;
   font-weight: bold;
-  position: absolute;
-  right: 16px;
-  margin-top: 14px;
 }
 
 /*============================================================================================================*/
 
 #entrarConta{
-  margin-top: 16%;
   height: 30px;
   width: 88%;
   font-size: 14px;
@@ -99,8 +110,8 @@ ion-item{
 /*============================================================================================================*/
 
 #divCriarConta{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 6%;
+  margin-bottom: 6%;
   color:black;
   font-size: 12px;
   font-weight: bold;
@@ -113,6 +124,10 @@ ion-item{
 
 /*============================================================================================================*/
 
+#divField{
+  padding: 0px 17px 0px 17px;
+}
+
 fieldset {
   border-top: 1px solid #707070;
   border-bottom: none;
@@ -121,7 +136,6 @@ fieldset {
   display: block;
   margin:auto;
   position: center;
-  width: 89%;
 }
 
 fieldset legend {
@@ -134,8 +148,8 @@ fieldset legend {
 /*============================================================================================================*/
 
 #divAcessos {
-  margin-top: -4%;
   padding-right: 15px; // este valor deve ser o mesmo do margin-left de ".redesSociais"
+  margin-top: -5%
 }
 
 .redesSociais{
