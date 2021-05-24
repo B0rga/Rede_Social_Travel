@@ -15,4 +15,8 @@ export class HomePage {
   btnEntrar(){ // função
     this.router.navigate(['login'])
   }
+
+  btnCadastrar(){
+    this.router.navigate(['cadastro'])
+  }
 }

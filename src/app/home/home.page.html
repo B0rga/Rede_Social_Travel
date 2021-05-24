@@ -1,6 +1,10 @@
 <ion-content [fullscreen]="true">
-  <div>
+  <div id="divLogoInicial">
+    <img src="/assets/logoinicial.png" id="logoInicial">
+  </div>
+
+  <div id="divBtn">
     <ion-button id="btnEntrar" (click)="btnEntrar()">Entrar</ion-button>
-    <ion-button fill="outline" id="btnCadastrar">Cadastrar-se</ion-button>
+    <ion-button fill="outline" id="btnCadastrar" (click)="btnCadastrar()">Cadastrar-se</ion-button>
   </div>
 </ion-content>

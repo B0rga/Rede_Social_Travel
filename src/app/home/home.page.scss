@@ -6,10 +6,21 @@ ion-content{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
 }
 
-div{
+#divLogoInicial{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50%;
+}
+
+#logoInicial{
+  width: 40%;
+}
+
+#divBtn{
   display:grid;
   place-items: center;
-  margin-top: 400px;
+  margin-top: 75%;
 }
 
 #btnEntrar{
