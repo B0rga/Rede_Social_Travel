@@ -18,32 +18,29 @@ ion-content{
 }
 
 #divBtn{
-  display:grid;
   place-items: center;
-  margin-top: 75%;
+  margin-top: 70%;
+  padding: 17px;
 }
 
 #btnEntrar{
-  height: 32px;
-  width: 90%;
+  height: 30px;
   font-size: 14px;
   text-transform: none;
-  font-weight: bold; // negrito
+  font-weight: bold;
+  color: white;
   font-family: "Segoe UI";
   color: #00f9bb;
-  --border-radius: 20px;
   --background: white;
+  margin-bottom: 3%;
 }
 
 #btnCadastrar{
-  height: 32px;
-  width: 90%;
+  height: 30px;
   font-size: 14px;
   text-transform: none;
   font-weight: bold; // negrito
   font-family: "Segoe UI";
-  --border-radius: 20px;
-  //--border-width: 3px;
   --border-color: white;
   color: white;
 }

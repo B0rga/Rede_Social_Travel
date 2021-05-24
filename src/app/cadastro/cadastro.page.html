@@ -1,9 +1,79 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="chevron-back-outline" id="btnBack"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <div id="divAjuste">
+      <img src= "/assets/travellogo.png" id="logoPrincipal">
+    </div>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div id="divPrincipal">
 
+      <h3>Cadastrar-se</h3>
+      <p id="Descricao">preencha os campos abaixo</p>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" placeholder="Digite aqui o email" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" placeholder="Digite aqui a senha" required></ion-input>
+          <ion-icon slot="end" name="eye-outline" id="eye"></ion-icon>
+        </ion-item>
+
+        <ion-item lines="full">
+          <ion-label position="floating">Confirmar senha</ion-label>
+          <ion-input type="password" placeholder="Digite aqui a senha" required></ion-input>
+          <ion-icon slot="end" name="eye-outline" id="eye"></ion-icon>
+        </ion-item>
+
+      <div id="divTermos">
+        <ion-label>Ao clicar em Continuar, você concorda com nossos</ion-label><br>
+        <a id="Termos">Termos e políticas de dados.</a>
+      </div>
+
+      <ion-button id="btnCadastrarConta" expand="full" shape="round">
+        Continuar
+      </ion-button>
+
+      <fieldset>
+        <legend>Ou cadastre-se com</legend>
+      </fieldset>
+
+      <div id="divAcessos">
+        <ion-button class="redesSociais">
+          <ion-thumbnail>
+            <ion-img src="/assets/facelogo.png"></ion-img>
+          </ion-thumbnail>
+        </ion-button>
+
+        <ion-button class="redesSociais">
+          <ion-thumbnail>
+            <ion-img src="/assets/twitterlogo.png"></ion-img>
+          </ion-thumbnail>
+        </ion-button>
+
+        <ion-button class="redesSociais">
+          <ion-thumbnail>
+            <ion-img src="/assets/googlelogo.png"></ion-img>
+          </ion-thumbnail>
+        </ion-button>
+      </div>
+
+  </div>
 </ion-content>

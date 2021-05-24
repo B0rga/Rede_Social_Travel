@@ -1,1 +1,144 @@
+ion-header{
+  --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
+}
 
+ion-toolbar{
+  --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
+  margin-bottom: -4%; // espaçamento entre o header/toolbar e a div
+}
+
+#btnBack{
+  color: white;
+}
+
+#divAjuste{ // centralizar o logo da div
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82%;
+}
+
+#logoPrincipal{
+  width: 30px;
+}
+
+/*============================================================================================================*/
+
+ion-content{
+  --ion-background-color: #00f9bb;
+  --ion-background-color: -moz-linear-gradient(top,  #00f9bb 4%, #0afbc1 24%);
+  --ion-background-color: -webkit-linear-gradient(top,  #00f9bb 4%,#0afbc1 24%);
+  --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
+  font-family: "Segoe UI";
+  height: 100%;
+}
+
+/*============================================================================================================*/
+
+#divPrincipal{
+  background-color:white;
+  color: black;
+  height: 100%;
+  height: calc(100% - 16px);
+  text-align: center;
+  border-radius: 20px 20px 0px 0px;
+  padding: 0px 17px 0px 17px;
+}
+
+/*============================================================================================================*/
+
+h3{
+  padding-top: 6%;
+  font-weight: bold;
+  font-size: 26px;
+}
+
+#Descricao{
+  margin-top: -3%;
+  font-size: 12px;
+  margin-bottom: 3%;
+}
+
+/*============================================================================================================*/
+
+
+/*============================================================================================================*/
+
+ion-item{
+  font-size: 14px;
+  color: black;
+  --border-color: #707070;
+  --background: white;
+}
+
+#eye{
+  color: #707070;
+  padding-top: 19px;
+  font-size: 20px;
+}
+
+/*============================================================================================================*/
+
+#divTermos{
+  margin-top: 3%;
+  margin-bottom: 8%;
+  font-size: 10px;
+}
+
+#divTermos a{
+  text-decoration: underline;
+}
+
+/*============================================================================================================*/
+
+#btnCadastrarConta{
+  height: 30px;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: bold;
+  color: white;
+  --background: #00f9bb;
+  font-family: "Segoe UI";
+  margin-bottom: 8%;
+}
+
+/*============================================================================================================*/
+
+fieldset {
+  border-top: 1px solid #707070;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  display: block;
+  margin:auto;
+  position: center;
+}
+
+fieldset legend {
+  padding: 5px 5px;
+  padding-top: 0px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/*============================================================================================================*/
+
+#divAcessos {
+  padding-right: 15px; // este valor deve ser o mesmo do margin-left de ".redesSociais"
+  margin-top: -5%
+}
+
+.redesSociais{
+  width: 36px;
+  height: 36px;
+  --border-radius: 20px;
+  margin-left: 15px; // !!!
+  --background: #ffffff;
+}
+
+ion-img{
+  width: 24px;
+  height: 26px;
+  margin-top: 45%;
+}
