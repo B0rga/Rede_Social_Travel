@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'cadastro',
     loadChildren: () => import('./cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
+  {
+    path: 'confirmar-email',
+    loadChildren: () => import('./confirmar-email/confirmar-email.module').then( m => m.ConfirmarEmailPageModule)
+  },
 ];
 
 @NgModule({
