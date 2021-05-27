@@ -67,11 +67,12 @@ ion-item{
   color: black;
   --border-color: #707070;
   --background: white;
+  --min-height: 16px;
 }
 
 #eye{
   color: #707070;
-  padding-top: 19px;
+  padding-top: 8%;
   font-size: 20px;
 }
 
@@ -139,16 +140,19 @@ fieldset legend {
 /*============================================================================================================*/
 
 #divAcessos {
-  padding-right: 15px; // este valor deve ser o mesmo do margin-left de ".redesSociais"
-  margin-top: -5%
+  margin-top: -5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .redesSociais{
   width: 36px;
   height: 36px;
   --border-radius: 20px;
-  margin-left: 15px; // !!!
   --background: #ffffff;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 ion-img{
