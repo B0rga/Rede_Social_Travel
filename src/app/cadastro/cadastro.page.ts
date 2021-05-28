@@ -19,4 +19,8 @@ btnContinuar(){
   this.router.navigate(['confirmar-email'])
 }
 
+btnVoltar(){
+  this.router.navigate(['home']);
+}
+
 }

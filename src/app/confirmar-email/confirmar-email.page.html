@@ -2,7 +2,7 @@
   <ion-toolbar>
 
     <ion-buttons slot="start">
-      <ion-button>
+      <ion-button (click)="btnVoltar()">
         <ion-icon slot="icon-only" name="chevron-back-outline" id="btnBack"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -19,6 +19,28 @@
 
     <h3>Confirmar seu email</h3>
     <p id="Descricao">preencha o campo abaixo</p>
+
+    <div id="stepProgressBar">
+
+      <div class="step">
+        <div class="bulletProgressComplete">
+          <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="bulletProgress">
+          <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="bullet">
+          <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
+        </div>
+      </div>
+
+    </div>
 
     <div id="divContexto">
       <h4>Digite o código enviado na sua caixa de email</h4>

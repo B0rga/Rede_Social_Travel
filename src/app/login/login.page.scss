@@ -1,10 +1,14 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
 ion-header{
   --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
 }
 
 ion-toolbar{
   --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
-  margin-bottom: -4%; // espaçamento entre o header/toolbar e a div
 }
 
 #btnBack{
@@ -15,7 +19,7 @@ ion-toolbar{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 82%;
+  width: 84%;
 }
 
 #logoPrincipal{
@@ -40,9 +44,8 @@ ion-content{
   background-color:white;
   color: black;
   height: 100%;
-  height: calc(100% - 16px);
   text-align: center;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 36px 36px 0px 0px;
   padding: 0px 17px 0px 17px;
 }
 
@@ -55,7 +58,6 @@ h3{
 }
 
 #Descricao{
-  margin-top: -3%;
   font-size: 12px;
   margin-bottom: 3%
 }
@@ -72,7 +74,7 @@ ion-item{
 
 #eye{
   color: #707070;
-  padding-top: 8%;
+  margin-top: 10%;
   font-size: 20px;
 }
 
@@ -106,7 +108,7 @@ ion-item{
 /*============================================================================================================*/
 
 #divCriarConta{
-  margin-top: 26%;
+  margin-top: 24%;
   margin-bottom: 6%;
   color:black;
   font-size: 12px;
@@ -132,7 +134,7 @@ fieldset {
 
 fieldset legend {
   padding: 5px 5px;
-  padding-top: 0px;
+  padding-top: 3px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -140,7 +142,6 @@ fieldset legend {
 /*============================================================================================================*/
 
 #divAcessos {
-  margin-top: -5%;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,10 +1,14 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
 ion-header{
   --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
 }
 
 ion-toolbar{
   --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
-  margin-bottom: -4%; // espaçamento entre o header/toolbar e a div
 }
 
 #btnBack{
@@ -15,7 +19,7 @@ ion-toolbar{
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 82%;
+  width: 84%;
 }
 
 #logoPrincipal{
@@ -43,9 +47,8 @@ ion-content{
   background-color:white;
   color: black;
   height: 100%;
-  height: calc(100% - 16px);
   text-align: center;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 36px 36px 0px 0px;
   padding: 0px 17px 0px 17px;
 }
 
@@ -58,19 +61,61 @@ h3{
 }
 
 #Descricao{
-  margin-top: -3%;
   font-size: 12px;
   margin-bottom: 3%;
 }
 
 /*============================================================================================================*/
 
+#stepProgressBar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step{
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  background: white;
+}
+
+.bulletProgressComplete::after{
+  content: '';
+  position: absolute;
+  width: 64px;
+  height: 1px;
+  background: #00f9bb;
+  left: 16px;
+  bottom: 12px;
+}
+
+.bulletProgress::after{
+  content: '';
+  position: absolute;
+  width: 64px;
+  height: 1px;
+  background: #707070;
+  left: 16px;
+  bottom: 12px;
+}
+
+.bulletProgressComplete .check{
+  font-size: 18px;
+  color: #00f9bb;
+}
+
+.check{
+  font-size: 18px;
+  color: #707070;
+}
 
 /*============================================================================================================*/
 
 #divContexto{
   color:black;
   padding: 0px 20px 0px 20px;
+  margin-top: 5%;
 }
 
 #divContexto h4{
@@ -104,6 +149,6 @@ ion-item{
   font-weight: bold;
   color: white;
   --background: #00f9bb;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
