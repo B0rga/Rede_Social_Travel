@@ -19,4 +19,8 @@ export class ConfirmarEmailPage implements OnInit {
     this.router.navigate(['cadastro']);
   }
 
+  btnContinuar(){
+    this.router.navigate(['ultimo-passo'])
+  }
+
 }

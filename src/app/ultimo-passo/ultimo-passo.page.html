@@ -18,7 +18,7 @@
 
   <div id="divPrincipal">
 
-    <h3>Confirmar seu email</h3>
+    <h3>Último passo</h3>
     <p id="Descricao">preencha o campo abaixo</p>
 
     <div id="stepProgressBar">
@@ -29,8 +29,8 @@
         </div>
       </div>
 
-      <div class="step">
-        <div class="bulletProgress">
+      <div class="stepComplete">
+        <div class="bulletProgressComplete">
           <ion-icon name="checkmark-outline" class="check"></ion-icon>
         </div>
       </div>
@@ -43,28 +43,57 @@
 
     </div>
 
-    <div id="divContexto">
-      <h4>Digite o código enviado na sua caixa de email</h4>
+    <div class="divContexto">
+      <h4>De onde você é?</h4>
     </div>
 
-    <div id="divCodigo">
+    <div class="lugares">
       <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
+        <ion-label>País</ion-label>
+        <ion-select>
+
+        </ion-select>
       </ion-item>
       <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
+        <ion-label>Cidade</ion-label>
+        <ion-select>
+
+        </ion-select>
       </ion-item>
     </div>
 
-    <ion-button id="btnCadastrarConta" expand="full" shape="round" (click)="btnContinuar()">
-      Continuar
-    </ion-button>
+    <div class="divRadio">
+      <ion-radio-group  allow-empty-selection>
+        <ion-radio></ion-radio>
+        <ion-label>Prefiro não dizer</ion-label>
+      </ion-radio-group>
+    </div>
+
+    <div class="divContexto">
+      <h4>Aonde quer conhecer?</h4>
+    </div>
+
+    <div class="lugares">
+      <ion-item lines="full">
+        <ion-label>País</ion-label>
+        <ion-select>
+
+        </ion-select>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-label>Cidade</ion-label>
+        <ion-select>
+
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div class="divRadio">
+      <ion-radio-group  allow-empty-selection>
+        <ion-radio></ion-radio>
+        <ion-label>Prefiro não dizer</ion-label>
+      </ion-radio-group>
+    </div>
 
   </div>
 </ion-content>

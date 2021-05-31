@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'confirmar-email',
     loadChildren: () => import('./confirmar-email/confirmar-email.module').then( m => m.ConfirmarEmailPageModule)
   },
+  {
+    path: 'ultimo-passo',
+    loadChildren: () => import('./ultimo-passo/ultimo-passo.module').then( m => m.UltimoPassoPageModule)
+  },
 ];
 
 @NgModule({

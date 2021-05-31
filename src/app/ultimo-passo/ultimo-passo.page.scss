@@ -34,8 +34,11 @@ ion-content{
   --ion-background-color: -webkit-linear-gradient(top,  #00f9bb 4%,#0afbc1 24%);
   --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
-  font-family: "Segoe UI";
   height: 100%;
+}
+
+*{
+  font-family: "Segoe UI";
 }
 
 /*============================================================================================================*/
@@ -85,6 +88,31 @@ h3{
   color: #707070;
 }
 
+.stepComplete{
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  border: 1px solid #00f9bb;
+  border-radius: 20px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: #00f9bb;
+}
+
+.bulletProgressComplete::after{
+  content: '';
+  position: absolute;
+  width: 63px;
+  height: 1px;
+  background: #00f9bb;
+  left: 14px;
+  bottom: 6px;
+}
+
 .bulletProgress::after{
   content: '';
   position: absolute;
@@ -102,77 +130,50 @@ h3{
 
 /*============================================================================================================*/
 
+.divContexto{
+  display: flex;
+  justify-content: left;
+  color:black;
+  margin-top: 8%;
+}
+
+.divContexto h4{
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/*============================================================================================================*/
+
+.lugares{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 ion-item{
   font-size: 14px;
   color: black;
   --border-color: #707070;
   --background: white;
   --min-height: 16px;
+  padding: 0px 10px 0px 10px;
 }
 
-/*============================================================================================================*/
-
-#divTermos{
-  margin-top: 6%;
-  margin-bottom: 6%;
-  font-size: 10px;
-}
-
-#divTermos a{
-  text-decoration: underline;
-}
-
-/*============================================================================================================*/
-
-#btnCadastrarConta{
-  height: 30px;
-  font-size: 14px;
-  text-transform: none;
-  font-weight: bold;
-  color: white;
-  --background: #00f9bb;
-  font-family: "Segoe UI";
-  margin-bottom: 8%;
-}
-
-/*============================================================================================================*/
-
-fieldset {
-  border-top: 1px solid #707070;
-  border-bottom: none;
-  border-left: none;
-  border-right: none;
-  display: block;
-  margin:auto;
-  position: center;
-}
-
-fieldset legend {
-  padding: 5px 5px;
-  padding-top: 0px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/*============================================================================================================*/
-
-#divAcessos {
+.divRadio{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 7%;
+  font-size: 12px;
 }
 
-.redesSociais{
-  width: 36px;
-  height: 36px;
-  --border-radius: 20px;
-  --background: #ffffff;
-  margin-left: 3%;
-  margin-right: 3%;
+.divRadio ion-radio {
+  top: 15%;
+  width: 16px;
+  height: 16px;
+  --border-radius: 4px;
+  --inner-border-radius: 2px;
 }
 
-ion-img{
-  width: 24px;
-  height: 26px;
-  margin-top: 45%;
+.divRadio ion-label{
+  padding-left: 5px;
+
 }
