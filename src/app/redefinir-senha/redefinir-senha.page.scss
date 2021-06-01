@@ -1,0 +1,169 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+ion-header{
+  --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
+}
+
+ion-toolbar{
+  --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
+}
+
+#btnBack{
+  color: white;
+}
+
+#divAjuste{ // centralizar o logo da div
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 84%;
+}
+
+#logoPrincipal{
+  width: 30px;
+}
+
+/*============================================================================================================*/
+
+ion-content{
+  --ion-background-color: #00f9bb;
+  --ion-background-color: -moz-linear-gradient(top,  #00f9bb 4%, #0afbc1 24%);
+  --ion-background-color: -webkit-linear-gradient(top,  #00f9bb 4%,#0afbc1 24%);
+  --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
+  height: 100%;
+}
+
+*{
+  font-family: "Segoe UI";
+}
+
+/*============================================================================================================*/
+
+#divPrincipal{
+  background-color:white;
+  color: black;
+  height: 100%;
+  text-align: center;
+  border-radius: 36px 36px 0px 0px;
+  padding: 0px 17px 0px 17px;
+}
+
+/*============================================================================================================*/
+
+h3{
+  padding-top: 6%;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#Descricao{
+  font-size: 12px;
+  margin-bottom: 3%;
+}
+
+/*============================================================================================================*/
+
+#stepProgressBar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step{
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  border: 1px solid #707070;
+  border-radius: 20px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: #707070;
+}
+
+.stepComplete{
+  margin-left: 10%;
+  margin-right: 10%;
+  position: relative;
+  border: 1px solid #00f9bb;
+  border-radius: 20px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  color: #00f9bb;
+}
+
+.bulletProgressComplete::after{
+  content: '';
+  position: absolute;
+  width: 63px;
+  height: 1px;
+  background: #00f9bb;
+  left: 14px;
+  bottom: 6px;
+}
+
+.bulletProgress::after{
+  content: '';
+  position: absolute;
+  width: 63px;
+  height: 1px;
+  background: #707070;
+  left: 14px;
+  bottom: 6px;
+}
+
+.check{
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+/*============================================================================================================*/
+
+ion-item{
+  font-size: 14px;
+  color: black;
+  --background: white;
+  --border-color: #707070;
+  --min-height: 16px;
+}
+
+/*============================================================================================================*/
+
+#btnCadastrarConta{
+  height: 30px;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: bold;
+  color: white;
+  --background: #00f9bb;
+  margin-top: 10%;
+}
+
+/*============================================================================================================*/
+
+#divRetornar{
+  margin-top: 10%;
+  font-size: 12px;
+  text-decoration: underline;
+  font-weight: bold;
+  border-radius: 20px;
+  //display: inline-block;
+  //border: 1px solid #707070;
+  //padding: 1px 4px 1px 4px;
+}
+
+#divRetornar a{
+  color: black;
+}
+

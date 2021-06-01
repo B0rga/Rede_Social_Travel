@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'codigo-recuperar',
     loadChildren: () => import('./codigo-recuperar/codigo-recuperar.module').then( m => m.CodigoRecuperarPageModule)
   },
+  {
+    path: 'redefinir-senha',
+    loadChildren: () => import('./redefinir-senha/redefinir-senha.module').then( m => m.RedefinirSenhaPageModule)
+  },
 ];
 
 @NgModule({

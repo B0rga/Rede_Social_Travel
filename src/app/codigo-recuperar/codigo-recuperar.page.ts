@@ -19,6 +19,10 @@ export class CodigoRecuperarPage implements OnInit {
     this.router.navigate(['esqueceu-senha']);
   }
 
+  btnContinuar(){
+    this.router.navigate(['redefinir-senha'])
+  }
+
   btnRetornarLogin(){
     this.router.navigate(['login']);
   }
