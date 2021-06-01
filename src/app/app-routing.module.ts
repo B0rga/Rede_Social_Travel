@@ -27,6 +27,14 @@ const routes: Routes = [
     path: 'ultimo-passo',
     loadChildren: () => import('./ultimo-passo/ultimo-passo.module').then( m => m.UltimoPassoPageModule)
   },
+  {
+    path: 'esqueceu-senha',
+    loadChildren: () => import('./esqueceu-senha/esqueceu-senha.module').then( m => m.EsqueceuSenhaPageModule)
+  },
+  {
+    path: 'codigo-recuperar',
+    loadChildren: () => import('./codigo-recuperar/codigo-recuperar.module').then( m => m.CodigoRecuperarPageModule)
+  },
 ];
 
 @NgModule({

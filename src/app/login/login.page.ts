@@ -19,4 +19,8 @@ export class LoginPage implements OnInit {
     this.router.navigate(['home']);
   }
 
+  btnRecuperarSenha(){
+    this.router.navigate(['esqueceu-senha']);
+  }
+
 }

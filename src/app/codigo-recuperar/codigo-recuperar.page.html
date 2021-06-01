@@ -18,8 +18,8 @@
 
   <div id="divPrincipal">
 
-    <h3>Confirmar seu email</h3>
-    <p id="Descricao">preencha o campo abaixo</p>
+    <h3>Recuperar senha</h3>
+    <p id="Descricao">preencha o campo para recuperar sua senha</p>
 
     <div id="stepProgressBar">
 
@@ -62,9 +62,16 @@
       </ion-item>
     </div>
 
-    <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" (click)="btnContinuar()">
+    <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round">
       Continuar
     </ion-button>
 
+    <div id="divRetornar">
+      <a (click)="btnRetornarLogin()">
+        Voltar para a tela de Login
+      </a>
+    </div>
+
   </div>
 </ion-content>
+

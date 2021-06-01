@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="btnVoltar()">
+        <ion-icon slot="icon-only" name="chevron-back-outline" id="btnBack"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <div id="divAjuste">
+      <img src= "/assets/travellogo.png" id="logoPrincipal">
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divPrincipal">
+
+    <h3>Recuperar Senha</h3>
+    <p id="Descricao">preencha o campo para recuperar sua senha</p>
+
+    <div id="stepProgressBar">
+
+      <div class="step">
+        <div class="bulletProgress">
+          <ion-icon name="checkmark-outline" class="check"></ion-icon>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="bulletProgress">
+          <ion-icon name="checkmark-outline" class="check"></ion-icon>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="bullet">
+          <ion-icon name="checkmark-outline" class="check"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
+    </ion-item>
+
+    <ion-button type="submit" id="btnEnviar" expand="full" shape="round" (click)="btnEnviar()">
+      Enviar
+    </ion-button>
+  </div>
+</ion-content>

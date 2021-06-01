@@ -130,61 +130,32 @@ h3{
 
 /*============================================================================================================*/
 
-.divContexto{
-  display: flex;
-  justify-content: left;
+#divContexto{
   color:black;
-  margin-top: 8%;
+  padding: 0px 20px 0px 20px;
+  margin-top: 5%;
 }
 
-.divContexto h4{
+#divContexto h4{
   font-size: 18px;
   line-height: 1.5;
 }
 
 /*============================================================================================================*/
 
-.lugares{
+#divCodigo{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-.lugares ion-item{
-  font-size: 18px;
+ion-item{
+  font-size: 14px;
   color: black;
   --border-color: #707070;
   --background: white;
-  --min-height: 16px;
   padding: 0px 10px 0px 10px;
-  width: 80%;
-}
-
-.lugares ion-select{
-  font-size: 14px;
-  font-weight: bold;
-  padding-top: 10px;
-}
-
-/*============================================================================================================*/
-
-.divRadio{
-  display: flex;
-  margin-top: 5%;
-  font-size: 12px;
-}
-
-.divRadio ion-radio {
-  top: 15%;
-  width: 16px;
-  height: 16px;
-  --border-radius: 4px;
-  --inner-border-radius: 2px;
-}
-
-.divRadio ion-label{
-  padding-left: 5px;
-
+  text-align: center;
 }
 
 /*============================================================================================================*/
@@ -197,4 +168,21 @@ h3{
   color: white;
   --background: #00f9bb;
   margin-top: 10%;
+}
+
+/*============================================================================================================*/
+
+#divRetornar{
+  margin-top: 10%;
+  font-size: 12px;
+  text-decoration: underline;
+  font-weight: bold;
+  border-radius: 20px;
+  //display: inline-block;
+  //border: 1px solid #707070;
+  //padding: 1px 4px 1px 4px;
+}
+
+#divRetornar a{
+  color: black;
 }
