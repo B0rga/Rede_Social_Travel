@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   passwordToggleIcon = 'eye-outline';
 
   constructor(
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {

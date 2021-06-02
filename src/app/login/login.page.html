@@ -16,27 +16,29 @@
 
 <ion-content>
   <div id="divPrincipal">
-      <h3>Entrar</h3>
-      <p id="Descricao">preencha os campos abaixo para continuar</p>
+    <h3>Entrar</h3>
+    <p id="Descricao">preencha os campos abaixo para continuar</p>
 
-        <ion-item lines="full">
-          <ion-label position="floating">Email</ion-label>
-          <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
-        </ion-item>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
+      </ion-item>
 
-        <ion-item lines="full">
-          <ion-label position="floating">Senha</ion-label>
-          <ion-input [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
-          <ion-icon slot="end" [name]="passwordToggleIcon" id="eye" (click)="btnShowHide()"></ion-icon>
-        </ion-item>
+      <ion-item lines="full">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
+        <ion-icon slot="end" [name]="passwordToggleIcon" id="eye" (click)="btnShowHide()"></ion-icon>
+      </ion-item>
 
-    <div id="divEsqueceuSenha">
-      <a (click)="btnRecuperarSenha()">Esqueceu sua senha?</a>
-    </div>
+      <div id="divEsqueceuSenha">
+        <a (click)="btnRecuperarSenha()">Esqueceu sua senha?</a>
+      </div>
 
-    <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round">
-      Entrar
-    </ion-button>
+      <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round">
+        Entrar
+      </ion-button>
+    </form>
 
     <div id="divCriarConta">
       <ion-label>Não tem conta?&nbsp;</ion-label>
