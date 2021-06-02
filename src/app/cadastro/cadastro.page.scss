@@ -1,6 +1,7 @@
 *{
   padding: 0;
   margin: 0;
+  font-family: "Segoe UI";
 }
 
 ion-header{
@@ -34,7 +35,6 @@ ion-content{
   --ion-background-color: -webkit-linear-gradient(top,  #00f9bb 4%,#0afbc1 24%);
   --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
-  font-family: "Segoe UI";
   height: 100%;
 }
 
@@ -131,7 +131,6 @@ ion-item{
   font-weight: bold;
   color: white;
   --background: #00f9bb;
-  font-family: "Segoe UI";
   margin-bottom: 8%;
 }
 

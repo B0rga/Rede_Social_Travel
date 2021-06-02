@@ -26,8 +26,8 @@
 
         <ion-item lines="full">
           <ion-label position="floating">Senha</ion-label>
-          <ion-input type="password" placeholder="Digite aqui a senha" required></ion-input>
-          <ion-icon slot="end" name="eye-outline" id="eye"></ion-icon>
+          <ion-input [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
+          <ion-icon slot="end" [name]="passwordToggleIcon" id="eye" (click)="btnShowHide()"></ion-icon>
         </ion-item>
 
     <div id="divEsqueceuSenha">

@@ -1,6 +1,7 @@
 *{
   padding: 0;
   margin: 0;
+  font-family: "Segoe UI";
 }
 
 ion-content{
@@ -36,7 +37,6 @@ ion-content{
   text-transform: none;
   font-weight: bold;
   color: white;
-  font-family: "Segoe UI";
   color: #00f9bb;
   --background: white;
   margin-bottom: 3%;
@@ -47,7 +47,6 @@ ion-content{
   font-size: 14px;
   text-transform: none;
   font-weight: bold; // negrito
-  font-family: "Segoe UI";
   --border-color: white;
   color: white;
 }
