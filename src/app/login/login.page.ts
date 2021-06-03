@@ -67,6 +67,7 @@ export class LoginPage implements OnInit {
   public submit(){
     if(this.loginForm.valid){
     console.log(this.loginForm.value);
+    this.router.navigate(['principal']);
     }else {
       alert("preencha os campos");
     }
