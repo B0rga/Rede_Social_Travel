@@ -19,17 +19,27 @@
     <h3>Entrar</h3>
     <p id="Descricao">preencha os campos abaixo para continuar</p>
 
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
       <ion-item lines="full">
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
+        <ion-input formControlName="email" type="email" placeholder="Digite aqui o email" required></ion-input>
       </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
 
       <ion-item lines="full">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
+        <ion-input formControlName="senha" [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
         <ion-icon slot="end" [name]="passwordToggleIcon" id="eye" (click)="btnShowHide()"></ion-icon>
       </ion-item>
+      <div *ngFor="let error of errorMessages.senha">
+        <ng-container *ngIf="senha.hasError(error.type) && (senha.dirty || senha.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
 
       <div id="divEsqueceuSenha">
         <a (click)="btnRecuperarSenha()">Esqueceu sua senha?</a>

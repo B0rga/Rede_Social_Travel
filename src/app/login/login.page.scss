@@ -72,6 +72,10 @@ ion-item{
   --min-height: 16px;
 }
 
+.error-message{
+  color: var(--ion-color-danger);
+}
+
 #eye{
   color: #707070;
   margin-top: 10%;
