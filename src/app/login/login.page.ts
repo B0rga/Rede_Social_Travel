@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
 
   showPassword = false;
   passwordToggleIcon = 'eye-outline';
-  
+
   get email(){
     return this.loginForm.get('email');
   }
@@ -64,15 +64,20 @@ export class LoginPage implements OnInit {
   btnRecuperarSenha(){
     this.router.navigate(['esqueceu-senha']);
   }
+
+  btnSemConta(){
+    this.router.navigate(['cadastro']);
+  }
+
   public submit(){
     if(this.loginForm.valid){
       this.auth.login(this.loginForm.value).subscribe(res=>{
         if(res.user)
           this.router.navigate(['principal'])
         else
-          alert(res['message'])
+        alert('Preencha os campos corretamente!')
       })
-      
+
     }else {
       alert("Preencha os campos corretamente!");
     }

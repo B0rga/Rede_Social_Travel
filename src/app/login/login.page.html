@@ -45,14 +45,14 @@
         <a (click)="btnRecuperarSenha()">Esqueceu sua senha?</a>
       </div>
 
-      <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round">
+      <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round" [disabled]="loginForm.invalid">
         Entrar
       </ion-button>
     </form>
 
     <div id="divCriarConta">
       <ion-label>Não tem conta?&nbsp;</ion-label>
-      <a>Cadastre-se</a>
+      <a (click)="btnSemConta()">Cadastre-se</a>
     </div>
 
       <fieldset>
