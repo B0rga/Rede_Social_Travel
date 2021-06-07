@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core'
+import {AuthServiceService} from '../auth/auth-service.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',
   styleUrls: ['./principal.page.scss'],
 })
 export class PrincipalPage implements OnInit {
-
-  constructor() { }
+  constructor(private auth:AuthServiceService, private router:Router) { 
+    
+  }
 
   ngOnInit() {
   }
 
-}
+
+  }

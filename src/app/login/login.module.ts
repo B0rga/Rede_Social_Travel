@@ -5,14 +5,15 @@ import { ReactiveFormsModule  } from '@angular/forms';
 import { LoginPage } from './login.page';
 
 import { LoginPageRoutingModule } from './login-routing.module';
-
+import {AuthModule} from '../auth/auth.module'
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    LoginPageRoutingModule,
+    AuthModule
   ],
   declarations: [LoginPage]
 })

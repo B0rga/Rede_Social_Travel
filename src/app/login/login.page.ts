@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import {AuthServiceService} from '../auth/auth-service.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
 
   showPassword = false;
   passwordToggleIcon = 'eye-outline';
-
+  
   get email(){
     return this.loginForm.get('email');
   }
@@ -38,7 +38,8 @@ export class LoginPage implements OnInit {
 
   constructor(
     private router: Router,
-    private FormBuilder: FormBuilder
+    private FormBuilder: FormBuilder,
+    private auth:AuthServiceService
   ) { }
 
   ngOnInit() {
@@ -63,11 +64,15 @@ export class LoginPage implements OnInit {
   btnRecuperarSenha(){
     this.router.navigate(['esqueceu-senha']);
   }
-
   public submit(){
     if(this.loginForm.valid){
-    console.log(this.loginForm.value);
-    this.router.navigate(['principal']);
+      this.auth.login(this.loginForm.value).subscribe(res=>{
+        if(res.user)
+          this.router.navigate(['principal'])
+        else
+          alert(res['message'])
+      })
+      
     }else {
       alert("preencha os campos");
     }
