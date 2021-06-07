@@ -69,7 +69,7 @@ export class LoginPage implements OnInit {
     console.log(this.loginForm.value);
     this.router.navigate(['principal']);
     }else {
-      alert("preencha os campos");
+      alert("Preencha os campos corretamente!");
     }
   }
 
