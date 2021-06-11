@@ -1,0 +1,27 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI";
+}
+
+ion-menu{
+  --max-width: 80%;
+}
+
+ion-item{
+  font-size: 12px;
+}
+
+ion-item ion-icon{
+  padding-right: 8px;
+  font-size: 20px;
+}
+
+.active-item{
+  border-left: 4px solid #00f9bb;
+  color: #00f9bb
+}
+
+.active-item ion-icon{
+  color: #00f9bb;
+}

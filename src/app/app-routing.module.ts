@@ -40,8 +40,20 @@ const routes: Routes = [
     loadChildren: () => import('./redefinir-senha/redefinir-senha.module').then( m => m.RedefinirSenhaPageModule)
   },
   {
-    path: 'principal',
-    loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./menu-items/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'viagens',
+    loadChildren: () => import('./menu-items/viagens/viagens.module').then( m => m.ViagensPageModule)
+  },
+  {
+    path: 'configuracoes',
+    loadChildren: () => import('./menu-items/configuracoes/configuracoes.module').then( m => m.ConfiguracoesPageModule)
   },
 ];
 
