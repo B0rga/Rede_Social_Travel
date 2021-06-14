@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI';
+}
+
+.post{
+  margin: 10px 10px 10px 10px;
+  border-radius: 8px;
+}
+
+.contentPost{
+  padding: 6px 6px 6px 6px;
+}
+
+.divAvatar{
+  float:left;
+  padding-right: 6px;
+  padding-top: 3px;
+}
+
+.divAvatar ion-avatar{
+  background: #707070;
+  width: 28px;
+  height: 28px;
+}
+
+.divContexto{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.divContexto p{
+  font-size: 12px;
+}
+
+.divTempo p{
+  font-size: 8px;
+  color: #707070;
+}
+
+
