@@ -16,7 +16,6 @@
 .divAvatar{
   float:left;
   padding-right: 6px;
-  padding-top: 3px;
 }
 
 .divAvatar ion-avatar{
@@ -40,4 +39,24 @@
   color: #707070;
 }
 
+.divSinopse{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 2px 8px 2px;
+}
 
+.sinopse{
+  font-size: 11px;
+}
+
+.divImgMaior{
+  background: #707070;
+  width: 62%;
+  height: 100px;
+  float: left;
+}
+
+.divImgMenor{
+  background: red;
+}
