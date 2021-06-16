@@ -10,7 +10,7 @@
 }
 
 .contentPost{
-  padding: 6px 6px 6px 6px;
+  padding: 6px 6px 10px 6px;
 }
 
 .divAvatar{
@@ -31,7 +31,7 @@
 }
 
 .divContexto p{
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .divTempo p{
@@ -39,24 +39,88 @@
   color: #707070;
 }
 
+//=============================================================================================================//
+
 .divSinopse{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 2px 2px 8px 2px;
 }
 
-.sinopse{
-  font-size: 11px;
+.divSinopse p{
+  font-size: 10px;
 }
 
-.divImgMaior{
+//=============================================================================================================//
+
+.divImagens{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.divEsquerda{
   background: #707070;
-  width: 62%;
-  height: 100px;
-  float: left;
+  width: 80%;
+  height: 120px;
+}
+
+.verticalLine{
+  height: 120px;
+  width: 4px;
+}
+
+.divDireita{
+  width: 40%;
 }
 
 .divImgMenor{
-  background: red;
+  background: #707070;
+  height: 58px;
+}
+
+.horizontalLine{
+  height: 4px;
+  width: 40%;
+}
+
+//=============================================================================================================//
+
+.divVerPubli{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.divVerPubli ion-button{
+  font-size: 8px;
+  font-weight: bold;
+  height: 26px;
+  --border-color: var(--ion-color-medium);
+  color: var(--ion-color-dark);
+}
+
+//=============================================================================================================//
+
+.divRelevancia{
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.divStats{
+  display:flex;
+  justify-content: center;
+  margin-left: 3%;
+  margin-right: 3%;
+  }
+
+.divStats ion-label{
+  font-size: 9px;
+  color: var(--ion-color-medium);
+}
+
+.divStats ion-icon{
+  font-size: 12px;
+  padding-right: 2px;
 }
