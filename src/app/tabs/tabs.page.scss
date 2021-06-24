@@ -2,12 +2,53 @@
   margin: 0;
   padding: 0;
   font-family: "Segoe UI";
+
 }
+//=============================================================================================================//
+
+.divAjuste{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divTitle{
+  display: flex;
+  justify-content: center;
+}
+
+ion-title{
+  color: var(--ion-color-dark);
+  font-weight: bold;
+}
+
+#logoPrincipal{
+  font-size: 23px;
+}
+
+//=============================================================================================================//
 
 ion-tab-bar{
   border-radius: 17px 17px 0px 0px;
+  height: 50px;
 }
 
 ion-tab-button{
   --color-selected: #00f9bb;
+}
+
+.tabMenor{
+  --padding-bottom: 12px;
+}
+
+.tabMenor ion-icon{
+  font-size: 18px;
+}
+
+.tabMaior{
+  --padding-bottom: 12px;
+}
+
+.tabMaior ion-icon{
+  font-size: 30px;
 }

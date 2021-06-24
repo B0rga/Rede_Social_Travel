@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+
+  toggleTema(event){
+    if(event.detail.checked){
+      document.body.setAttribute('color-theme', 'dark')
+    }else{
+      document.body.setAttribute('color-theme', 'light')
+    }
+  }
 }

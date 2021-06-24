@@ -25,3 +25,12 @@ ion-item ion-icon{
 .active-item ion-icon{
   color: #00f9bb;
 }
+
+ion-toggle{
+  height: 16px;
+  width: 28px;
+  --handle-width: 14px;
+  --handle-height: 14px;
+  --background-checked: #00f1bd54;
+  --handle-background-checked: #00f9bb;
+}
