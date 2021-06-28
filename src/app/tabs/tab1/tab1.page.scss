@@ -55,31 +55,39 @@
   display:flex;
   justify-content: center;
   align-items: center;
-
 }
+
+//=============================================================================================================//
 
 .divEsquerda{
   background: #707070;
-  width: 80%;
+  max-width: 74%;
   height: 120px;
+  object-fit: cover;
 }
 
 .verticalLine{
   height: 120px;
-  width: 4px;
+  width: 2px;
 }
 
+//=============================================================================================================//
+
 .divDireita{
-  width: 40%;
+  display: grid;
+  align-items: center;
+  justify-content: center ;
+  max-width: 28%;
 }
 
 .divImgMenor{
   background: #707070;
-  height: 58px;
+  height: 59px;
+  object-fit: cover;
 }
 
 .horizontalLine{
-  height: 4px;
+  height: 2px;
   width: 40%;
 }
 
