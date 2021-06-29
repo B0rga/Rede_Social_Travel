@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {AuthServiceService} from '../auth/auth-service.service'
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabsPage implements OnInit {
 
-  constructor() { }
+  constructor( private auth:AuthServiceService) { }
 
   ngOnInit() {
+    //this.auth.logado()
   }
 
 }

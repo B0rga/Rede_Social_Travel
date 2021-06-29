@@ -1,9 +1,39 @@
-<ion-content>
-  <ion-card>
+<ion-content> 
+  <ion-list>
     <ion-item>
       <ion-label>
-        Notificações
+        Novo
       </ion-label>
     </ion-item>
-  </ion-card>
+    <ion-item class="divNotifica" *ngFor="let not of notifications;">
+      <div class="divAvatar"> 
+        <ion-avatar></ion-avatar>
+      </div>
+      <div class="notificacao">
+        <p>{{not.texto}}&nbsp;</p>
+        <small *ngIf="not.conteudo">"{{not.conteudo}}"</small><br *ngIf="not.conteudo">
+        <small>{{not.tempo}}</small>
+      </div> 
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Visualizadas
+      </ion-label>
+    </ion-item>
+    <ion-item class="divNotifica" *ngFor="let not of notifications;">
+      <div class="divAvatar"> 
+        <ion-avatar></ion-avatar>
+      </div>
+      <div class="notificacao">
+        <p>{{not.texto}}&nbsp;</p>
+        <small *ngIf="not.conteudo">"{{not.conteudo}}"</small><br *ngIf="not.conteudo">
+        <small>{{not.tempo}}</small>
+      </div> 
+    </ion-item>
+  </ion-list>
+  
+  
 </ion-content>

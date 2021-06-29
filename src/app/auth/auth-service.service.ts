@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject } from  'rxjs'
 import {User} from './user'
 import { AuthResponse } from  './auth-response'
 import { Storage } from '@ionic/storage-angular'
+import {Router} from '@angular/router'
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +14,7 @@ export class AuthServiceService {
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   public user:object
-  constructor(private  httpClient:  HttpClient, private storage:Storage) { 
+  constructor(private router: Router,private  httpClient:  HttpClient, private storage:Storage) { 
   }
   login(user: User): Observable<AuthResponse>  {
     return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/login`, user).pipe(
@@ -41,6 +42,23 @@ export class AuthServiceService {
 
     )
   }
+  logado(){
+    this.storage.create()
+    let token =  this.storage.get("ACCESS_TOKEN")
+    token.then((token)=>{
+      if(token){
+        this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/logado`, {token:token}).subscribe((res:AuthResponse)=>{
+          if(!res.user){
+            this.router.navigate(['home'])
+          }
+        })
+      }else{
+        this.router.navigate(['home'])
+      }
+      
+    })
+  }
+
   async logout(){
     await this.storage.create()
     await this.storage.remove("ACCESS_TOKEN")
