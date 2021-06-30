@@ -93,27 +93,10 @@
 
 //=============================================================================================================//
 
-.divVerPubli{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 10px;
-}
-
-.divVerPubli ion-button{
-  font-size: 8px;
-  font-weight: bold;
-  height: 26px;
-  --border-color: var(--ion-color-medium);
-  color: var(--ion-color-dark);
-}
-
-//=============================================================================================================//
-
 .divRelevancia{
   display: flex;
   justify-content: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .divStats{
@@ -125,7 +108,7 @@
 
 .divStats ion-label{
   font-size: 9px;
-  color: var(--ion-color-medium);
+  color: var(--ion-color-dark);
 }
 
 .divStats ion-icon{

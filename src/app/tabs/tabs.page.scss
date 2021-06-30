@@ -31,6 +31,7 @@ ion-title{
 ion-tab-bar{
   border-radius: 17px 17px 0px 0px;
   height: 50px;
+  border-color: var(--ion-color-medium);
 }
 
 ion-tab-button{
@@ -49,8 +50,22 @@ ion-tab-button{
   border-radius: 20px;
   width: 40px;
   height: 40px;
+  border: 1px solid var(--ion-color-medium);
 }
 
 .tabMaior ion-icon{
   font-size: 18px;
+}
+
+//=============================================================================================================//
+
+ion-badge{
+  top: 12px;
+  left: calc(50% + 1%);
+  font-size: 7px;
+  border-radius: 12px;
+  padding: 2px 2px 2px 2px;
+  min-width: 13px;
+  min-height: 13px;
+  line-height: 8px;
 }
