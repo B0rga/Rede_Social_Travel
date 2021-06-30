@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab4Page implements OnInit {
   notifications:Array<object> = []
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {

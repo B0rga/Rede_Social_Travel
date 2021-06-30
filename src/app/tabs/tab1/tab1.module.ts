@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,12 +9,15 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
 
 import { Tab1Page } from './tab1.page';
 
+import { SharedComponentsModule } from './../../components/shared-components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Tab1PageRoutingModule
+    Tab1PageRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [Tab1Page]
 })
