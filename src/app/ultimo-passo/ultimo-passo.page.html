@@ -50,20 +50,20 @@
     <div class="lugares">
       <ion-item lines="full">
         <ion-label position="stacked">País</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="option1" [disabled]="isDisabled1">
           <ion-select-option>Brasil</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="stacked">Cidade</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="option2" [disabled]="isDisabled1">
           <ion-select-option>São Paulo</ion-select-option>
         </ion-select>
       </ion-item>
     </div>
 
     <div class="divCheck">
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox (ionChange)="onCheckboxChange1($event)"></ion-checkbox>
       <ion-label>Prefiro não dizer</ion-label>
     </div>
 
@@ -74,20 +74,20 @@
     <div class="lugares">
       <ion-item lines="full">
         <ion-label position="stacked">País</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="option3" [disabled]="isDisabled2">
           <ion-select-option>Brasil</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item lines="full">
         <ion-label position="stacked">Cidade</ion-label>
-        <ion-select>
+        <ion-select [(ngModel)]="option4"  [disabled]="isDisabled2">
           <ion-select-option>São Paulo</ion-select-option>
         </ion-select>
       </ion-item>
     </div>
 
     <div class="divCheck">
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox (ionChange)="onCheckboxChange2($event)"></ion-checkbox>
       <ion-label>Prefiro não dizer</ion-label>
     </div>
 

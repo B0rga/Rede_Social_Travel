@@ -58,7 +58,6 @@ export class LoginPage implements OnInit {
     else{
       this.passwordToggleIcon = 'eye-outline';
     }
-
   }
 
   btnRecuperarSenha(){

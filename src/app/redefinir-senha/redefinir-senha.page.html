@@ -41,18 +41,32 @@
       </div>
 
     </div>
-    <ion-item lines="full">
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input type="password" placeholder="Digite aqui a nova senha" required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Confirmar senha</ion-label>
-      <ion-input type="password" placeholder="Confirme aqui a nova senha" required></ion-input>
-    </ion-item>
 
-    <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round">
-      Continuar
-    </ion-button>
+    <form [formGroup]="redefinirForm" (ngSubmit)="submit()">
+      <ion-item lines="full">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input formControlName="senha" type="password" placeholder="Digite aqui a nova senha" required></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.senha">
+        <ng-container *ngIf="senha.hasError(error.type) && (senha.dirty || senha.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Confirmar senha</ion-label>
+        <ion-input formControlName="confirmar_senha" type="password" placeholder="Confirme aqui a nova senha" required></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.confirmar_senha">
+        <ng-container *ngIf="confirmar_senha.hasError(error.type) && (confirmar_senha.dirty || confirmar_senha.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" [disabled]="redefinirForm.invalid">
+        Continuar
+      </ion-button>
+    </form>
 
     <div id="divRetornar">
       <a (click)="btnRetornarLogin()">

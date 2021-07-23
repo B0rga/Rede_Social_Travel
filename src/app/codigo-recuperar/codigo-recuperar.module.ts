@@ -8,12 +8,15 @@ import { CodigoRecuperarPageRoutingModule } from './codigo-recuperar-routing.mod
 
 import { CodigoRecuperarPage } from './codigo-recuperar.page';
 
+import { CodeInputModule } from 'angular-code-input';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CodigoRecuperarPageRoutingModule
+    CodigoRecuperarPageRoutingModule,
+    CodeInputModule
   ],
   declarations: [CodigoRecuperarPage]
 })

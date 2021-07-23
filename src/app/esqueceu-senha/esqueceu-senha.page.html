@@ -42,13 +42,21 @@
 
     </div>
 
-    <ion-item lines="full">
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" placeholder="Digite aqui o email" required></ion-input>
-    </ion-item>
+    <form [formGroup]="recuperarForm" (ngSubmit)="submit()">
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Digite aqui o email" required></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
 
-    <ion-button type="submit" id="btnEnviar" expand="full" shape="round" (click)="btnEnviar()">
-      Enviar
-    </ion-button>
+      <ion-button type="submit" id="btnEnviar" expand="full" shape="round" [disabled]="recuperarForm.invalid">
+        Enviar
+      </ion-button>
+    </form>
+
   </div>
 </ion-content>

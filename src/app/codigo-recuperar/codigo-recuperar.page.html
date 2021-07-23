@@ -47,24 +47,19 @@
       <h4>Digite o código enviado na sua caixa de email</h4>
     </div>
 
-    <div id="divCodigo">
-      <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
-      </ion-item>
-      <ion-item lines="full">
-        <ion-input type="text" placeholder="0" maxlength="1" required></ion-input>
-      </ion-item>
-    </div>
+    <form (ngSubmit)="submit()">
+      <div id="divCodigo">
+        <code-input
+        [codeLength]="codigo"
+        (codeChanged)="onCodeChanged($event)"
+        (codeCompleted)="onCodeCompleted($event)">
+        </code-input>
+      </div>
 
-    <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" (click)="btnContinuar()">
-      Continuar
-    </ion-button>
+      <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" [disabled]="isDisabled">
+        Continuar
+      </ion-button>
+    </form>
 
     <div id="divRetornar">
       <a (click)="btnRetornarLogin()">

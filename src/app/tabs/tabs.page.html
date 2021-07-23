@@ -26,25 +26,25 @@
 
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="tab1" class="tabMenor">
-        <ion-icon name="home-outline"></ion-icon>
+      <ion-tab-button tab="tab1" class="tabMenor" (click)="btnHome()">
+        <ion-icon [name]="homeToggleIcon"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button tab="tab2" class="tabMenor">
-        <ion-icon name="star-outline"></ion-icon>
+      <ion-tab-button tab="tab2" class="tabMenor" (click)="btnStar()">
+        <ion-icon [name]="starToggleIcon"></ion-icon>
       </ion-tab-button>
 
-      <ion-card class="tabMaior">
+      <ion-card class="tabMaior" (click)="btnAdd()">
         <ion-tab-button tab="tab3">
-          <ion-icon name="add-outline"></ion-icon>
+          <ion-icon [name]="addToggleIcon"></ion-icon>
         </ion-tab-button>
       </ion-card>
 
-      <ion-tab-button tab="tab4" class="tabMenor">
+      <ion-tab-button tab="tab4" class="tabMenor" (click)="btnNoti()">
         <ion-badge color="danger">+9</ion-badge>
-        <ion-icon name="notifications-outline"></ion-icon>
+        <ion-icon [name]="notiToggleIcon"></ion-icon>
       </ion-tab-button>
-      <ion-tab-button tab="tab5" class="tabMenor">
-        <ion-icon name="search-outline"></ion-icon>
+      <ion-tab-button tab="tab5" class="tabMenor" (click)="btnSearch()">
+        <ion-icon [name]="searchToggleIcon"></ion-icon>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>

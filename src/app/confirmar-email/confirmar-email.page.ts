@@ -8,6 +8,9 @@ import {Router} from '@angular/router';
 })
 export class ConfirmarEmailPage implements OnInit {
 
+  isDisabled = true;
+  codigo = 4;
+
   constructor(
     private router: Router
   ) { }
@@ -19,7 +22,15 @@ export class ConfirmarEmailPage implements OnInit {
     this.router.navigate(['cadastro']);
   }
 
-  btnContinuar(){
+  onCodeChanged(code: string) {
+    this.isDisabled = true;
+  }
+
+  onCodeCompleted(code: string) {
+    this.isDisabled = false;
+  }
+
+  public submit(){
     this.router.navigate(['ultimo-passo'])
   }
 

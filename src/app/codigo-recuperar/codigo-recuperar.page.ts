@@ -8,6 +8,9 @@ import {Router} from '@angular/router';
 })
 export class CodigoRecuperarPage implements OnInit {
 
+  isDisabled = true;
+  codigo = 4;
+
   constructor(
   private router: Router
   ) { }
@@ -19,12 +22,20 @@ export class CodigoRecuperarPage implements OnInit {
     this.router.navigate(['esqueceu-senha']);
   }
 
-  btnContinuar(){
-    this.router.navigate(['redefinir-senha'])
-  }
-
   btnRetornarLogin(){
     this.router.navigate(['login']);
+  }
+
+  onCodeChanged(code: string) {
+    this.isDisabled = true;
+  }
+
+  onCodeCompleted(code: string) {
+    this.isDisabled = false;
+  }
+
+  public submit(){
+    this.router.navigate(['redefinir-senha'])
   }
 
 }

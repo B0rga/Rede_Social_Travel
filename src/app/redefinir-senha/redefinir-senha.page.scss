@@ -136,6 +136,13 @@ ion-item{
   --background: white;
   --border-color: #707070;
   --min-height: 16px;
+  --highlight-color-focused: var(--ion-color-primary);
+  --highlight-color-valid: var(--ion-color-primary);
+  --highlight-color-invalid: var(--ion-color-primary);
+}
+
+.error-message{
+  color: var(--ion-color-danger);
 }
 
 /*============================================================================================================*/

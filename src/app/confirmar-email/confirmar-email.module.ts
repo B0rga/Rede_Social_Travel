@@ -8,12 +8,15 @@ import { ConfirmarEmailPageRoutingModule } from './confirmar-email-routing.modul
 
 import { ConfirmarEmailPage } from './confirmar-email.page';
 
+import { CodeInputModule } from 'angular-code-input';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ConfirmarEmailPageRoutingModule
+    ConfirmarEmailPageRoutingModule,
+    CodeInputModule
   ],
   declarations: [ConfirmarEmailPage]
 })

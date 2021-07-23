@@ -136,23 +136,17 @@ h3{
 #divContexto h4{
   font-size: 18px;
   line-height: 1.5;
+  margin-bottom: 10%;
 }
 
 /*============================================================================================================*/
 
-#divCodigo{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-ion-item{
-  font-size: 14px;
-  color: black;
-  --border-color: #707070;
-  --background: white;
-  padding: 0px 10px 0px 10px;
-  text-align: center;
+code-input{
+  --item-height: 40px;
+  --item-border-focused: 1px solid var(--ion-color-primary);
+  --item-border-bottom-focused: 1px solid var(--ion-color-primary);
+  --item-border-has-value: 1px solid var(--ion-color-primary);
+  --item-border-bottom-has-value: 1px solid var(--ion-color-primary);
 }
 
 /*============================================================================================================*/
