@@ -77,23 +77,27 @@ ion-item{
 
 .error-message{
   color: var(--ion-color-danger);
+  font-size: 10px;
+  text-align: left;
+  display: flex;
+  margin-top: 3px
 }
 
 #eye{
   color: #707070;
-  margin-top: 10%;
+  margin-top: 24px;
   font-size: 20px;
 }
 
 /*============================================================================================================*/
 
 #divEsqueceuSenha{
-  display: flex;
-  float: right;
-  margin-top: 3%;
+  text-align: right;
   text-decoration: underline;
   font-size: 12px;
   font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 6px;
 }
 
 #divEsqueceuSenha a{
@@ -103,7 +107,6 @@ ion-item{
 /*============================================================================================================*/
 
 #btnEntrarConta{
-  margin-top: 18%;
   height: 30px;
   font-size: 14px;
   text-transform: none;
@@ -115,8 +118,8 @@ ion-item{
 /*============================================================================================================*/
 
 #divCriarConta{
-  margin-top: 9%;
-  margin-bottom: 6%;
+  margin-top: 20px;
+  margin-bottom: 20px;
   color:black;
   font-size: 12px;
   font-weight: bold;
@@ -159,8 +162,7 @@ fieldset legend {
   height: 36px;
   --border-radius: 20px;
   --background: #ffffff;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin: 0 6px;
 }
 
 ion-img{

@@ -35,7 +35,7 @@ ion-content{
   --ion-background-color: -webkit-linear-gradient(top,  #00f9bb 4%,#0afbc1 24%);
   --ion-background-color: linear-gradient(to bottom,  #00f9bb 4%,#0afbc1 24%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00f9bb', endColorstr='#0afbc1',GradientType=0 );
-  height: 100%;
+
 }
 
 /*============================================================================================================*/
@@ -70,59 +70,26 @@ h3{
   justify-content: center;
 }
 
-.step{
-  margin-left: 10%;
-  margin-right: 10%;
-  position: relative;
-  border: 1px solid #707070;
-  border-radius: 20px;
-  width: 15px;
-  height: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  color: #707070;
+.process{
+  height: 2px;
+  background:#707070;
+  width: 50px;
 }
 
-.stepComplete{
-  margin-left: 10%;
-  margin-right: 10%;
-  position: relative;
-  border: 1px solid #00f9bb;
-  border-radius: 20px;
-  width: 15px;
-  height: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  color: #00f9bb;
-}
-
-.bulletProgressComplete::after{
-  content: '';
-  position: absolute;
-  width: 63px;
-  height: 1px;
-  background: #00f9bb;
-  left: 14px;
-  bottom: 6px;
-}
-
-.bulletProgress::after{
-  content: '';
-  position: absolute;
-  width: 63px;
-  height: 1px;
-  background: #707070;
-  left: 14px;
-  bottom: 6px;
+.processComplete{
+  height: 2px;
+  background:#00f9bb;
+  width: 50px;
 }
 
 .check{
-  font-size: 13px;
-  border-radius: 20px;
+  color: #707070;
+  font-size: 18px;
+}
+
+.checkComplete{
+  color: #00f9bb;
+  font-size: 18px;
 }
 
 /*============================================================================================================*/

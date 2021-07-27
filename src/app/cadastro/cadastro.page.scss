@@ -70,34 +70,15 @@ h3{
   justify-content: center;
 }
 
-.step{
-  margin-left: 10%;
-  margin-right: 10%;
-  position: relative;
-  border: 1px solid #707070;
-  border-radius: 20px;
-  width: 15px;
-  height: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  color: #707070;
-}
-
-.bulletProgress::after{
-  content: '';
-  position: absolute;
-  width: 63px;
-  height: 1px;
-  background: #707070;
-  left: 14px;
-  bottom: 6px;
+.process{
+  height: 2px;
+  background:#707070;
+  width: 50px;
 }
 
 .check{
-  font-size: 13px;
-  border-radius: 20px;
+  font-size: 18px;
+  color:#707070;
 }
 
 /*============================================================================================================*/
@@ -115,13 +96,17 @@ ion-item{
 
 .error-message{
   color: var(--ion-color-danger);
+  font-size: 10px;
+  text-align: left;
+  display: flex;
+  margin-top: 3px
 }
 
 /*============================================================================================================*/
 
 #divTermos{
-  margin-top: 6%;
-  margin-bottom: 6%;
+  margin-top: 12px;
+  margin-bottom: 12px;
   font-size: 10px;
 }
 
@@ -138,7 +123,7 @@ ion-item{
   font-weight: bold;
   color: white;
   --background: #00f9bb;
-  margin-bottom: 8%;
+  margin-bottom: 12px;
 }
 
 /*============================================================================================================*/
@@ -173,8 +158,7 @@ fieldset legend {
   height: 36px;
   --border-radius: 20px;
   --background: #ffffff;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin: 0 6px;
 }
 
 ion-img{

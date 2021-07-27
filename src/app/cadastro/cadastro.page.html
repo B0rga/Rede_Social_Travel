@@ -21,25 +21,11 @@
     <p id="Descricao">preencha os campos abaixo</p>
 
     <div id="stepProgressBar">
-
-      <div class="step">
-        <div class="bulletProgress">
-          <ion-icon name="checkmark-outline" class="check"></ion-icon>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="bulletProgress">
-          <ion-icon name="checkmark-outline" class="check"></ion-icon>
-        </div>
-      </div>
-
-      <div class="step">
-        <div class="bullet">
-          <ion-icon name="checkmark-outline" class="check"></ion-icon>
-        </div>
-      </div>
-
+      <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
+      <div class="process"></div>
+      <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
+      <div class="process"></div>
+      <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
     </div>
 
     <form [formGroup]="cadastroForm" (ngSubmit)="submit()">

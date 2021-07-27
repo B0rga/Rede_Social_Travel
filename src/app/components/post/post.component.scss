@@ -61,7 +61,8 @@
 
 .divEsquerda{
   background: #707070;
-  max-width: 74%;
+  max-width: 73%;
+  min-width: 73%;
   height: 120px;
   object-fit: cover;
 }
@@ -76,8 +77,9 @@
 .divDireita{
   display: grid;
   align-items: center;
-  justify-content: center ;
-  max-width: 28%;
+  justify-content: center;
+  max-width: 26%;
+  min-width: 26%;
 }
 
 .divImgMenor{
@@ -102,8 +104,8 @@
 .divStats{
   display:flex;
   justify-content: center;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin-left: 12px;
+  margin-right: 12px;
   }
 
 .divStats ion-label{
