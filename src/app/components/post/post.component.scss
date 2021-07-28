@@ -48,26 +48,26 @@
 .divSinopse p{
   font-size: 10px;
 }
-
 //=============================================================================================================//
 
 .divImagens{
   display:flex;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
 }
 
-//=============================================================================================================//
-
-.divEsquerda{
-  background: #707070;
-  max-width: 73%;
-  min-width: 73%;
-  height: 120px;
-  object-fit: cover;
+.divMaior{
+  width: 70%;
+  height: 130px;
+  background:#707070;
+  border-radius: 16px 0px 0px 16px;
+  background-image: url('/assets/monument1.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.verticalLine{
+.linhaVertical{
   height: 120px;
   width: 2px;
 }
@@ -77,20 +77,30 @@
 .divDireita{
   display: grid;
   align-items: center;
-  justify-content: center;
-  max-width: 26%;
-  min-width: 26%;
+  width: 30%;
 }
 
-.divImgMenor{
-  background: #707070;
-  height: 59px;
-  object-fit: cover;
+.divMenor{
+  background:#707070;
+  height: 64px;
+  border-radius: 0px 16px 0px 0px;
+  background-image: url('/assets/monument2.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.horizontalLine{
+.divMenor2{
+  background:#707070;
+  height: 64px;
+  border-radius: 0px 0px 16px 0px;
+  background-image: url('/assets/torre.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.linhaHorizontal{
   height: 2px;
-  width: 40%;
+  width: 30%;
 }
 
 //=============================================================================================================//
@@ -98,14 +108,13 @@
 .divRelevancia{
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 .divStats{
   display:flex;
   justify-content: center;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin: 0 20px;
   }
 
 .divStats ion-label{
