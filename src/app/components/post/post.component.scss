@@ -59,7 +59,7 @@
 
 .divMaior{
   width: 70%;
-  height: 130px;
+  min-height: 140px;
   background:#707070;
   border-radius: 16px 0px 0px 16px;
   background-image: url('/assets/monument1.jpg');
@@ -82,7 +82,7 @@
 
 .divMenor{
   background:#707070;
-  height: 64px;
+  height: 69px;
   border-radius: 0px 16px 0px 0px;
   background-image: url('/assets/monument2.jpg');
   background-size: cover;
@@ -91,7 +91,7 @@
 
 .divMenor2{
   background:#707070;
-  height: 64px;
+  height: 69px;
   border-radius: 0px 0px 16px 0px;
   background-image: url('/assets/torre.jpg');
   background-size: cover;
@@ -118,11 +118,11 @@
   }
 
 .divStats ion-label{
-  font-size: 9px;
+  font-size: 10px;
   color: var(--ion-color-dark);
 }
 
 .divStats ion-icon{
-  font-size: 12px;
+  font-size: 14px;
   padding-right: 2px;
 }

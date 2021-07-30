@@ -16,34 +16,32 @@ ion-content{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 50%;
+  margin-top: 60%;
 }
 
 #logoInicial{
-  width: 35%;
+  width: 34%;
 }
 
 #divBtn{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  margin-top: 70%;
-  padding: 17px 17px 17px 17px;
+  display: grid;
+  margin-top: 60%;
+  padding: 0px 17px 0px 17px;
 }
 
 #btnEntrar{
-  height: 30px;
+  min-height: 28px;
   font-size: 14px;
   text-transform: none;
   font-weight: bold;
   color: white;
   color: #00f9bb;
   --background: white;
-  margin-bottom: 3%;
+  margin-bottom: 12px;
 }
 
 #btnCadastrar{
-  height: 30px;
+  min-height: 28px;
   font-size: 14px;
   text-transform: none;
   font-weight: bold; // negrito
