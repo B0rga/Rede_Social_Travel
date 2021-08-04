@@ -24,10 +24,6 @@ export class UltimoPassoPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['confirmar-email']);
-  }
-
   onCheckboxChange1(e) {
     if (e.target.checked){
       this.isDisabled1 = true;

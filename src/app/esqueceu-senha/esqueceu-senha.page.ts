@@ -32,10 +32,6 @@ export class EsqueceuSenhaPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['login'])
-  }
-
   public submit(){
     if(this.recuperarForm.valid){
       //this.auth.recuperar(this.recuperarForm.value).subscribe(res=>{

@@ -59,10 +59,6 @@ export class CadastroPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['home']);
-  }
-
   public submit(){
     if(this.cadastroForm.valid){
       //this.auth.cadastro(this.cadastroForm.value).subscribe(res=>{

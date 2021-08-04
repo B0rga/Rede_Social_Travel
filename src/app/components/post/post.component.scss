@@ -26,12 +26,17 @@
 
 .divContexto{
   display: flex;
-  align-items: center;
+  align-items:baseline;
   justify-content: left;
 }
 
 .divContexto p{
   font-size: 11px;
+}
+
+.divContexto .lugar{
+  font-size: 8px;
+  color: #707070;
 }
 
 .divTempo p{

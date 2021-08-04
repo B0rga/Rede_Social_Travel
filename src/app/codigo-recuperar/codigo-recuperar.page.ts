@@ -18,10 +18,6 @@ export class CodigoRecuperarPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['esqueceu-senha']);
-  }
-
   btnRetornarLogin(){
     this.router.navigate(['login']);
   }

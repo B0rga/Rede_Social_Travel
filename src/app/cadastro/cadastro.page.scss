@@ -12,19 +12,24 @@ ion-toolbar{
   --background: linear-gradient(to top,  #00f9bb 4%,#0afbc1 24%);
 }
 
-#btnBack{
-  color: white;
-}
-
-#divAjuste{ // centralizar o logo da div
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 84%;
+ion-title{
+  color: var(--ion-color-dark);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 #logoPrincipal{
   width: 30px;
+}
+
+ion-back-button{
+  color: white;
 }
 
 /*============================================================================================================*/

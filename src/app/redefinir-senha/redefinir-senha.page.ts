@@ -41,10 +41,6 @@ export class RedefinirSenhaPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['codigo-recuperar']);
-  }
-
   btnRetornarLogin(){
     this.router.navigate(['login']);
   }

@@ -18,10 +18,6 @@ export class ConfirmarEmailPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['cadastro']);
-  }
-
   onCodeChanged(code: string) {
     this.isDisabled = true;
   }

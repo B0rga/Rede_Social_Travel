@@ -45,10 +45,6 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  btnVoltar(){
-    this.router.navigate(['home']);
-  }
-
   btnShowHide(): void{
     this.showPassword = !this.showPassword;
 
