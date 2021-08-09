@@ -28,10 +28,10 @@ ion-menu{
 
 .divImagens ion-avatar{
   border: 1px solid white;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   position: absolute;
-  top: 36px;
+  top: 32px;
 }
 
 .divDados{
@@ -52,6 +52,7 @@ ion-menu{
 .divRelevancia{
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 6px;
   padding-bottom: 8px;
 }
@@ -59,8 +60,7 @@ ion-menu{
 .divStats{
   display:flex;
   justify-content: center;
-  margin-left: 3%;
-  margin-right: 3%;
+  margin: 0 10px;
   }
 
 .divStats ion-label{
@@ -69,7 +69,7 @@ ion-menu{
 
 .divStats ion-icon{
   font-size: 12px;
-  padding-right: 2px;
+  padding-right: 4px;
 }
 
 //=============================================================================================================//

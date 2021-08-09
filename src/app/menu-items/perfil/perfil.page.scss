@@ -61,10 +61,10 @@ a{
 .divId{
   display: grid;
   margin-left: 84px;
-  margin-top: 1px;
+  margin-top: 2px;
 
   #nome{
-    font: bold 14px "Segoe UI";
+    font: bold 16px "Segoe UI";
     color: var(--ion-color-dark);
     width: auto;
   }
@@ -94,7 +94,7 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 18px;
+  margin-top: 20px;
 
   div{
     text-align: center;
