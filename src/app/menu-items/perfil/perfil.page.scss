@@ -22,3 +22,111 @@ ion-title ion-icon{
   font-size: 24px;
 }
 
+//=============================================================================================================//
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+//=============================================================================================================//
+
+a{
+  color: var(--ion-color-dark);
+}
+
+#divPaisagem{
+  background-image: url('/assets/monument2.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100px;
+}
+
+//=============================================================================================================//
+
+#avatar{
+  border: 1px solid white;
+  position: absolute;
+  top: 76px;
+  width: 76px;
+  height: 76px;
+}
+
+//=============================================================================================================//
+
+.divInfos{
+  margin: 0px 10px 0px 10px;
+}
+
+.divId{
+  display: grid;
+  margin-left: 84px;
+  margin-top: 1px;
+
+  #nome{
+    font: bold 14px "Segoe UI";
+    color: var(--ion-color-dark);
+    width: auto;
+  }
+
+  #usuario{
+    font: normal 8px "Segoe UI";
+  }
+}
+
+.divLocal{
+  display: flex;
+  align-items: center;
+  padding-top: 2px;
+
+  p{
+    font: normal 8px "Segoe UI";
+  }
+
+  ion-icon{
+    font-size: 11px;
+  }
+}
+
+//=============================================================================================================//
+
+.divStats{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+
+  div{
+    text-align: center;
+    font: bold 12px "Segoe UI";
+    margin: 0 18px;
+  }
+}
+
+//=============================================================================================================//
+
+.divLine{
+  height: 1px;
+  background: var(--ion-color-medium);
+  margin: 14px 10px 0px 10px;
+}
+
+//=============================================================================================================//
+
+.divMeusPosts{
+  margin: 2px 10px 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+
+  p{
+    font: bold 12px "Segoe UI";
+  }
+
+  ion-icon{
+    font-size: 18px;
+  }
+
+}
+
+

@@ -11,5 +11,68 @@
 </ion-header>
 
 <ion-content>
+  <a>
+    <div id="divPaisagem" class="ion-activatable ripple-parent">
+      <ion-ripple-effect type=unbounded></ion-ripple-effect>
+    </div>
+  </a>
+
+  <div class="divInfos">
+    <a>
+      <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img src="/assets/jesse.jpg">
+        <ion-ripple-effect type=unbounded></ion-ripple-effect>
+      </ion-avatar>
+    </a>
+
+    <div class="divId">
+      <a id="nome" class="ion-activatable ripple-parent">Jesse Pinkman
+        <ion-ripple-effect type=unbounded></ion-ripple-effect>
+      </a>
+
+      <p id="usuario">@JesseBeach</p>
+
+      <div class="divLocal">
+        <ion-icon name="location-outline"></ion-icon>
+        <p>São Paulo, Brasil</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="divStats">
+    <div>
+      <p>1</p>
+      <p>Posts</p>
+    </div>
+    <div>
+      <p>50</p>
+      <p>Seguindo</p>
+    </div>
+    <div>
+      <p>87</p>
+      <p>Seguidores</p>
+    </div>
+  </div>
+
+  <div class="divLine"></div>
+
+  <div class="divMeusPosts">
+    <p>Minhas Publicações</p>
+
+    <ion-buttons>
+
+      <ion-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+  </div>
+
+  <app-post></app-post>
 
 </ion-content>

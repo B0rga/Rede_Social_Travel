@@ -8,12 +8,15 @@ import { PerfilPageRoutingModule } from './perfil-routing.module';
 
 import { PerfilPage } from './perfil.page';
 
+import { SharedComponentsModule } from './../../components/shared-components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule
+    PerfilPageRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [PerfilPage]
 })
