@@ -14,6 +14,7 @@ export class AuthServiceService {
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   public user:object
+  search:String
   constructor(private router: Router,private  httpClient:  HttpClient, private storage:Storage) { 
   }
   login(user: User): Observable<AuthResponse>  {
@@ -58,7 +59,6 @@ export class AuthServiceService {
       
     })
   }
-
   async logout(){
     await this.storage.create()
     await this.storage.remove("ACCESS_TOKEN")

@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { TabsPage } from '../tabs.page';
-
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchService } from 'src/app/search/search.service';
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',
   styleUrls: ['./tab5.page.scss'],
 })
-export class Tab5Page extends TabsPage implements OnInit{
 
-  ngOnInit(){
+export class Tab5Page implements OnInit{
+  constructor(private search:SearchService){
+
   }
-
+  ngOnInit(){
+    
+  }
+  onSearch(){
+    console.log(this.search.getSearch())
+  }
 }
