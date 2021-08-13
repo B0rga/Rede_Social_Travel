@@ -5,9 +5,18 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title  *ngIf='selectedTab == "tab1" || selectedTab =="tab2" || selectedTab =="tab3"'>Travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
+    <ion-title class="mainTitle" *ngIf='selectedTab == "tab1" || selectedTab =="tab2"'>Travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
+
+    <ion-title *ngIf='selectedTab == "tab3"' id="postTitle">
+      Criar post
+    </ion-title>
+
+    <ion-chip *ngIf='selectedTab == "tab3"' slot="end">
+      <ion-label>Postar</ion-label>
+    </ion-chip>
+
     <div id="notifica" *ngIf='selectedTab == "tab4"'>
-      <ion-title> 
+      <ion-title class="mainTitle">
         Notificações
       </ion-title>
       <ion-buttons>
@@ -16,9 +25,9 @@
         </ion-button>
       </ion-buttons>
     </div>
-    
+
     <ion-searchbar *ngIf='selectedTab == "tab5"' (ionChange)="filter($event)" (keypress)="onSearch($event)" animated=true></ion-searchbar>
-      <ion-buttons slot="end">
+      <ion-buttons slot="end" *ngIf='selectedTab == "tab1" || selectedTab =="tab2" || selectedTab =="tab4" || selectedTab =="tab5"'>
         <ion-button>
           <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
         </ion-button>

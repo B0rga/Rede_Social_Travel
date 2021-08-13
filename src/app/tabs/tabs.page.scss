@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   font-family: "Segoe UI";
-
 }
+
 //=============================================================================================================//
 
-ion-title{
+.mainTitle{
   color: var(--ion-color-dark);
   font-weight: bold;
   position: absolute;
@@ -77,8 +77,22 @@ ion-badge{
 ion-searchbar{
   --border-radius: 50px;
 }
+
 #notifica{
   width: 100%;
   display:flex;
   flex-direction: row-reverse;
+}
+
+#postTitle{
+  color: var(--ion-color-dark);
+  font-weight: bold;
+}
+
+ion-chip{
+  margin: 0px 10px 0px 10px;
+  padding: 0px 10px 0px 10px;
+  --background: none;
+  border: 1px solid var(--ion-color-medium);
+  height: 26px;
 }
