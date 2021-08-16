@@ -5,13 +5,24 @@
       <div class="divAvatar">
         <ion-avatar> <img src="/assets/jesse.jpg"> </ion-avatar>
       </div>
-      <div class="divContexto">
-        <p>Jesse Pinkman&nbsp;</p>
-        <ion-label class="lugar">em&nbsp;França</ion-label>
-        <ion-label class="lugar">,&nbsp;París</ion-label>
-      </div>
-      <div class="divTempo">
-        <p>X dias atrás</p>
+      <div class="divHead">
+        <div class="grid">
+          <div class="divContexto">
+            <p>Jesse Pinkman&nbsp;</p>
+            <ion-label class="lugar">em&nbsp;França</ion-label>
+            <ion-label class="lugar">,&nbsp;París</ion-label>
+          </div>
+          <div class="divTempo">
+            <p>X dias atrás</p>
+          </div>
+        </div>
+
+        <ion-buttons slot="end">
+          <ion-button (click)="openPopover($event)">
+            <ion-icon name="ellipsis-horizontal"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+
       </div>
 
     </div>

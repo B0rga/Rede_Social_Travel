@@ -91,8 +91,9 @@ ion-searchbar{
 
 ion-chip{
   margin: 0px 10px 0px 10px;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 16px 0px 16px;
   --background: none;
   border: 1px solid var(--ion-color-medium);
-  height: 26px;
+  height: 24px;
+  font-size: 12px;
 }

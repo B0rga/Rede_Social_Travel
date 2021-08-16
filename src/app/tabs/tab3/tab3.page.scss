@@ -7,6 +7,7 @@
 ion-list{
   padding: 0px 12px 0px 12px;
   background: none;
+  margin-top: 12px;
 }
 
 ion-item{
@@ -14,11 +15,37 @@ ion-item{
   --highlight-color-focused: none;
   --highlight-color-valid: none;
   --highlight-color-invalid: none;
-  --min-height: 16px;
+  --min-height: 12px;
   --background: none;
-  margin-top: 14px;
 
   ion-icon{
-    font-size: 18px;
+    font-size: 20px;
+    margin-top: 24px;
   }
 }
+
+#contentItem{
+  --padding-top: 2px;
+}
+
+.divPosts{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 12px 0px 12px;
+  margin-top: 4px;
+
+  ion-chip{
+    padding: 0px 16px 0px 16px;
+    --background: none;
+    border: 1px solid var(--ion-color-medium);
+    height: 24px;
+    font-size: 12px;
+  }
+
+  ion-icon{
+    font-size: 20px;
+  }
+}
+
+

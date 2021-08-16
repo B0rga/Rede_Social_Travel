@@ -24,24 +24,40 @@
   height: 28px;
 }
 
+.divHead{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.grid{
+  display:grid;
+}
+
 .divContexto{
   display: flex;
   align-items:baseline;
   justify-content: left;
-}
 
-.divContexto p{
-  font-size: 11px;
-}
+  p{
+    font-size: 11px;
+  }
 
-.divContexto .lugar{
-  font-size: 8px;
-  color: #707070;
+  .lugar{
+    font-size: 8px;
+    color: #707070;
+  }
 }
 
 .divTempo p{
   font-size: 8px;
   color: #707070;
+}
+
+ion-buttons{
+  ion-icon{
+    font-size: 14px;
+  }
 }
 
 //=============================================================================================================//
@@ -128,3 +144,5 @@
   font-size: 14px;
   padding-right: 4px;
 }
+
+
