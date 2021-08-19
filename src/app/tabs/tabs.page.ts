@@ -1,6 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
 import {AuthServiceService} from '../auth/auth-service.service'
-import { Storage } from '@ionic/storage-angular'
 import { SearchService } from '../search/search.service';
 @Component({
   selector: 'app-tabs',
@@ -10,7 +9,7 @@ import { SearchService } from '../search/search.service';
 export class TabsPage implements OnInit {
   selectedTab:string = '';
 
-  constructor( private auth:AuthServiceService, private storage:Storage, private search:SearchService ) { }
+  constructor( private auth:AuthServiceService, private search:SearchService ) { }
   ngOnInit() {
     //this.auth.logado()
   }

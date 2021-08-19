@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
   public search:string
   public cacheSearch:Array<string> = []
-  constructor(private storage:Storage) { 
+  constructor(private storage:Storage, private http:HttpClient) { 
     this.getCache()
   }
   public onSearch(search:string){
@@ -36,7 +37,15 @@ export class SearchService {
       this.cacheSearch = await this.storage.get("Search")
     }
   }
-  public getSearch(){
-    return this.search
+  async excluir(op){
+    await this.storage.create()
+    let excluir = await this.storage.get("Search")
+    excluir = excluir.filter(option=>option!=op)
+    await this.storage.set("Search", excluir)
+    this.getCache()
   }
+  setSearch(op){
+    this.search = op
+  }
+
 }

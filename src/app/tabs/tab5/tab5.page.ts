@@ -13,7 +13,10 @@ export class Tab5Page implements OnInit{
   ngOnInit(){
     
   }
-  onSearch(){
-    console.log(this.search.getSearch())
+  excluir(op){
+    this.search.excluir(op)
+  }
+  Search(op){
+    this.search.setSearch(op)
   }
 }
