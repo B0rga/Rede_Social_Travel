@@ -1,5 +1,12 @@
 <ion-content>
   <ion-list >
+    <ion-item id="titulo" *ngIf="this.search.cacheSearch.length>0">
+      <ion-label>Pesquisado recentemente</ion-label>
+        <ion-button (click)="limparHistorico()">
+          <ion-icon name="close-circle" slot="icon-only" color="danger"></ion-icon>
+        </ion-button>
+    </ion-item>
+    
     <ion-item-sliding side="end" (click)="Search(op)" *ngFor="let op of this.search.cacheSearch">
       <ion-item-options>
         <ion-item-option color="danger" (click)="excluir(op)">

@@ -35,6 +35,8 @@ export class SearchService {
     await this.storage.create()
     if(await this.storage.get("Search")){
       this.cacheSearch = await this.storage.get("Search")
+    }else{
+      this.cacheSearch = []
     }
   }
   async excluir(op){
@@ -46,6 +48,11 @@ export class SearchService {
   }
   setSearch(op){
     this.search = op
+  }
+  async limparHistorico(){
+    await this.storage.create()
+    await this.storage.remove("Search")
+    this.getCache()
   }
 
 }

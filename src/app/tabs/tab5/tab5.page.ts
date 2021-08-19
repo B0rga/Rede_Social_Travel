@@ -16,6 +16,9 @@ export class Tab5Page implements OnInit{
   excluir(op){
     this.search.excluir(op)
   }
+  limparHistorico(){
+    this.search.limparHistorico()
+  }
   Search(op){
     this.search.setSearch(op)
   }
