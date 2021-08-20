@@ -28,3 +28,33 @@
 .customPopover .popover-content{
   --width: 200px;
 }
+
+.customActionSheet{
+
+  .action-sheet-group{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  }
+
+  .action-sheet-button{
+    font-size: 14px;
+  }
+
+  .action-sheet-selected{
+    color: #00f9bb;
+
+    &:after{
+      color: #00f9bb;
+    }
+  }
+
+  .action-sheet-icon{
+    font-size: 20px;
+  }
+
+  .action-sheet-title {
+    text-align: center;
+  }
+
+}

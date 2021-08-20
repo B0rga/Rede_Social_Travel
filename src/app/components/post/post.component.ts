@@ -22,6 +22,7 @@ export class PostComponent {
       event: ev,
       translucent: true
     });
+
     return await popover.present();
   }
 }
