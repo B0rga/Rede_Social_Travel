@@ -63,7 +63,12 @@ export class LoginPage implements OnInit {
   btnSemConta(){
     this.router.navigate(['cadastro']);
   }
-
+  LoginWithFb(){
+    this.auth.loginWithFacebook()
+  }
+  LoginWithGoogle(){
+    this.auth.loginWithGoogle()
+  }
   public submit(){
     if(this.loginForm.valid){
       //this.auth.login(this.loginForm.value).subscribe(res=>{

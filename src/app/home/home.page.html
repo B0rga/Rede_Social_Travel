@@ -1,10 +1,13 @@
 <ion-content [fullscreen]="true">
-  <div id="divLogoInicial">
-    <img src="/assets/logo.svg" id="logoInicial">
+  <div class="conteiner">
+    <div id="divLogoInicial">
+      <img src="/assets/logo.svg" id="logoInicial">
+    </div>
+  
+    <div id="divBtn">
+      <ion-button id="btnEntrar" (click)="btnEntrar()" expand="full" shape="round">Entrar</ion-button>
+      <ion-button id="btnCadastrar" (click)="btnCadastrar()" fill="outline" expand="full" shape="round">Cadastrar-se</ion-button>
+    </div>
   </div>
-
-  <div id="divBtn">
-    <ion-button id="btnEntrar" (click)="btnEntrar()" expand="full" shape="round">Entrar</ion-button>
-    <ion-button id="btnCadastrar" (click)="btnCadastrar()" fill="outline" expand="full" shape="round">Cadastrar-se</ion-button>
-  </div>
+  
 </ion-content>

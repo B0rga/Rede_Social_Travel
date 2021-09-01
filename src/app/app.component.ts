@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthServiceService } from './auth/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private auth:AuthServiceService, private router:Router) {}
 
   toggleTema(event){
     if(event.detail.checked){
@@ -14,5 +16,9 @@ export class AppComponent {
     }else{
       document.body.setAttribute('color-theme', 'light')
     }
+  }
+  logOut(){
+    this.auth.logout()
+    this.router.navigate(["home"])
   }
 }

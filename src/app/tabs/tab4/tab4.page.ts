@@ -12,7 +12,7 @@ export class Tab4Page implements OnInit {
   }
 
   ngOnInit() {
-    /*
+    
     this.notifications.push({
       id:1,
       texto:"Matheus almeida comentou na sua publicação",
@@ -30,7 +30,7 @@ export class Tab4Page implements OnInit {
       tempo:"3 minutos atras",
       conteudo:"Essa foi minha primeira viagem para o Brasil, e foi incrivel"
     })
-    */
+    
   }
 
 

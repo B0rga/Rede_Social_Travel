@@ -70,7 +70,7 @@
         </ion-item>
 
         <ion-menu-toggle>
-          <ion-item routerLink="/sair" routerLinkActive="active-item">
+          <ion-item (click)="logOut()" routerLink="/sair" routerLinkActive="active-item">
             <ion-icon name="log-out-outline" slot="start"></ion-icon>
             <ion-label>Sair</ion-label>
           </ion-item>
