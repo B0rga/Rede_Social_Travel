@@ -1,3 +1,5 @@
+import { PopoverController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopoverComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router, private popoverController: PopoverController) { }
+
+  async btnPerfil(){
+    this.router.navigate(['perfil']);
+    await this.popoverController.dismiss();
+  }
+
+  async btnSalvar(){
+    await this.popoverController.dismiss();
+  }
+
+  async btnReport(){
+    await this.popoverController.dismiss();
+  }
+
+  async btnRemover(){
+    await this.popoverController.dismiss();
+  }
 
   ngOnInit() {}
 

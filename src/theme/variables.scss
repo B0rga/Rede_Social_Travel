@@ -84,6 +84,12 @@
   --ion-color-edit-contrast: #1f1f1f;
   --ion-color-edit-contrast-rgb: 31, 31, 31;
 
+  /** divider **/
+  --ion-color-divider: #e0e0e0;
+  --ion-color-divider-rgb: 231, 231, 231;
+  --ion-color-divider-contrast: #212121;
+  --ion-color-divider-constrast-rgb: 33, 33, 33;
+
 }
 
 //@media (prefers-color-scheme: dark) {
@@ -163,6 +169,11 @@
     --ion-color-edit-contrast: #ffffff;
     --ion-color-edit-contrast-rgb: 255, 255, 255;
 
+    --ion-color-divider:#212121;
+    --ion-color-divider-rgb: 33, 33, 33;
+    --ion-color-divider-contrast: #e0e0e0;
+    --ion-color-divider-constrast-rgb: 231, 231, 231;
+
   }
 
   /*
@@ -207,6 +218,11 @@
     --ion-color-edit-rgb: 0, 0, 0;
     --ion-color-edit-contrast: #ffffff;
     --ion-color-edit-contrast-rgb: 255, 255, 255;
+
+    --ion-color-divider:#212121;
+    --ion-color-divider-rgb: 33, 33, 33;
+    --ion-color-divider-contrast: #e0e0e0;
+    --ion-color-divider-constrast-rgb: 231, 231, 231;
   }
 
   .ios ion-modal {

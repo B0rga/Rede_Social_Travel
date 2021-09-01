@@ -1,6 +1,8 @@
 import { Component, OnInit, Output } from '@angular/core';
-import {AuthServiceService} from '../auth/auth-service.service'
+import {AuthServiceService} from '../auth/auth-service.service';
 import { SearchService } from '../search/search.service';
+import { ActionSheetController } from '@ionic/angular';
+
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
@@ -9,7 +11,11 @@ import { SearchService } from '../search/search.service';
 export class TabsPage implements OnInit {
   selectedTab:string = '';
 
-  constructor( private auth:AuthServiceService, private search:SearchService ) { }
+  constructor(
+    private auth:AuthServiceService,
+    private search:SearchService,
+    public actionSheetController: ActionSheetController
+    ) { }
   ngOnInit() {
     //this.auth.logado()
   }
@@ -26,4 +32,49 @@ export class TabsPage implements OnInit {
     this.search.filterOptions(ev.detail.value)
   }
 
+  async btnConteudo(){
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Prefências de conteúdo',
+      cssClass: 'customActionSheet',
+      buttons: [{
+        icon: 'swap-horizontal-outline',
+        text: 'Mostrar mais recentes',
+        role: 'destructive',
+        handler: () => { }
+      },
+      {
+        icon: 'swap-horizontal-outline',
+        text: 'Mostrar recomendados',
+        role: 'destructive',
+        handler: () => { }
+      },
+      {
+        icon: 'settings-outline',
+        text: 'Configurar suas preferências',
+        role: 'destructive',
+        handler: () => { }
+      }
+    ]
+    });
+    await actionSheet.present();
+  }
+
+  async btnPesquisa(){
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Prefências de pesquisa',
+      cssClass: 'customActionSheet',
+      buttons: [{
+        text: 'Mostrar resultados em sua localização',
+        role: 'destructive',
+        handler: () => { }
+      },
+      {
+        text: 'Explorar localizações',
+        role: 'destructive',
+        handler: () => { }
+      }
+    ]
+    });
+    await actionSheet.present();
+  }
 }

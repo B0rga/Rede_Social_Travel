@@ -25,6 +25,43 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+.customAlert .alert-wrapper {
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Segoe UI';
+  height: 200px;
+}
+
 .customPopover .popover-content{
   --width: 200px;
+}
+
+.customActionSheet{
+
+  .action-sheet-group{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  }
+
+  .action-sheet-button{
+    font-size: 14px;
+  }
+
+  .action-sheet-selected{
+    color: #00f9bb;
+
+    &:after{
+      color: #00f9bb;
+    }
+  }
+
+  .action-sheet-icon{
+    font-size: 20px;
+  }
+
+  .action-sheet-title {
+    text-align: center;
+  }
+
 }

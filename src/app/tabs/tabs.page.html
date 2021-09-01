@@ -27,8 +27,15 @@
     </div>
 
     <ion-searchbar placeholder="Para onde viajar?" *ngIf='selectedTab == "tab5"' value="{{this.search.search}}" (ionChange)="filter($event)" (keypress)="onSearch($event)" animated=true></ion-searchbar>
-    <ion-buttons slot="end" *ngIf='selectedTab != "tab3"'>
-      <ion-button>  
+
+    <ion-buttons slot="end" *ngIf='selectedTab == "tab1" || selectedTab =="tab2"'>
+      <ion-button (click)="btnConteudo()">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end" *ngIf='selectedTab == "tab5"'>
+      <ion-button (click)="btnPesquisa()">
         <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
       </ion-button>
     </ion-buttons>

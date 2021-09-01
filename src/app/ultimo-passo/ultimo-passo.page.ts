@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { of } from 'rxjs';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ultimo-passo',
@@ -18,7 +19,8 @@ export class UltimoPassoPage implements OnInit {
   outra_cidade = undefined;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -69,7 +71,26 @@ export class UltimoPassoPage implements OnInit {
     this.btnDisabled = false;
   }
 
-  public submit(){
-    this.router.navigate(['tabs'])
+  async submit(){
+    const alert = await this.alertController.create({
+      cssClass: 'customAlert',
+      header: 'Aviso',
+      message: 'Preencher essas informações nos ajudará a lhe fornecer uma melhor experiência. Deseja continuar mesmo assim?',
+      backdropDismiss: false,
+      buttons:[
+        {
+          text: 'Sim',
+          handler: () => {
+            this.router.navigate(['tabs'])
+          }
+        },
+        {
+          text: 'Não',
+          role: 'cancel',
+        }
+      ]
+    })
+
+    await alert.present()
   }
 }
