@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'configuracoes',
     loadChildren: () => import('./menu-items/configuracoes/configuracoes.module').then( m => m.ConfiguracoesPageModule)
   },
+  {
+    path: 'post-completo',
+    loadChildren: () => import('./post-completo/post-completo.module').then( m => m.PostCompletoPageModule)
+  },
 ];
 
 @NgModule({

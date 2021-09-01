@@ -1,0 +1,93 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI";
+}
+
+//=============================================================================================================//
+
+ion-title{
+  color: var(--ion-color-dark);
+  font-weight: bold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 90px 1px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+ion-title ion-icon{
+  font-size: 24px;
+}
+
+//=============================================================================================================//
+
+.content{
+  margin: 10px;
+}
+
+.divSuperior{
+  display: flex;
+  justify-content: center;
+}
+
+.divAvatar{
+  padding-right: 6px;
+}
+
+.divAvatar ion-avatar{
+  background: #707070;
+  width: 30px;
+  height: 30px;
+}
+
+.divHead{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.grid{
+  display:grid;
+}
+
+.divContexto p{
+    font-size: 12px;
+}
+
+.divTempo{
+  display: flex;
+  align-items:baseline;
+  justify-content: left;
+}
+
+.divTempo p{
+  font-size: 8px;
+}
+
+.divTempo .lugar{
+  font-size: 8px;
+  color: #707070;
+}
+
+ion-buttons{
+  ion-icon{
+    font-size: 16px;
+  }
+}
+
+//=============================================================================================================//
+
+.divSinopse{
+  margin-top: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ion-color-divider);
+}
+
+.divSinopse p{
+  font-size: 10px;
+}
+//=============================================================================================================//
+

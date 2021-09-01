@@ -16,13 +16,17 @@ export class PostComponent {
     ) { }
 
   async openPopover(ev: any) {
+    event.stopPropagation();
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       cssClass: 'customPopover',
       event: ev,
-      translucent: true
     });
-
     return await popover.present();
   }
+
+  entrarPost(){
+    this.router.navigate(['post-completo'])
+  }
+
 }

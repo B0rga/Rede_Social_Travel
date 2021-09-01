@@ -94,21 +94,15 @@ a{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px 10px 0px 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ion-color-divider);
 
   div{
     text-align: center;
     font: bold 12px "Segoe UI";
     margin: 0 18px;
   }
-}
-
-//=============================================================================================================//
-
-.divLine{
-  height: 1px;
-  background: var(--ion-color-medium);
-  margin: 14px 10px 0px 10px;
 }
 
 //=============================================================================================================//
