@@ -24,17 +24,39 @@ ion-title ion-icon{
 
 //=============================================================================================================//
 
-.content{
-  margin: 10px;
+ion-content{
+  --padding-top: 8px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+  --padding-bottom: 10px;
 }
+
+//=============================================================================================================//
 
 .divSuperior{
   display: flex;
-  justify-content: center;
+  margin-bottom: 4px;
 }
 
-.divAvatar{
-  padding-right: 6px;
+//=============================================================================================================//
+
+.divEsquerda{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 30px;
+  padding-top: 4px;
+
+  ion-icon{
+    color: var(--ion-color-medium);
+  }
+}
+
+.divLine{
+  width: 1px;
+  background-color: var(--ion-color-divider);
+  height: 100%;
+  margin-top: 8px;
 }
 
 .divAvatar ion-avatar{
@@ -43,7 +65,14 @@ ion-title ion-icon{
   height: 30px;
 }
 
-.divHead{
+//=============================================================================================================//
+
+.divDesc{
+  border-bottom: 1px solid var(--ion-color-divider);
+  padding-left: 6px;
+}
+
+.divHeadSuperior{
   display: flex;
   justify-content: space-between;
   align-items:center;
@@ -53,8 +82,18 @@ ion-title ion-icon{
   display:grid;
 }
 
-.divContexto p{
+.divTitulo{
+  padding-top: 2px;
+  display: flex;
+  align-items:baseline;
+
+  p:first-child{
     font-size: 12px;
+  }
+
+  p{
+    font-size: 8px;
+  }
 }
 
 .divTempo{
@@ -80,14 +119,76 @@ ion-buttons{
 
 //=============================================================================================================//
 
+.title{
+  margin-top: 14px;
+
+  p{
+    font-size: 10px;
+    font-weight: bold;
+  }
+}
+
+//=============================================================================================================//
+
 .divSinopse{
   margin-top: 4px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--ion-color-divider);
+  padding-bottom: 8px;
 }
 
 .divSinopse p{
   font-size: 10px;
 }
 //=============================================================================================================//
+
+.divPrincipal{
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.divHeadPrincipal{
+  display: flex;
+  justify-content: space-between;
+}
+
+//=============================================================================================================//
+
+.divLocal{
+  display: flex;
+  align-items: center;
+
+  p{
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  a{
+    font-size: 8px;
+    color: var(--ion-color-dark);
+    text-decoration: underline;
+  }
+
+  ion-icon{
+    font-size: 10px;
+  }
+}
+
+.divImg1{
+  width: 100%;
+  min-height: 140px;
+  border-radius: 14px;
+  background-image: url('/assets/monument1.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+}
+
+.divImg2{
+  width: 100%;
+  min-height: 140px;
+  border-radius: 14px;
+  background-image: url('/assets/monument2.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+}
 

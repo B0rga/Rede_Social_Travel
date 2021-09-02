@@ -101,9 +101,10 @@ ion-item ion-icon{
 ion-toggle{
   height: 16px;
   width: 28px;
-  --handle-width: 14px;
+  --handle-spacing: 1px;
   --handle-height: 14px;
-  --background-checked: #2E8B57;
+  --handle-width: 14px;
+  --background-checked: #004a38;
   --handle-background-checked: #00f9bb;
 }
 
