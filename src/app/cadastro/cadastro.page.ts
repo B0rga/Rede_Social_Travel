@@ -41,7 +41,6 @@ export class CadastroPage implements OnInit {
     confirmar_senha: [
       {type: 'required', message: 'Você deve confirmar a senha'},
       {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'},
-      {type: 'passwordNotMatch', message:'as senhas devem ser iguais'}
     ]
   }
 
