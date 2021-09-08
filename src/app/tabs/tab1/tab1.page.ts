@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Tab1Page implements OnInit {
   posts:Array<Object>=[]
   constructor() { 
-    /*this.posts.push({
+    this.posts.push({
       user_name:"Melkson Albuquerque",
       post_content: "viajei para paris e foi incrivel",
       city:"Paris",
@@ -28,7 +28,7 @@ export class Tab1Page implements OnInit {
       post_content: "viajei para paris e foi incrivel",
       city:"Paris",
       country:"França"
-    })*/
+    })
   }
 
   ngOnInit() {

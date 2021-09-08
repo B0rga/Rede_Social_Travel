@@ -1,29 +1,25 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { AfterViewInit, Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 import { AuthServiceService } from './services/auth/auth-service.service';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent{
   thisPage:string = ''
-  showMenu:Boolean = false
-  
-  constructor(private auth:AuthServiceService, private router:Router) {
-
+  constructor(private auth:AuthServiceService, private router:Router, private menu:MenuController) {
+    
   }
-  onLoad(ev){
-    this.thisPage = this.router.url
-    switch(this.thisPage){
-      case '/home':
-        this.showMenu = false
-      break
-      case '/login':
-        this.showMenu = false
-      break
-      this.showMenu = true
+  onLoad(){
+    if(this.thisPage != this.router.url){
+      this.thisPage = this.router.url
+      if(this.thisPage == '/home' || this.thisPage == '/login' || this.thisPage == '/cadastro' || this.thisPage == '/confirmar-email' || this.thisPage == '/ultimo-passo'){
+        this.menu.enable(false,'main-menu')
+      }else{
+        this.menu.enable(true, 'main-menu')
+      }
     }
     
   }

@@ -8,7 +8,6 @@ import { PopoverComponent } from './popover/popover.component';
     PostComponent,
     PopoverComponent,
     
-    
   ],
   imports: [
     IonicModule,
@@ -17,7 +16,6 @@ import { PopoverComponent } from './popover/popover.component';
   exports: [
     PostComponent,
     PopoverComponent,
-    
   ]
 })
 export class SharedComponentsModule { }
