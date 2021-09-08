@@ -62,7 +62,7 @@
         <ion-input formControlName="confirmar_senha" type="password" placeholder="Confirme aqui a senha" required></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.confirmar_senha">
-        <ng-container *ngIf="confirmar_senha.hasError(error.type) && (confirmar_senha.dirty || confirmar_senha.touched)">
+        <ng-container *ngIf="confirmar_senha.hasError(error.type)  && cadastroForm.hasError('passwordNotMatch') && (confirmar_senha.dirty || confirmar_senha.touched)">
           <small class="error-message">{{error.message}}</small>
         </ng-container>
       </div>

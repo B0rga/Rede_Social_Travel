@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -40,7 +40,8 @@ export class CadastroPage implements OnInit {
     ],
     confirmar_senha: [
       {type: 'required', message: 'Você deve confirmar a senha'},
-      {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'}
+      {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'},
+      {type: 'passwordNotMatch', message:'as senhas devem ser iguais'}
     ]
   }
 
@@ -48,14 +49,18 @@ export class CadastroPage implements OnInit {
     nome:  ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
     email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     senha:  ['', [Validators.required, Validators.minLength(6)]],
-    confirmar_senha:  ['', [Validators.required, Validators.minLength(6)]],
-  })
+    confirmar_senha:  new FormControl('', Validators.compose([Validators.required])),
+  }, {validators:this.matchPassword.bind(this)})
 
   constructor(
     private router: Router,
     private FormBuilder: FormBuilder,
   ) { }
-
+  matchPassword(formGroup: FormGroup){
+    const { value: password } = formGroup.get('senha');
+    const { value: confirmPassword } = formGroup.get('confirmar_senha');
+    return password === confirmPassword ? null : { passwordNotMatch: true };
+  }
   ngOnInit() {
   }
 
