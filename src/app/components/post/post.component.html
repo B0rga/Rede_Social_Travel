@@ -8,12 +8,12 @@
       <div class="divHead">
         <div class="grid">
           <div class="divContexto">
-            <p>Jesse Pinkman&nbsp;</p>
-            <ion-label class="lugar">em&nbsp;França</ion-label>
-            <ion-label class="lugar">,&nbsp;París</ion-label>
+            <p>{{this.name}}&nbsp;</p>
+            <ion-label class="lugar">em&nbsp;{{this.city}}</ion-label>
+            <ion-label class="lugar">,&nbsp;{{this.country}}</ion-label>
           </div>
           <div class="divTempo">
-            <p>X dias atrás</p>
+            <p>{{this.time}}</p>
           </div>
         </div>
 
@@ -29,10 +29,7 @@
 
     <div class="divSinopse">
       <p>
-      Viajei para São Paulo e foi incrível!!
-      Essa foi minha primeira viagem para a França, e foi incrível.
-      O povo francês é muito acolhedor e a comida francesa
-      é a melhor.
+      {{this.content}}
       </p>
     </div>
 

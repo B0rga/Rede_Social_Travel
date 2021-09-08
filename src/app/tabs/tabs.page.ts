@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import {AuthServiceService} from '../auth/auth-service.service';
-import { SearchService } from '../search/search.service';
+import {AuthServiceService} from '../services/auth/auth-service.service';
+import { SearchService } from '../services/search/search.service';
 import { ActionSheetController } from '@ionic/angular';
 
 @Component({

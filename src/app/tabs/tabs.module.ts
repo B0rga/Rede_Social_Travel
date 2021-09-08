@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
-import {AuthModule} from '../auth/auth.module'
+import {AuthModule} from '../services/auth/auth.module'
 @NgModule({
   imports: [
     CommonModule,

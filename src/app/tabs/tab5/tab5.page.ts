@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchService } from 'src/app/search/search.service';
+import { SearchService } from 'src/app/services/search/search.service';
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',

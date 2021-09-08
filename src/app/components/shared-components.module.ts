@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { PostComponent } from './post/post.component';
 import { PopoverComponent } from './popover/popover.component';
-
 @NgModule({
   declarations: [
     PostComponent,
-    PopoverComponent
+    PopoverComponent,
+    
+    
   ],
   imports: [
     IonicModule,
@@ -15,7 +16,8 @@ import { PopoverComponent } from './popover/popover.component';
   ],
   exports: [
     PostComponent,
-    PopoverComponent
+    PopoverComponent,
+    
   ]
 })
 export class SharedComponentsModule { }

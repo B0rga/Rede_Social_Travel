@@ -1,7 +1,7 @@
 <ion-content>
 
   <h4>Recomendados</h4>
-  <app-post></app-post>
+  <app-post [user_name]="posts.user_name" [post_content]="posts.post_content" [post_city]="posts.city" [post_country]="posts.country" *ngFor="let posts of posts"></app-post>
 
   <ion-infinite-scroll>
     <ion-infinite-scroll-content>
