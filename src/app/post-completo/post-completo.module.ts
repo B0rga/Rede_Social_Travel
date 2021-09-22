@@ -8,12 +8,15 @@ import { PostCompletoPageRoutingModule } from './post-completo-routing.module';
 
 import { PostCompletoPage } from './post-completo.page';
 
+import { SharedComponentsModule } from './../components/shared-components.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PostCompletoPageRoutingModule
+    PostCompletoPageRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [PostCompletoPage]
 })

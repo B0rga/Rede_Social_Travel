@@ -6,25 +6,23 @@
 
 .post{
   margin: 10px 10px 10px 10px;
-  border-radius: 8px;
-}
-
-.contentPost{
   padding: 6px 6px 10px 6px;
+  border-radius: 8px;
 }
 
 .divAvatar{
   float:left;
-  padding-right: 6px;
+  padding-right: 4px;
+  padding-top: 2px;
 }
 
 .divAvatar ion-avatar{
   background: #707070;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 }
 
-.divHead{
+.divHeadSuperior{
   display: flex;
   justify-content: space-between;
   align-items:center;
@@ -51,8 +49,8 @@
 
 .divTempo{
   display: flex;
-  align-items:baseline;
   justify-content: left;
+  align-items:baseline;
 }
 
 .divTempo p{
@@ -72,7 +70,7 @@ ion-buttons{
 //=============================================================================================================//
 
 .title{
-  margin-top: 10px;
+  margin-top: 14px;
   text-align: left;
 
   p{
@@ -103,7 +101,7 @@ ion-buttons{
 .divMaior{
   width: 70%;
   min-height: 140px;
-  border-radius: 16px 0px 0px 16px;
+  border-radius: 8px 0px 0px 8px;
   background-image: url('/assets/monument1.jpg');
   background-size: cover;
   background-position: center;
@@ -124,7 +122,7 @@ ion-buttons{
 
 .divMenor{
   height: 69px;
-  border-radius: 0px 16px 0px 0px;
+  border-radius: 0px 8px 0px 0px;
   background-image: url('/assets/monument2.jpg');
   background-size: cover;
   background-position: center;
@@ -132,7 +130,7 @@ ion-buttons{
 
 .divMenor2{
   height: 69px;
-  border-radius: 0px 0px 16px 0px;
+  border-radius: 0px 0px 8px 0px;
   background-image: url('/assets/torre.jpg');
   background-size: cover;
   background-position: center;

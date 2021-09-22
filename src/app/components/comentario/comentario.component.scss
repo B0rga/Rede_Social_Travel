@@ -1,0 +1,115 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI';
+}
+
+.divComment{
+  display: flex;
+  margin-bottom: 4px;
+}
+
+//=============================================================================================================//
+
+.divEsquerda{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 24px;
+  padding-top: 6px;
+
+  ion-icon{
+    color: var(--ion-color-medium);
+  }
+}
+
+.divAvatar ion-avatar{
+  background: #707070;
+  width: 26px;
+  height: 26px;
+}
+
+//=============================================================================================================//
+
+.divDesc{
+  border-bottom: 1px solid var(--ion-color-divider);
+  padding-left: 6px;
+}
+
+.divHeadSuperior{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.grid{
+  display:grid;
+}
+
+.divTitulo{
+  padding-top: 2px;
+  display: flex;
+  align-items:baseline;
+
+  p{
+    font-size: 11px;
+  }
+}
+
+.divTempo{
+  display: flex;
+  align-items:baseline;
+  justify-content: left;
+}
+
+.divTempo p{
+  font-size: 8px;
+}
+
+ion-buttons{
+  ion-icon{
+    font-size: 14px;
+  }
+}
+
+//=============================================================================================================//
+
+.divSinopse{
+  margin-top: 4px;
+}
+
+.divSinopse p{
+  font-size: 9px;
+}
+
+//=============================================================================================================//
+
+.divInteract{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+
+  p{
+    text-align: center;
+    font-size: 10px;
+  }
+
+  a{
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--ion-color-dark);
+  }
+
+  ion-buttons{
+    ion-button{
+      width: 30px;
+      height: 14px;
+    }
+  }
+}
+
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}

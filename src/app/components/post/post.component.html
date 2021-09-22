@@ -1,39 +1,36 @@
 <ion-card class="post" button="true" (click)="entrarPost()">
-  <ion-card-content class="contentPost">
-    <div class=divSuperior>
-
-      <div class="divAvatar">
-        <ion-avatar> <img src="/assets/jesse.jpg"> </ion-avatar>
-      </div>
-      <div class="divHead">
-        <div class="grid">
-          <div class="divTitulo">
-            <p>{{this.name}}&nbsp;</p>
-          </div>
-          <div class="divTempo">
-            <p>{{this.time}}</p>
-            <p class="lugar">&nbsp;em&nbsp;{{this.city}},&nbsp;</p>
-            <p class="lugar">{{this.country}}</p>
-          </div>
+  <div class=divSuperior>
+    <div class="divAvatar">
+      <ion-avatar> <img src="/assets/jesse.jpg"> </ion-avatar>
+    </div>
+    <div class="divHeadSuperior">
+      <div class="grid">
+        <div class="divTitulo">
+          <p>{{this.name}}</p>
         </div>
-
-        <ion-buttons slot="end">
-          <ion-button (click)="openPopover($event)">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-
+        <div class="divTempo">
+          <p>{{this.time}}</p>
+          <p class="lugar">&nbsp;em&nbsp;{{this.city}},&nbsp;</p>
+          <p class="lugar">{{this.country}}</p>
+        </div>
       </div>
 
+      <ion-buttons slot="end">
+        <ion-button (click)="openPopover($event)">
+          <ion-icon name="ellipsis-horizontal"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </div>
-    <div class="title">
-      <p>Viajei para São Paulo e foi incrível!!</p>
-    </div>
-    <div class="divSinopse">
-      <p>
-      {{this.content}}
-      </p>
-    </div>
+  </div>
+
+  <div class="title">
+    <p>Viajei para São Paulo e foi incrível!!</p>
+  </div>
+  <div class="divSinopse">
+    <p>
+    {{this.content}}
+    </p>
+  </div>
 
   <div class="divImagens">
     <div class="divMaior"></div>
@@ -46,19 +43,16 @@
     </div>
   </div>
 
-    <div class="divRelevancia">
+  <div class="divRelevancia">
 
-      <div class="divStats">
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-label>4.2</ion-label>
-      </div>
-
-      <div class="divStats">
-        <ion-icon name="chatbubble-outline"></ion-icon>
-      <ion-label>32</ion-label>
-      </div>
-
+    <div class="divStats">
+      <ion-icon name="star-outline"></ion-icon>
+      <ion-label>4.2</ion-label>
     </div>
 
-  </ion-card-content>
+    <div class="divStats">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+    <ion-label>32</ion-label>
+    </div>
+  </div>
 </ion-card>

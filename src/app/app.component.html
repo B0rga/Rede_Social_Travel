@@ -9,77 +9,77 @@
         <div class="divDados">
           <h3>Jesse Pinkman</h3>
           <p>@JesseBeach</p>
-  
+
           <div class="divRelevancia">
             <div class="divStats">
-              <ion-icon name="heart-outline"></ion-icon>
-              <ion-label>98</ion-label>
+              <ion-icon name="bookmark-outline"></ion-icon>
+              <ion-label>5</ion-label>
             </div>
-  
+
             <div class="divStats">
               <ion-icon name="star-outline"></ion-icon>
               <ion-label>3.8</ion-label>
             </div>
-  
+
             <div class="divStats">
               <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-label>47</ion-label>
             </div>
           </div>
         </div>
-  
+
       </div>
-  
+
       <ion-list lines="none">
-  
+
         <ion-menu-toggle>
           <ion-item routerLink="/tabs" routerLinkActive="active-item">
             <ion-icon name="home-outline" slot="start"></ion-icon>
             <ion-label>Home</ion-label>
           </ion-item>
         </ion-menu-toggle>
-  
+
         <ion-menu-toggle>
           <ion-item routerLink="/perfil" routerLinkActive="active-item">
             <ion-icon name="person-outline" slot="start"></ion-icon>
             <ion-label>Perfil</ion-label>
           </ion-item>
         </ion-menu-toggle>
-  
+
         <ion-menu-toggle>
           <ion-item routerLink="/viagens" routerLinkActive="active-item">
             <ion-icon name="bookmark-outline" slot="start"></ion-icon>
             <ion-label>Viagens salvas</ion-label>
           </ion-item>
         </ion-menu-toggle>
-  
+
         <ion-menu-toggle>
           <ion-item routerLink="/configuracoes" routerLinkActive="active-item">
             <ion-icon name="settings-outline" slot="start"></ion-icon>
             <ion-label>Configurações</ion-label>
           </ion-item>
         </ion-menu-toggle>
-  
+
         <ion-item>
           <ion-icon name="moon-outline" slot="start"></ion-icon>
           <ion-label>Modo noturno</ion-label>
           <ion-toggle slot="end" (ionChange)='toggleTema($event)'></ion-toggle>
         </ion-item>
-  
+
         <ion-menu-toggle>
           <ion-item (click)="logOut()" routerLink="/sair" routerLinkActive="active-item">
             <ion-icon name="log-out-outline" slot="start"></ion-icon>
             <ion-label>Sair</ion-label>
           </ion-item>
         </ion-menu-toggle>
-  
+
       </ion-list>
-  
+
       <div class="divContas">
         <a>Adicionar uma conta existente</a><br>
         <a>Criar uma nova conta</a>
       </div>
-  
+
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
