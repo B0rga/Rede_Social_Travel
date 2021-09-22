@@ -59,6 +59,10 @@ const routes: Routes = [
     path: 'post-completo',
     loadChildren: () => import('./post-completo/post-completo.module').then( m => m.PostCompletoPageModule)
   },
+  {
+    path: 'outro-perfil',
+    loadChildren: () => import('./outro-perfil/outro-perfil.module').then( m => m.OutroPerfilPageModule)
+  },
 ];
 
 @NgModule({

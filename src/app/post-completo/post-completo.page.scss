@@ -28,7 +28,7 @@ ion-content{
   --padding-top: 8px;
   --padding-start: 8px;
   --padding-end: 8px;
-  --padding-bottom: 10px;
+  --padding-bottom: 24px;
 }
 
 //=============================================================================================================//
@@ -191,4 +191,81 @@ ion-buttons{
   background-position: center;
   margin-bottom: 10px;
 }
+
+.divImg3{
+  width: 100%;
+  min-height: 140px;
+  border-radius: 14px;
+  background-image: url('/assets/torre.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: right;
+  align-items:flex-end;
+  padding: 2px;
+
+  ion-icon{
+    font-size: 22px;
+  }
+}
+
+.stats{
+  display: flex;
+  justify-content: center;
+
+  ion-button{
+    margin: 0 10px;
+  }
+
+  ion-icon{
+    font-size: 16px;
+  }
+}
+
+h1{
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.divDesempenho{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.avaliacoes{
+  margin: 0 10px;
+
+  h2{
+    font-size: 30pt;
+  }
+}
+
+.divStar{
+  width: 90px;
+}
+
+.star{
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+  justify-content: right;
+
+  ion-icon{
+    margin: 0 -2px;
+    font-size: 12px;
+  }
+}
+
+table{
+  p{
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}
+
+
 

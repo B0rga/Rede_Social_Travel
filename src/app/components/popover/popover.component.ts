@@ -12,7 +12,7 @@ export class PopoverComponent implements OnInit {
   constructor(public router: Router, private popoverController: PopoverController) { }
 
   async btnPerfil(){
-    this.router.navigate(['perfil']);
+    this.router.navigate(['outro-perfil']);
     await this.popoverController.dismiss();
   }
 

@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divPaisagem" class="ion-activatable ripple-parent"></div>
+
+  <div class="divInfos">
+
+    <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img src="/assets/jesse.jpg"></ion-avatar>
+
+    <div class="divHead">
+      <div class="divId">
+        <p id="nome" class="ion-activatable ripple-parent">Jesse Pinkman</p>
+        <p id="usuario">@JesseBeach</p>
+        <div class="divLocal">
+          <ion-icon name="location-outline"></ion-icon>
+          <p>São Paulo, Brasil</p>
+        </div>
+      </div>
+
+      <ion-chip>Seguir</ion-chip>
+    </div>
+
+
+  </div>
+
+  <div class="divStats">
+    <div>
+      <p>1</p>
+      <p>Posts</p>
+    </div>
+    <div>
+      <p>50</p>
+      <p>Seguindo</p>
+    </div>
+    <div>
+      <p>87</p>
+      <p>Seguidores</p>
+    </div>
+  </div>
+
+  <div class="divMeusPosts">
+    <p>Publicações</p>
+
+    <ion-buttons>
+
+      <ion-button>
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+
+    </ion-buttons>
+
+  </div>
+
+  <app-post></app-post>
+
+</ion-content>
+

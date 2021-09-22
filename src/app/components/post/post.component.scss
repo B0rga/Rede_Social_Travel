@@ -49,7 +49,17 @@
   }
 }
 
+.divTempo{
+  display: flex;
+  align-items:baseline;
+  justify-content: left;
+}
+
 .divTempo p{
+  font-size: 8px;
+}
+
+.divTempo .lugar{
   font-size: 8px;
   color: #707070;
 }
@@ -62,7 +72,8 @@ ion-buttons{
 //=============================================================================================================//
 
 .title{
-  margin-top: 14px;
+  margin-top: 10px;
+  text-align: left;
 
   p{
     font-size: 10px;
@@ -74,6 +85,7 @@ ion-buttons{
 
 .divSinopse{
   padding: 2px 2px 8px 2px;
+  text-align: left;
 }
 
 .divSinopse p{
