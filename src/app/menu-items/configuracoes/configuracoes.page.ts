@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
   selector: 'app-configuracoes',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./configuracoes.page.scss'],
 })
 export class ConfiguracoesPage implements OnInit {
-
-  constructor() { }
+  userInfo:Object = {}
+  constructor(private auth:AuthServiceService) { }
 
   ngOnInit() {
+    this.userInfo = {
+      userName: "@jesse",
+      email: "jesse@jesse.com",
+      phone: "11 91280-4222",
+      place: "São Paulo SP Brasil"
+    }
   }
 
+
 }
+

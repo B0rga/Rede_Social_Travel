@@ -8,9 +8,16 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Localização</ion-label>
-        <ion-input type="text" placeholder="Ex: São Paulo, Brasil / Restaurante"></ion-input>
+        <ion-input #local (ionChange)="searchLocalization($event)" type="text" placeholder="Ex: São Paulo, Brasil / Restaurante"></ion-input>
+        <ng-container>
+          <span class="options" *ngFor="let lugar of places">
+            <p>{{lugar.description}}</p> 
+            <ion-icon slot="end" name="open-outline"></ion-icon>
+          </span> 
+        </ng-container>
         <ion-icon name="create-outline" slot="end"></ion-icon>
       </ion-item>
+     
       <ion-item id="contentItem">
         <ion-label position="floating">Conteúdo</ion-label>
         <ion-textarea type="text" maxlength="300" rows="8" auto-grow="true">

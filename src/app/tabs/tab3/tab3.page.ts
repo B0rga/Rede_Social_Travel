@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-tab3',
@@ -6,10 +6,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab3.page.scss'],
 })
 export class Tab3Page implements OnInit {
-
+  autoComplete = new google.maps.places.AutocompleteService()
+  places:Array<Object>=[]
+  @ViewChild('local')localRef:ElementRef
   constructor() { }
 
   ngOnInit() {
+    
+  }
+  searchLocalization(ev:any){
+    const local = ev.target.value as string
+    if(!local.trim().length){
+      this.places = []
+      return false 
+    }else{
+      this.autoComplete.getPlacePredictions({input:local},(places,status)=>{
+        console.log(places)
+        this.places = places
+      })
+    }
+
   }
 
 }
