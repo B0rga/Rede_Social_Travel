@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { EstrelasComponent } from './../components/estrelas/estrelas.component';
 
 @Component({
   selector: 'app-post-completo',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCompletoPage implements OnInit {
 
-  constructor() { }
+  constructor(public popoverController: PopoverController) { }
+
+  async openPopover(ev: any) {
+    event.stopPropagation();
+    const popover = await this.popoverController.create({
+      component: EstrelasComponent,
+      cssClass: 'estrelaPopover',
+      event: ev,
+    });
+    return await popover.present();
+  }
 
   ngOnInit() {
   }

@@ -4,12 +4,14 @@ import { IonicModule } from '@ionic/angular';
 import { PostComponent } from './post/post.component';
 import { PopoverComponent } from './popover/popover.component';
 import { ComentarioComponent } from './comentario/comentario.component';
+import { EstrelasComponent } from './estrelas/estrelas.component';
 
 @NgModule({
   declarations: [
     PostComponent,
     PopoverComponent,
-    ComentarioComponent
+    ComentarioComponent,
+    EstrelasComponent
   ],
   imports: [
     IonicModule,
@@ -18,7 +20,8 @@ import { ComentarioComponent } from './comentario/comentario.component';
   exports: [
     PostComponent,
     PopoverComponent,
-    ComentarioComponent
+    ComentarioComponent,
+    EstrelasComponent
   ]
 })
 export class SharedComponentsModule { }
