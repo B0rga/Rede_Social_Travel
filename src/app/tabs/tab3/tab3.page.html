@@ -10,7 +10,7 @@
         <ion-label position="floating">Localização</ion-label>
         <ion-input #local (ionChange)="searchLocalization($event)" type="text" placeholder="Ex: São Paulo, Brasil / Restaurante"></ion-input>
         <ng-container>
-          <span class="options" *ngFor="let lugar of places">
+          <span class="options" *ngFor="let lugar of places" (click)="selectPlace(lugar)">
             <p>{{lugar.description}}</p> 
             <ion-icon slot="end" name="open-outline"></ion-icon>
           </span> 

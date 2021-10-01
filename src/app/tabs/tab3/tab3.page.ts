@@ -8,11 +8,12 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class Tab3Page implements OnInit {
   autoComplete = new google.maps.places.AutocompleteService()
   places:Array<Object>=[]
-  @ViewChild('local')localRef:ElementRef
-  constructor() { }
+  constructor() {
+   //
+   }
 
   ngOnInit() {
-    
+
   }
   searchLocalization(ev:any){
     const local = ev.target.value as string
@@ -26,6 +27,10 @@ export class Tab3Page implements OnInit {
       })
     }
 
+  }
+  selectPlace(ev){
+    console.log(ev)
+    //this.search.textSearch()
   }
 
 }
