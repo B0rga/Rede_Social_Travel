@@ -38,9 +38,10 @@ export class EstrelasComponent implements AfterViewInit {
   onMove(detail){
     const currentX = detail.currentX;
     const stars = this.Stars._results //pega o array com os ion-icons
-    //muda o tamanho e o preenchimento dos ion-icons
+    //percorre o array com os ion-icons
     stars.forEach((star,pos)=>{
-      if(currentX >= 110+(30*pos) && currentX <= 140+(30*pos)){
+      //muda o tamanho e o preenchimento dos ion-icons
+      if(currentX >= 100+(30*pos) && currentX <= 140+(30*pos)){
         star.size = 'large'
         star.name = 'star'
       }else if(currentX>140+(30*pos)){
