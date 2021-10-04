@@ -9,7 +9,11 @@ import { MenuController } from '@ionic/angular';
 })
 export class AppComponent{
   thisPage:string = ''
-  constructor(private auth:AuthServiceService, private router:Router, private menu:MenuController) {
+  constructor(
+    private auth:AuthServiceService,
+    private router:Router,
+    private menu:MenuController
+    ) {
     
   }
   onLoad(){

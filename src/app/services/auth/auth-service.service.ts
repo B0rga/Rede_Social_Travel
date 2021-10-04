@@ -12,7 +12,7 @@ import { GooglePlus } from '@ionic-native/google-plus'
   providedIn: 'root'
 })
 export class AuthServiceService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8081'
+  AUTH_SERVER_ADDRESS:  string  =  'http://2fb3-170-233-250-6.ngrok.io'
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   public user:object
@@ -24,12 +24,12 @@ export class AuthServiceService {
     ) { 
   }
   login(user: User): Observable<AuthResponse>  {
-    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/login`, user).pipe(
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/api/login`, user).pipe(
       tap(async (res:  AuthResponse ) => {
         if (res.user) {
             await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.user.access_token)
-            await this.storage.set("EXPIRES_IN", res.user.expires_in)
+            await this.storage.set("ACCESS_TOKEN", res.user.Access_token)
+            await this.storage.set("EXPIRES_IN", res.user.Expires_in)
             this.authSubject.next(true)
         }
       })
@@ -37,12 +37,12 @@ export class AuthServiceService {
     )
   }
   singIn(user: User): Observable<AuthResponse>  {
-    return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/cadastro`, user).pipe(
+    return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/api/user/create`, user).pipe(
       tap(async (res:  AuthResponse ) => {
         if (res.user) {
             await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.user.access_token)
-            await this.storage.set("EXPIRES_IN", res.user.expires_in)
+            await this.storage.set("ACCESS_TOKEN", res.user.Access_token)
+            await this.storage.set("EXPIRES_IN", res.user.Expires_in)
             this.authSubject.next(true)
         }
       })
@@ -57,6 +57,9 @@ export class AuthServiceService {
       await this.storage.set('EXPIRES_IN',res.authResponse.expiresIn)
       this.router.navigate(['tabs'])
     })
+  }
+  getUser(username){
+    this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/api/user/`)
   }
   loginWithGoogle(){
     GooglePlus.login({'webClientId':'251518684476-md8hta1ij3eqceu459mumbflf48n5l8v.apps.googleusercontent.com', 'offiline':true})

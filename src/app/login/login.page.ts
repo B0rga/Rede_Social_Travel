@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
 
   showPassword = false;
   passwordToggleIcon = 'eye-outline';
-
+  User:Object = {}
   get email(){
     return this.loginForm.get('email');
   }
@@ -72,11 +72,11 @@ export class LoginPage implements OnInit {
   public submit(){
     if(this.loginForm.valid){
       //this.auth.login(this.loginForm.value).subscribe(res=>{
-        //if(res.user)
+       // if(res.user)
           this.router.navigate(['tabs'])
         //else
-        //alert('Preencha os campos corretamente!')
-      //})
+       // alert('Preencha os campos corretamente!')
+     // })
 
     }else {
       alert("Preencha os campos corretamente!");

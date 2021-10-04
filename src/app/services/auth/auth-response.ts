@@ -1,9 +1,9 @@
 export interface AuthResponse {
     user: {
-        id: number,
-        name: string,
-        email: string,
-        access_token: string,
-        expires_in: number
+        Id: number,
+        Name: string,
+        Email: string,
+        Access_token: string,
+        Expires_in: number
     }
 }

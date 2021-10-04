@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthServiceService } from '../services/auth/auth-service.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -54,6 +55,7 @@ export class CadastroPage implements OnInit {
   constructor(
     private router: Router,
     private FormBuilder: FormBuilder,
+    private auth:AuthServiceService
   ) { }
   matchPassword(formGroup: FormGroup){
     const { value: password } = formGroup.get('senha');
@@ -65,12 +67,12 @@ export class CadastroPage implements OnInit {
 
   public submit(){
     if(this.cadastroForm.valid){
-      //this.auth.cadastro(this.cadastroForm.value).subscribe(res=>{
+      //this.auth.singIn(this.cadastroForm.value).subscribe(res=>{
         //if(res.user)
           this.router.navigate(['confirmar-email'])
         //else
         //alert('Preencha os campos corretamente!')
-      //})
+     // })
 
     }else {
       alert("Preencha os campos corretamente!");
