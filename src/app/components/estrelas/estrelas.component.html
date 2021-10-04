@@ -1,20 +1,20 @@
 <ion-grid>
-  <ion-row>
+  <div #star>
     <ion-col>
-      <ion-icon [name]="stars>=1?'star':'star-outline'" (click)="star(1)" ></ion-icon>
+      <ion-icon #stars [name]="stars>=1?'star':'star-outline'"></ion-icon>
     </ion-col>
     <ion-col>
-      <ion-icon [name]="stars>=2?'star':'star-outline'" (click)="star(2)"></ion-icon>
+      <ion-icon #stars [name]="stars>=2?'star':'star-outline'"></ion-icon>
     </ion-col>
     <ion-col>
-      <ion-icon [name]="stars>=3?'star':'star-outline'" (click)="star(3)"></ion-icon>
+      <ion-icon #stars [name]="stars>=3?'star':'star-outline'"></ion-icon>
     </ion-col>
     <ion-col>
-      <ion-icon [name]="stars>=4?'star':'star-outline'" (click)="star(4)"></ion-icon>
+      <ion-icon #stars [name]="stars>=4?'star':'star-outline'"></ion-icon>
     </ion-col>
     <ion-col>
-      <ion-icon [name]="stars>=5?'star':'star-outline'" (click)="star(5)"></ion-icon>
+      <ion-icon #stars [name]="stars>=5?'star':'star-outline'"></ion-icon>
     </ion-col>
-  </ion-row>
+  </div>
 </ion-grid>
 
