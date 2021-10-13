@@ -34,6 +34,7 @@ export class EstrelasComponent implements AfterViewInit {
     stars.forEach(star => {
       star.size = 'small' //diminui todos os ion-icons quando termina o gesto
     });
+    this.popoverController.dismiss()
   }
   onMove(detail){
     const currentX = detail.currentX;
