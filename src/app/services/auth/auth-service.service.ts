@@ -12,7 +12,7 @@ import { GooglePlus } from '@ionic-native/google-plus'
   providedIn: 'root'
 })
 export class AuthServiceService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://2fb3-170-233-250-6.ngrok.io'
+  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8081'
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   public user:object
@@ -65,21 +65,17 @@ export class AuthServiceService {
     GooglePlus.login({'webClientId':'251518684476-md8hta1ij3eqceu459mumbflf48n5l8v.apps.googleusercontent.com', 'offiline':true})
     .then(res=>console.log(res)).catch(err=>console.log(err))
   }
-  logado(){
-    this.storage.create()
-    let token =  this.storage.get("ACCESS_TOKEN")
-    token.then((token)=>{
-      if(token){
-        this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/logado`, {token:token}).subscribe((res:AuthResponse)=>{
-          if(!res.user){
-            this.router.navigate(['home'])
-          }
-        })
-      }else{
-        this.router.navigate(['home'])
-      }
+  async logado(){
+    await this.storage.create()
+    let token =  await this.storage.get("ACCESS_TOKEN")
+    alert(token)
+    if(token){
+      this.router.navigate(['tabs'])
+    }else{
       
-    })
+      this.router.navigate(['home'])
+    }
+      
   }
   async logout(){
     await this.storage.create()

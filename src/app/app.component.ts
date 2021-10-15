@@ -7,7 +7,7 @@ import { MenuController } from '@ionic/angular';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent{
+export class AppComponent implements AfterViewInit{
   thisPage:string = ''
   constructor(
     private auth:AuthServiceService,
@@ -15,6 +15,9 @@ export class AppComponent{
     private menu:MenuController
     ) {
     
+  }
+  ngAfterViewInit(){
+    //this.auth.logado()
   }
   onLoad(){
     if(this.thisPage != this.router.url){

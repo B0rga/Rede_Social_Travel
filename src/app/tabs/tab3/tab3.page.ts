@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { CameraService } from 'src/app/services/camera.service';
 @Component({
   selector: 'app-tab3',
   templateUrl: './tab3.page.html',
@@ -8,12 +9,16 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class Tab3Page implements OnInit {
   autoComplete = new google.maps.places.AutocompleteService()
   places:Array<Object>=[]
-  constructor() {
+  photo:Array<any>=[]
+  constructor(private cam:CameraService) {
    //
    }
 
   ngOnInit() {
 
+  }
+  galery(){
+    this.photo = this.cam.getPhotos()
   }
   searchLocalization(ev:any){
     const local = ev.target.value as string
