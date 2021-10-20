@@ -12,7 +12,7 @@ import { GooglePlus } from '@ionic-native/google-plus'
   providedIn: 'root'
 })
 export class AuthServiceService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8081'
+  AUTH_SERVER_ADDRESS:  string  =  'http://63a6-45-165-177-39.ngrok.io'
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   public user:object
@@ -24,12 +24,15 @@ export class AuthServiceService {
     ) { 
   }
   login(user: User): Observable<AuthResponse>  {
-    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/api/login`, user).pipe(
+    console.log(user)
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/login`, user).pipe(
       tap(async (res:  AuthResponse ) => {
-        if (res.user) {
+        if (res) {
+            alert(res)
             await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.user.Access_token)
-            await this.storage.set("EXPIRES_IN", res.user.Expires_in)
+            await this.storage.set("ACCESS_TOKEN", res.Access_token)
+            await this.storage.set("EXPIRES_IN", res.Expires_in)
+            await this.storage.set("USER", res.User)
             this.authSubject.next(true)
         }
       })
@@ -39,10 +42,10 @@ export class AuthServiceService {
   singIn(user: User): Observable<AuthResponse>  {
     return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/api/user/create`, user).pipe(
       tap(async (res:  AuthResponse ) => {
-        if (res.user) {
+        if (res.User) {
             await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.user.Access_token)
-            await this.storage.set("EXPIRES_IN", res.user.Expires_in)
+            await this.storage.set("ACCESS_TOKEN", res.Access_token)
+            await this.storage.set("EXPIRES_IN", res.Expires_in)
             this.authSubject.next(true)
         }
       })

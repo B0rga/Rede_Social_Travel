@@ -8,7 +8,7 @@
       </ion-item>
       <ion-item>
         <ion-label position="floating">Localização</ion-label>
-        <ion-input #local (ionChange)="searchLocalization($event)" type="text" placeholder="Ex: São Paulo, Brasil / Restaurante"></ion-input>
+        <ion-input #local clearInput (ionBlur)="clearPlaces()" (ionChange)="searchLocalization($event)" type="text" placeholder="Ex: São Paulo, Brasil / Restaurante"></ion-input>
         <ng-container>
           <span class="options" *ngFor="let lugar of places" (click)="selectPlace(lugar)">
             <p>{{lugar.description}}</p> 
@@ -26,22 +26,24 @@
         <ion-icon name="create-outline" slot="end"></ion-icon>
       </ion-item>
       <ion-item *ngIf="photo.length>0">
-        <div class="postImg" *ngFor="let img of photo">
-         <div>
-            <img [src]="img.data"/>
-         </div>
-        </div>
-        
+        <ion-grid fixed class="postImg">
+          <ion-row>
+            <ion-col  *ngFor="let foto of photo" size="6"><img [src]="foto.data"/></ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
     </ion-list>
     <div class="divPosts">
-      <ion-chip>Post +</ion-chip>
+      <ion-chip (click)="uploadImage()">Post +</ion-chip>
       <ion-buttons slot="end">
         <ion-button>
           <ion-icon name="location-outline"></ion-icon>
         </ion-button>
-        <ion-button (click)="galery($event)">
+        <ion-button (click)="galery()">
           <ion-icon name="images-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="camera()">
+          <ion-icon name="camera-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
     </div>

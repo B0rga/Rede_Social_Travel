@@ -39,19 +39,17 @@
         </ion-buttons>
       </div>
       <div class="title">
-        <p>Viajei para São Paulo e foi incrível!!</p>
+        <p>{{thread.title}}</p>
       </div>
       <div class="divSinopse">
         <p>
-        Essa foi minha primeira viagem para a França, e foi incrível.
-        O povo francês é muito acolhedor e a comida francesa
-        é a melhor.
+        {{thread.content}}
         </p>
       </div>
     </div>
   </div>
 
-  <div class="divPrincipal">
+  <div class="divPrincipal" *ngFor="let post of replacedThread">
     <div class="divEsquerda">
       <ion-icon name="ellipse-outline"></ion-icon>
       <div class="divLine"></div>
@@ -76,84 +74,11 @@
       </div>
       <div class="divSinopse">
         <p>
-          O hotel é bem organizado, tem uma recepção muito bonita
-          e os atendentes são muito educados.
+          {{post.content}}
         </p>
       </div>
       <div class="divImg1"></div>
 
-    </div>
-  </div>
-
-  <div class="divPrincipal">
-    <div class="divEsquerda">
-      <ion-icon name="ellipse-outline"></ion-icon>
-      <div class="divLine"></div>
-    </div>
-
-    <div class="divDesc">
-      <div class="divHeadPrincipal">
-        <div class="divTitulo">
-            <p>Jesse Pinkman&nbsp;</p>
-            <p>X dias atrás</p>
-        </div>
-        <ion-buttons slot="end">
-          <ion-button (click)="openPopover($event)">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
-      <div class="divLocal">
-        <p>Sobre o Hotel&nbsp;</p>
-        <a>Hotel Vendaval</a>
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="divSinopse">
-        <p>
-          O hotel é bem organizado, tem uma recepção muito bonita
-          e os atendentes são muito educados.
-        </p>
-      </div>
-      <div class="divImg2"></div>
-    </div>
-  </div>
-
-  <div class="divPrincipal">
-    <div class="divEsquerda">
-      <ion-icon name="ellipse-outline"></ion-icon>
-      <div class="divLine"></div>
-    </div>
-
-    <div class="divDesc">
-      <div class="divHeadPrincipal">
-        <div class="divTitulo">
-            <p>Jesse Pinkman&nbsp;</p>
-            <p>X dias atrás</p>
-        </div>
-        <ion-buttons slot="end">
-          <ion-button (click)="openPopover($event)">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
-      <div class="divLocal">
-        <p>Sobre o Hotel&nbsp;</p>
-        <a>Hotel Vendaval</a>
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="divSinopse">
-        <p>
-          O hotel é bem organizado, tem uma recepção muito bonita
-          e os atendentes são muito educados.
-        </p>
-      </div>
-      <div class="divImg3">
-        <ion-buttons>
-          <ion-button>
-            <ion-icon src= "/assets/maps.svg"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
     </div>
   </div>
 

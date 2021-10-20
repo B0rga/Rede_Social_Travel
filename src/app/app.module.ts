@@ -13,7 +13,7 @@ import { CameraService } from './services/camera.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), SharedComponentsModule ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot(), SharedComponentsModule],
   providers: [Facebook,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },{ provide: Camera, useClass: CameraService }],
   bootstrap: [AppComponent],
 })

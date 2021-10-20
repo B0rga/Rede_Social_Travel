@@ -20,7 +20,7 @@
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
       <ion-item lines="full">
         <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Digite aqui o email" required></ion-input>
+        <ion-input formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.email">
         <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
@@ -30,7 +30,7 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input formControlName="senha" [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
+        <ion-input formControlName="Password" [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
         <ion-icon slot="end" [name]="passwordToggleIcon" id="eye" (click)="btnShowHide()"></ion-icon>
       </ion-item>
       <div *ngFor="let error of errorMessages.senha">

@@ -6,17 +6,21 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class CameraService extends Camera{
   photos:Array<any>=[]
-  takingPhoto(){
+  takePhoto(){
     const options: CameraOptions = {
       quality: 100,
-      destinationType: this.DestinationType.FILE_URI,
+      destinationType: this.DestinationType.DATA_URL,
       encodingType: this.EncodingType.JPEG,
       mediaType: this.MediaType.PICTURE,
-      allowEdit: true
+      correctOrientation: true,
+      saveToPhotoAlbum: true
+     // allowEdit: true
     }
     this.getPicture(options).then((imageData)=>{
-      this.photos.unshift({
-        data: 'data:image/jpeg;base64,' + imageData
+      this.photos.push({
+        data: 'data:image/jpeg;base64,' + imageData,
+        base64: imageData,
+        type: 'image/jpeg'
       }) 
     })
     return this.photos
@@ -31,8 +35,10 @@ export class CameraService extends Camera{
     }
     
     this.getPicture(options).then((imageData)=>{
-      this.photos.unshift({
-        data: 'data:image/jpeg;base64,' + imageData
+      this.photos.push({
+        data: 'data:image/jpeg;base64,' + imageData,
+        base64: imageData,
+        type: 'image/jpeg'
       }) 
     })
     return this.photos
