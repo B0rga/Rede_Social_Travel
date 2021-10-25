@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient } from  '@angular/common/http'
+import { HttpClient, HttpErrorResponse } from  '@angular/common/http'
 import { tap } from  'rxjs/operators'
 import { Observable, BehaviorSubject } from  'rxjs'
 import {User} from './user'
@@ -8,14 +8,15 @@ import { Storage } from '@ionic/storage-angular'
 import {Router} from '@angular/router'
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { GooglePlus } from '@ionic-native/google-plus'
+import {Login} from './login'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://63a6-45-165-177-39.ngrok.io'
+  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8081'
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
-  public user:object
+  private user:User
   constructor(
     private router: Router,
     private  httpClient:  HttpClient,
@@ -23,34 +24,54 @@ export class AuthServiceService {
     private fb:Facebook
     ) { 
   }
-  login(user: User): Observable<AuthResponse>  {
+  login(user: Login): Observable<AuthResponse>  {
     console.log(user)
     return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/login`, user).pipe(
       tap(async (res:  AuthResponse ) => {
-        if (res) {
-            alert(res)
-            await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.Access_token)
-            await this.storage.set("EXPIRES_IN", res.Expires_in)
-            await this.storage.set("USER", res.User)
-            this.authSubject.next(true)
+        if(res.acesstoken){
+          await this.storage.create()
+          await this.storage.set("ACCESS_TOKEN", res.acesstoken)
+          await this.storage.set("EXPIRES_IN", res.expiresin)
+          await this.storage.set("USER", res.user)
+          this.clearUser()
+          this.authSubject.next(true)
         }
-      })
+      },err=>this.errorHandling(err))
 
     )
   }
-  singIn(user: User): Observable<AuthResponse>  {
-    return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/api/user/create`, user).pipe(
+  clearUser(){
+    this.user = null
+  }
+  errorHandling(err:HttpErrorResponse){
+    if(err.status == 404){
+      alert('Servidor indisponivel')
+    }
+  }
+  createUser(user:User){
+    this.user = user
+  }
+  singIn(): Observable<AuthResponse>  {
+    return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/user/create`, this.user).pipe(
       tap(async (res:  AuthResponse ) => {
-        if (res.User) {
+        if(res.acesstoken){
             await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.Access_token)
-            await this.storage.set("EXPIRES_IN", res.Expires_in)
+            await this.storage.set("ACCESS_TOKEN", res.acesstoken)
+            await this.storage.set("EXPIRES_IN", res.expiresin)
             this.authSubject.next(true)
         }
-      })
+      },err=>this.errorHandling(err))
 
     )
+  }
+  sendMail(code){
+    
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/emailVerification`,{Email: this.user.Email, Code: code})
+    .pipe(
+      tap(async (res)=>{
+        
+    }, err=>this.errorHandling(err)))
+    
   }
   loginWithFacebook(){
     this.fb.login(['email','public_profile']).then(async (res:FacebookLoginResponse)=>{

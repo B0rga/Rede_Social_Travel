@@ -22,12 +22,15 @@ export class BlobStorageService {
   upload(files:Array<any>,containerName:string, sas:string, handler: ()=> void){
     let fileNames = []
     files.forEach(file=>{
+      //cria uuid unico para cada arquivo
       let name = uuid.v4()
       let date = new Date()
       name = `${date.getFullYear()}-${name}`
       fileNames.push(name)
       //console.log(name)
+      //cria o buffer do arquivo
       let buffer = new Buffer(file.base64,'base64')
+      //faz o upload do arquivo
       const blockBlobClient = this.containerClient(containerName,sas).getBlockBlobClient(name)
       blockBlobClient.uploadData(buffer, {blobHTTPHeaders: {blobContentType: file.type}})
         .then(()=>handler())

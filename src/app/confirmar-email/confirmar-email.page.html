@@ -29,8 +29,10 @@
 
     <div id="divContexto">
       <h4>Digite o código enviado na sua caixa de email</h4>
+      <small>Tempo restante: 0{{this.minutes}}:{{this.seconds>=10?null:'0'}}{{this.seconds}}</small><br>
+      <small >Verifique a caixa de spam</small>
     </div>
-
+   
     <form (ngSubmit)="submit()">
       <div id="divCodigo">
         <code-input

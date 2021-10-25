@@ -29,46 +29,44 @@
     <form [formGroup]="cadastroForm" (ngSubmit)="submit()">
       <ion-item lines="full">
         <ion-label position="floating">Nome de usuário</ion-label>
-        <ion-input formControlName="nome" type="text" placeholder="Digite aqui o nome" required></ion-input>
+        <ion-input formControlName="Name" type="text" placeholder="Digite aqui o nome" required></ion-input>
       </ion-item>
-      <div *ngFor="let error of errorMessages.nome">
-        <ng-container *ngIf="nome.hasError(error.type) && (nome.dirty || nome.touched)">
+      <div *ngFor="let error of errorMessages.Name">
+        <ng-container *ngIf="Name.hasError(error.type) && (Name.dirty || Name.touched)">
           <small class="error-message">{{error.message}}</small>
         </ng-container>
       </div>
 
       <ion-item lines="full">
         <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="email" type="email" placeholder="Digite aqui o email" required></ion-input>
+        <ion-input formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
       </ion-item>
-      <div *ngFor="let error of errorMessages.email">
-        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+      <div *ngFor="let error of errorMessages.Email">
+        <ng-container *ngIf="Email.hasError(error.type) && (Email.dirty || Email.touched)">
           <small class="error-message">{{error.message}}</small>
         </ng-container>
       </div>
 
       <ion-item lines="full">
         <ion-label position="floating">Senha</ion-label>
-        <ion-input formControlName="senha" type="password" placeholder="Digite aqui a senha" required></ion-input>
+        <ion-input formControlName="Password" type="password" placeholder="Digite aqui a senha" required></ion-input>
       </ion-item>
-      <div *ngFor="let error of errorMessages.senha">
-        <ng-container *ngIf="senha.hasError(error.type) && (senha.dirty || senha.touched)">
+      <div *ngFor="let error of errorMessages.Password">
+        <ng-container *ngIf="Password.hasError(error.type) && (Password.dirty || Password.touched)">
           <small class="error-message">{{error.message}}</small>
         </ng-container>
       </div>
 
       <ion-item lines="full">
         <ion-label position="floating">Confirmar senha</ion-label>
-        <ion-input formControlName="confirmar_senha" type="password" placeholder="Confirme aqui a senha" required></ion-input>
+        <ion-input formControlName="ConfirmPassword" type="password" placeholder="Confirme aqui a senha" required></ion-input>
       </ion-item>
-      <div *ngFor="let error of errorMessages.confirmar_senha">
-        <ng-container *ngIf="confirmar_senha.hasError(error.type)  && (confirmar_senha.dirty || confirmar_senha.touched)">
-          <small class="error-message">{{error.message}}</small>
+      <div>
+        <ng-container *ngIf="cadastroForm.hasError('passwordNotMatch') && (ConfirmPassword.dirty || ConfirmPassword.touched)">
+          <small class="error-message">As senhas devem ser iguais</small>
         </ng-container>
       </div>
-      <ng-container *ngIf="cadastroForm.hasError('passwordNotMatch')">
-        <small class="error-message">As senhas devem ser iguais</small>
-      </ng-container>
+      
       <div id="divTermos">
         <ion-label>Ao clicar em Continuar, você concorda com nossos</ion-label><br>
         <a id="Termos">Termos e políticas de dados.</a>

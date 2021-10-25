@@ -76,7 +76,7 @@ export class LoginPage implements OnInit {
           this.router.navigate(['tabs'])
         else
         alert('Preencha os campos corretamente!')
-     })
+     }, err=>this.auth.errorHandling(err))
 
     }else {
       alert("Preencha os campos corretamente!");
