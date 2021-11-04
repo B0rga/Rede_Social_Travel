@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,31 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab1Page implements OnInit {
   posts:Array<Object>=[]
-  constructor() { 
-    this.posts.push({
-      user_name:"Melkson Albuquerque",
-      post_content: "viajei para paris e foi incrivel",
-      city:"Paris",
-      country:"França"
-    },{
-      user_name:"Julio Cezar",
-      post_content: "viajei para Roma e foi incrivel",
-      city:"Roma",
-      country:"Italia"
-    },{
-      user_name:"Melkson Albuquerque",
-      post_content: "viajei para paris e foi incrivel",
-      city:"Paris",
-      country:"França"
-    },{
-      user_name:"Melkson Albuquerque",
-      post_content: "viajei para paris e foi incrivel",
-      city:"Paris",
-      country:"França"
-    })
+  constructor(
+    private postService:PostService
+  ) {
+    
   }
-
+  loadPosts(event){
+    setTimeout(()=>{
+      this.getPosts(event)
+      let maxPosts = 1000
+      console.log(this.posts.length)
+      if(this.posts.length>=maxPosts){
+        event.target.disabled = true
+      } 
+    }, 300)
+    
+  }
+  getPosts(event?):void{
+    this.postService.getPosts().subscribe((res)=>{
+      this.posts = this.posts.concat(res.posts)
+    })
+    if(event){
+      event.target.complete()
+    }
+  }
   ngOnInit() {
+    this.getPosts() 
   }
 
 }

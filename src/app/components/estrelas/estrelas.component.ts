@@ -1,5 +1,5 @@
-import { AfterViewInit, Component,ContentChild,ElementRef,QueryList,ViewChild, ViewChildren } from '@angular/core';
-import {  PopoverController, Gesture, GestureController, IonIcon } from '@ionic/angular';
+import { AfterViewInit, Component,ElementRef,QueryList,ViewChild, ViewChildren } from '@angular/core';
+import {  PopoverController, Gesture, GestureController, IonIcon, IonRow } from '@ionic/angular';
 @Component({
   selector: 'app-estrelas',
   templateUrl: './estrelas.component.html',
@@ -8,7 +8,7 @@ import {  PopoverController, Gesture, GestureController, IonIcon } from '@ionic/
 export class EstrelasComponent implements AfterViewInit {
   filledStar = false;
   stars:Number = 0
-  @ViewChild('star') divStar:ElementRef
+  @ViewChild(IonRow, {read:ElementRef}) divStar:ElementRef
   @ViewChildren(IonIcon) Stars:QueryList<IonIcon>
   constructor(
     private popoverController: PopoverController,
@@ -19,6 +19,7 @@ export class EstrelasComponent implements AfterViewInit {
   star(n){
     this.filledStar = !this.filledStar
     this.stars = n
+    this.onEnd()
   }
   ngAfterViewInit() {
     const gesture:Gesture = this.gestureCtrl.create({

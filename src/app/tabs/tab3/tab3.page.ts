@@ -24,11 +24,9 @@ export class Tab3Page implements OnInit {
   }
   camera(){
     this.photo = this.cam.takePhoto()
-    //alert(this.photo[0].data)
   }
   galery(){
     this.photo = this.cam.getPhotos()
-    //alert(this.photo[0].data)
   }
   clearPlaces(){
     this.places = []

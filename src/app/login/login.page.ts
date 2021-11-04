@@ -13,11 +13,11 @@ export class LoginPage implements OnInit {
   passwordToggleIcon = 'eye-outline';
   User:Object = {}
   get email(){
-    return this.loginForm.get('email');
+    return this.loginForm.get('Email');
   }
 
   get senha(){
-    return this.loginForm.get('senha');
+    return this.loginForm.get('Password');
   }
 
   public errorMessages ={
@@ -71,12 +71,7 @@ export class LoginPage implements OnInit {
   }
   public submit(){
     if(this.loginForm.valid){
-      this.auth.login(this.loginForm.value).subscribe((res)=>{
-        if(res)
-          this.router.navigate(['tabs'])
-        else
-        alert('Preencha os campos corretamente!')
-     }, err=>this.auth.errorHandling(err))
+      this.auth.login(this.loginForm.value).subscribe()
 
     }else {
       alert("Preencha os campos corretamente!");

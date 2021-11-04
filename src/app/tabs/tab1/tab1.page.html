@@ -1,11 +1,12 @@
 <ion-content>
 
   <h4>Recomendados</h4>
- 
+  <app-post [user_name]="posts.username" [post_content]="posts.postcontent" [post_city]="posts.city" [post_country]="posts.country" *ngFor="let posts of posts"></app-post>
 
-  <ion-infinite-scroll>
-    <ion-infinite-scroll-content>
-      <app-post [user_name]="posts.user_name" [post_content]="posts.post_content" [post_city]="posts.city" [post_country]="posts.country" *ngFor="let posts of posts"></app-post>
+  <ion-infinite-scroll (ionInfinite)="loadPosts($event)">
+    <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Carregando mais posts...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 

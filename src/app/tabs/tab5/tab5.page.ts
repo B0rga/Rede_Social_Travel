@@ -32,7 +32,7 @@ export class Tab5Page implements AfterViewInit{
     cacheArray.forEach((el:ElementRef,pos)=>{
       if(pos>0){
         const element:HTMLElement = el.nativeElement
-        let cached = element.children[0].innerHTML
+        let cached = element.firstElementChild.innerHTML
         const gesture:Gesture =  this.gestureCtrl.create({
           el:el.nativeElement,
           gestureName: 'longPress',

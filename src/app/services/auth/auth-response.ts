@@ -5,6 +5,7 @@ export interface AuthResponse {
         email: string,
         phone:string,
     }
-    acesstoken: string,
+    token: string,
+    refreshToken:string,
     expiresin: number
 }

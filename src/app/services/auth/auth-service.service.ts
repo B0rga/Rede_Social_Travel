@@ -13,7 +13,7 @@ import {Login} from './login'
   providedIn: 'root'
 })
 export class AuthServiceService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8081'
+  apiAdress:  string  =  'http://41f6-45-165-177-41.ngrok.io'
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   private user:User
@@ -26,17 +26,16 @@ export class AuthServiceService {
   }
   login(user: Login): Observable<AuthResponse>  {
     console.log(user)
-    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/login`, user).pipe(
+    return this.httpClient.post(`${this.apiAdress}/user/login`, user).pipe(
       tap(async (res:  AuthResponse ) => {
-        if(res.acesstoken){
+        if(res){
           await this.storage.create()
-          await this.storage.set("ACCESS_TOKEN", res.acesstoken)
+          await this.storage.set("ACCESS_TOKEN", res.token)
           await this.storage.set("EXPIRES_IN", res.expiresin)
           await this.storage.set("USER", res.user)
-          this.clearUser()
           this.authSubject.next(true)
         }
-      },err=>this.errorHandling(err))
+      })
 
     )
   }
@@ -52,30 +51,30 @@ export class AuthServiceService {
     this.user = user
   }
   singIn(): Observable<AuthResponse>  {
-    return this.httpClient.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/user/create`, this.user).pipe(
+    return this.httpClient.post<AuthResponse>(`${this.apiAdress}/user/create`, this.user).pipe(
       tap(async (res:  AuthResponse ) => {
-        if(res.acesstoken){
+        if(res){
             await this.storage.create()
-            await this.storage.set("ACCESS_TOKEN", res.acesstoken)
+            await this.storage.set("ACCESS_TOKEN", res.token)
             await this.storage.set("EXPIRES_IN", res.expiresin)
             this.authSubject.next(true)
         }
-      },err=>this.errorHandling(err))
+      })
 
     )
   }
   sendMail(code){
     
-    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/user/emailVerification`,{Email: this.user.Email, Code: code})
+    return this.httpClient.post(`${this.apiAdress}/user/emailVerification`,{Email: this.user.Email, Code: code})
     .pipe(
       tap(async (res)=>{
         
-    }, err=>this.errorHandling(err)))
+    }))
     
   }
   loginWithFacebook(){
     this.fb.login(['email','public_profile']).then(async (res:FacebookLoginResponse)=>{
-      //this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/loginFb`,res).subscribe()
+      //this.httpClient.post(`${this.apiAdress}/loginFb`,res).subscribe()
       await this.storage.create()
       await this.storage.set('ACESS_TOKEN',res.authResponse.accessToken)
       await this.storage.set('EXPIRES_IN',res.authResponse.expiresIn)
@@ -83,7 +82,7 @@ export class AuthServiceService {
     })
   }
   getUser(username){
-    this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/api/user/`)
+    this.httpClient.get(`${this.apiAdress}/api/user/`)
   }
   loginWithGoogle(){
     GooglePlus.login({'webClientId':'251518684476-md8hta1ij3eqceu459mumbflf48n5l8v.apps.googleusercontent.com', 'offiline':true})
@@ -92,7 +91,7 @@ export class AuthServiceService {
   async logado(){
     await this.storage.create()
     let token =  await this.storage.get("ACCESS_TOKEN")
-    alert(token)
+    console.log(token)
     if(token){
       this.router.navigate(['tabs'])
     }else{
