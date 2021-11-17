@@ -39,17 +39,17 @@ export class SearchService {
       this.cacheSearch = []
     }
   }
-  async excluir(op){
+  async clearOne(op:string){
     await this.storage.create()
     let excluir = await this.storage.get("Search")
-    excluir = excluir.filter(option=>option!=op)
+    excluir = excluir.filter(option=>option!=op.trim())
     await this.storage.set("Search", excluir)
     this.getCache()
   }
   setSearch(op){
     this.search = op
   }
-  async limparHistorico(){
+  async clearCache(){
     await this.storage.create()
     await this.storage.remove("Search")
     this.getCache()

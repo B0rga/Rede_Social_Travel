@@ -1,4 +1,4 @@
-import { AfterViewInit, Component,ContentChild,ElementRef,ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component,ContentChild,ElementRef,QueryList,ViewChild, ViewChildren } from '@angular/core';
 import {  PopoverController, Gesture, GestureController, IonIcon } from '@ionic/angular';
 @Component({
   selector: 'app-estrelas',
@@ -9,7 +9,7 @@ export class EstrelasComponent implements AfterViewInit {
   filledStar = false;
   stars:Number = 0
   @ViewChild('star') divStar:ElementRef
-  @ViewChildren('stars') Stars
+  @ViewChildren(IonIcon) Stars:QueryList<IonIcon>
   constructor(
     private popoverController: PopoverController,
     private gestureCtrl: GestureController
@@ -30,14 +30,15 @@ export class EstrelasComponent implements AfterViewInit {
     gesture.enable()
   }
   onEnd(){
-    const stars = this.Stars._results
+    const stars = this.Stars.toArray()
     stars.forEach(star => {
       star.size = 'small' //diminui todos os ion-icons quando termina o gesto
     });
+    this.popoverController.dismiss()
   }
   onMove(detail){
     const currentX = detail.currentX;
-    const stars = this.Stars._results //pega o array com os ion-icons
+    const stars = this.Stars.toArray() //pega o array com os ion-icons
     //percorre o array com os ion-icons
     stars.forEach((star,pos)=>{
       //muda o tamanho e o preenchimento dos ion-icons

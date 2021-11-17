@@ -10,46 +10,42 @@ import { AuthServiceService } from '../services/auth/auth-service.service';
 })
 export class CadastroPage implements OnInit {
 
-  get nome(){
-    return this.cadastroForm.get('nome');
+  get Name(){
+    return this.cadastroForm.get('Name');
   }
 
-  get email(){
-    return this.cadastroForm.get('email');
+  get Email(){
+    return this.cadastroForm.get('Email');
   }
 
-  get senha(){
-    return this.cadastroForm.get('senha');
+  get Password(){
+    return this.cadastroForm.get('Password');
   }
 
-  get confirmar_senha(){
-    return this.cadastroForm.get('confirmar_senha');
+  get ConfirmPassword(){
+    return this.cadastroForm.get('ConfirmPassword');
   }
 
   public errorMessages ={
-    nome: [
+    Name: [
       {type: 'required', message: 'Nome de usuário é obrigatório'},
       {type: 'pattern', message: 'Por favor insira um nome de usuário válido'}
     ],
-    email: [
+    Email: [
       {type: 'required', message: 'Email é obrigatório'},
       {type: 'pattern', message: 'Por favor insira um email válido'}
     ],
-    senha: [
+    Password: [
       {type: 'required', message: 'Senha é obrigatória'},
-      {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'}
+      {type: 'minlength', message: 'Senha não poder ter menos que 8 caracteres'}
     ],
-    confirmar_senha: [
-      {type: 'required', message: 'Você deve confirmar a senha'},
-      {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'},
-    ]
   }
 
   cadastroForm = this.FormBuilder.group({
-    nome:  ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
-    email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-    senha:  ['', [Validators.required, Validators.minLength(6)]],
-    confirmar_senha:  new FormControl('', Validators.compose([Validators.required])),
+    Name:  ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
+    Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+    Password:  ['', [Validators.required, Validators.minLength(8)]],
+    ConfirmPassword:  new FormControl('', Validators.compose([Validators.required])),
   }, {validators:this.matchPassword.bind(this)})
 
   constructor(
@@ -58,8 +54,8 @@ export class CadastroPage implements OnInit {
     private auth:AuthServiceService
   ) { }
   matchPassword(formGroup: FormGroup){
-    const { value: password } = formGroup.get('senha');
-    const { value: confirmPassword } = formGroup.get('confirmar_senha');
+    const { value: password } = formGroup.get('Password');
+    const { value: confirmPassword } = formGroup.get('ConfirmPassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
   ngOnInit() {
@@ -67,13 +63,8 @@ export class CadastroPage implements OnInit {
 
   public submit(){
     if(this.cadastroForm.valid){
-      //this.auth.singIn(this.cadastroForm.value).subscribe(res=>{
-        //if(res.user)
-          this.router.navigate(['confirmar-email'])
-        //else
-        //alert('Preencha os campos corretamente!')
-     // })
-
+      this.auth.createUser(this.cadastroForm.value)
+      this.router.navigate(['confirmar-email'])
     }else {
       alert("Preencha os campos corretamente!");
     }

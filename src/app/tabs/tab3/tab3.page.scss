@@ -36,10 +36,19 @@ ion-item{
       margin:0;
     }
   }
+  
 }
-
+.postImg{
+  border-radius: 10px;
+  align-content: center;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
 #contentItem{
   --padding-top: 2px;
+  
 }
 
 .divPosts{

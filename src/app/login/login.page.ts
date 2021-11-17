@@ -21,19 +21,19 @@ export class LoginPage implements OnInit {
   }
 
   public errorMessages ={
-    email: [
+    Email: [
       {type: 'required', message: 'Email é obrigatório'},
       {type: 'pattern', message: 'Por favor insira um email válido'}
     ],
-    senha: [
+    Password: [
       {type: 'required', message: 'Senha é obrigatória'},
       {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'}
     ]
   }
 
   loginForm = this.FormBuilder.group({
-    email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-    senha:  ['', [Validators.required, Validators.minLength(6)]]
+    Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+    Password:  ['', [Validators.required, Validators.minLength(6)]]
   })
 
   constructor(
@@ -71,12 +71,12 @@ export class LoginPage implements OnInit {
   }
   public submit(){
     if(this.loginForm.valid){
-      //this.auth.login(this.loginForm.value).subscribe(res=>{
-       // if(res.user)
+      this.auth.login(this.loginForm.value).subscribe((res)=>{
+        if(res)
           this.router.navigate(['tabs'])
-        //else
-       // alert('Preencha os campos corretamente!')
-     // })
+        else
+        alert('Preencha os campos corretamente!')
+     }, err=>this.auth.errorHandling(err))
 
     }else {
       alert("Preencha os campos corretamente!");
