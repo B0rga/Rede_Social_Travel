@@ -15,72 +15,112 @@
 <ion-content>
 
   <div id="divPrincipal">
-
     <h3>Último passo</h3>
-    <p id="Descricao">preencha o campo abaixo</p>
+      <p id="Descricao">preencha o campo abaixo</p>
 
-    <div id="stepProgressBar">
-      <ion-icon name="checkmark-circle-outline" class="checkComplete"></ion-icon>
-      <div class="processComplete"></div>
-      <ion-icon name="checkmark-circle-outline" class="checkComplete"></ion-icon>
-      <div class="processComplete"></div>
-      <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
-    </div>
-
-    <div class="divContexto">
-      <h4>De onde você é?</h4>
-    </div>
-
-    <form (ngSubmit)="submit()">
-      <div class="lugares">
-        <ion-item lines="full">
-          <ion-label position="stacked">País</ion-label>
-          <ion-select (ionChange)="itemSelected1($event)" [(ngModel)]="meu_pais" name="meupais" [disabled]="isDisabled1">
-            <ion-select-option>Brasil</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-item lines="full">
-          <ion-label position="stacked">Cidade</ion-label>
-          <ion-select (ionChange)="itemSelected2($event)" [(ngModel)]="minha_cidade" name="minhacidade" [disabled]="isDisabled1">
-            <ion-select-option>São Paulo</ion-select-option>
-          </ion-select>
-        </ion-item>
+      <div id="stepProgressBar">
+        <ion-icon name="checkmark-circle-outline" class="checkComplete"></ion-icon>
+        <div class="processComplete"></div>
+        <ion-icon name="checkmark-circle-outline" class="checkComplete"></ion-icon>
+        <div class="processComplete"></div>
+        <ion-icon name="checkmark-circle-outline" class="check"></ion-icon>
       </div>
 
-      <div class="divCheck">
-        <ion-checkbox (ionChange)="onCheckboxChange1($event)"></ion-checkbox>
-        <ion-label>Prefiro não dizer</ion-label>
+    <form>
+      <div class="divContexto">
+        <h4>De onde você é?</h4>
+      </div>
+      <div class="lugares">
+        <ion-chip (click)="btnBR()" *ngIf="showBtnBR" [class.btnClicked]="isClickedBR">Brasil</ion-chip>
+        <ion-chip (click)="estadosBR()" class="btnEstados" *ngIf="showBR" [class.estadoClicked]="estadoClickedBR">São Paulo</ion-chip>
+        <ion-chip (click)="estadosBR()" class="btnEstados" *ngIf="showBR" [class.estadoClicked]="estadoClickedBR">Belo Horizonte</ion-chip>
+        <ion-chip (click)="estadosBR()" class="btnEstados" *ngIf="showBR" [class.estadoClicked]="estadoClickedBR">Rio de Janeiro</ion-chip>
+        <ion-chip (click)="estadosBR()" class="btnEstados" *ngIf="showBR" [class.estadoClicked]="estadoClickedBR">Curitiba</ion-chip>
+
+        <ion-chip (click)="btnES()" *ngIf="showBtnES" [class.btnClicked]="isClickedES">Espanha</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showES">Barcelona</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showES">Valencia</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showES">Madrid</ion-chip>
+
+        <ion-chip (click)="btnPT()" *ngIf="showBtnPT" [class.btnClicked]="isClickedPT">Portugal</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showPT">Lisbon</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showPT">Coimbra</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showPT">Porto</ion-chip>
+
+        <ion-chip (click)="btnUS()" *ngIf="showBtnUS" [class.btnClicked]="isClickedUS">EUA</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUS">San Francisco</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUS">Las Vegas</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUS">Los Angeles</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUS">New York</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUS">Orlando</ion-chip>
+
+        <ion-chip (click)="btnUK()" *ngIf="showBtnUK" [class.btnClicked]="isClickedUK">Reino Unido</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUK">London</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUK">Liverpool</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showUK">Manchester</ion-chip>
+
+        <ion-chip (click)="btnIT()" *ngIf="showBtnIT" [class.btnClicked]="isClickedIT">Itália</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showIT">Rome</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showIT">Venice</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showIT">Milan</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showIT">Florence</ion-chip>
+
+        <ion-chip (click)="btnJP()" *ngIf="showBtnJP" [class.btnClicked]="isClickedJP">Japão</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showJP">Tokyo</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showJP">Kyoto</ion-chip>
+        <ion-chip class="btnEstados" *ngIf="showJP">Hiroshima</ion-chip>
+
       </div>
 
       <div class="divContexto">
         <h4>Aonde quer conhecer?</h4>
       </div>
-
       <div class="lugares">
-        <ion-item lines="full">
-          <ion-label position="stacked">País</ion-label>
-          <ion-select (ionChange)="itemSelected4($event)" [(ngModel)]="outro_pais" name="outropais" [disabled]="isDisabled2">
-            <ion-select-option>Brasil</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <ion-item lines="full">
-          <ion-label position="stacked">Cidade</ion-label>
-          <ion-select (ionChange)="itemSelected5($event)" [(ngModel)]="outra_cidade" name="outracidade" [disabled]="isDisabled2">
-            <ion-select-option>São Paulo</ion-select-option>
-          </ion-select>
-        </ion-item>
+        <ion-chip (click)="btnBR1()" *ngIf="showBtnBR1">Brasil</ion-chip>
+        <ion-chip (click)="btnES1()" *ngIf="showBtnES1">Espanha</ion-chip>
+        <ion-chip (click)="btnPT1()" *ngIf="showBtnPT1">Portugal</ion-chip>
+        <ion-chip (click)="btnUS1()" *ngIf="showBtnUS1">EUA</ion-chip>
+        <ion-chip (click)="btnUK1()" *ngIf="showBtnUK1">Reino Unido</ion-chip>
+        <ion-chip (click)="btnIT1()" *ngIf="showBtnIT1">Itália</ion-chip>
+        <ion-chip (click)="btnJP1()" *ngIf="showBtnJP1">Japão</ion-chip>
+
+        <ion-chip *ngIf="showBR1">São Paulo</ion-chip>
+        <ion-chip *ngIf="showBR1">Belo Horizonte</ion-chip>
+        <ion-chip *ngIf="showBR1">Rio de Janeiro</ion-chip>
+        <ion-chip *ngIf="showBR1">Curitiba</ion-chip>
+
+        <ion-chip *ngIf="showES1">Barcelona</ion-chip>
+        <ion-chip *ngIf="showES1">Valencia</ion-chip>
+        <ion-chip *ngIf="showES1">Madrid</ion-chip>
+
+        <ion-chip *ngIf="showPT1">Lisbon</ion-chip>
+        <ion-chip *ngIf="showPT1">Coimbra</ion-chip>
+        <ion-chip *ngIf="showPT1">Porto</ion-chip>
+
+        <ion-chip *ngIf="showUS1">San Francisco</ion-chip>
+        <ion-chip *ngIf="showUS1">Las Vegas</ion-chip>
+        <ion-chip *ngIf="showUS1">Los Angeles</ion-chip>
+        <ion-chip *ngIf="showUS1">New York</ion-chip>
+        <ion-chip *ngIf="showUS1">Orlando</ion-chip>
+
+        <ion-chip *ngIf="showUK1">London</ion-chip>
+        <ion-chip *ngIf="showUK1">Liverpool</ion-chip>
+        <ion-chip *ngIf="showUK1">Manchester</ion-chip>
+
+        <ion-chip *ngIf="showIT1">Rome</ion-chip>
+        <ion-chip *ngIf="showIT1">Venice</ion-chip>
+        <ion-chip *ngIf="showIT1">Milan</ion-chip>
+        <ion-chip *ngIf="showIT1">Florence</ion-chip>
+
+        <ion-chip *ngIf="showJP1">Tokyo</ion-chip>
+        <ion-chip *ngIf="showJP1">Kyoto</ion-chip>
+        <ion-chip *ngIf="showJP1">Hiroshima</ion-chip>
       </div>
 
-      <div class="divCheck">
-        <ion-checkbox (ionChange)="onCheckboxChange2($event)"></ion-checkbox>
-        <ion-label>Prefiro não dizer</ion-label>
-      </div>
-
-      <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" [disabled]="btnDisabled">
-        Continuar
+      <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round">
+        Pronto
       </ion-button>
     </form>
-
 
   </div>
 </ion-content>

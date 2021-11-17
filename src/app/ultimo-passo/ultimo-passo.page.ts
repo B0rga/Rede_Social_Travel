@@ -10,13 +10,47 @@ import { AlertController } from '@ionic/angular';
 })
 export class UltimoPassoPage implements OnInit {
 
-  btnDisabled = true;
-  isDisabled1 = false;
-  isDisabled2 = false;
-  meu_pais = undefined;
-  minha_cidade = undefined;
-  outro_pais = undefined;
-  outra_cidade = undefined;
+  isClickedBR: boolean = false;
+  isClickedES: boolean = false;
+  isClickedPT: boolean = false;
+  isClickedUS: boolean = false;
+  isClickedUK: boolean = false;
+  isClickedIT: boolean = false;
+  isClickedJP: boolean = false;
+
+  estadoClickedBR: boolean = false;
+
+  showBR: boolean = false;
+  showES: boolean = false;
+  showPT: boolean = false;
+  showUS: boolean = false;
+  showUK: boolean = false;
+  showIT: boolean = false;
+  showJP: boolean = false;
+
+  showBtnBR: boolean = true;
+  showBtnES: boolean = true;
+  showBtnPT: boolean = true;
+  showBtnUS: boolean = true;
+  showBtnUK: boolean = true;
+  showBtnIT: boolean = true;
+  showBtnJP: boolean = true;
+
+  showBR1: boolean = false;
+  showES1: boolean = false;
+  showPT1: boolean = false;
+  showUS1: boolean = false;
+  showUK1: boolean = false;
+  showIT1: boolean = false;
+  showJP1: boolean = false;
+
+  showBtnBR1: boolean = true;
+  showBtnES1: boolean = true;
+  showBtnPT1: boolean = true;
+  showBtnUS1: boolean = true;
+  showBtnUK1: boolean = true;
+  showBtnIT1: boolean = true;
+  showBtnJP1: boolean = true;
 
   constructor(
     private router: Router,
@@ -26,71 +60,192 @@ export class UltimoPassoPage implements OnInit {
   ngOnInit() {
   }
 
-  onCheckboxChange1(e) {
-    if (e.target.checked){
-      this.isDisabled1 = true;
-      this.meu_pais = null;
-      this.minha_cidade = null;
+  btnBR(){
+    this.showBR = ! this.showBR;
+    this.isClickedBR = ! this.isClickedBR;
 
-      if(this.isDisabled2 == true){
-        this.btnDisabled = false;
-      }
+    this.showES = false;
+    this.isClickedES = false;
+    this.showPT = false;
+    this.isClickedPT = false;
+    this.showUS = false;
+    this.isClickedUS = false;
+    this.showUK = false
+    this.isClickedUK = false;
+    this.showIT = false;
+    this.isClickedIT = false;
+    this.showJP = false;
+    this.isClickedJP = false;
+  }
+  btnES(){
+    this.showES = ! this.showES;
+    this.isClickedES = ! this.isClickedES;
 
-    }else{
-      this.isDisabled1 = false;
-      this.btnDisabled = true;
-    }
+    this.showBR = false;
+    this.isClickedBR = false;
+    this.showPT = false;
+    this.isClickedPT = false;
+    this.showUS = false;
+    this.isClickedUS = false;
+    this.showUK = false
+    this.isClickedUK = false;
+    this.showIT = false;
+    this.isClickedIT = false;
+    this.showJP = false;
+    this.isClickedJP = false;
+  }
+  btnPT(){
+    this.showPT = ! this.showPT;
+    this.isClickedPT = ! this.isClickedPT;
+
+    this.showBR = false;
+    this.isClickedBR = false;
+    this.showES = false;
+    this.isClickedES = false;
+    this.showUS = false;
+    this.isClickedUS = false;
+    this.showUK = false
+    this.isClickedUK = false;
+    this.showIT = false;
+    this.isClickedIT = false;
+    this.showJP = false;
+    this.isClickedJP = false;
+  }
+  btnUS(){
+    this.showUS = ! this.showUS;
+    this.isClickedUS = ! this.isClickedUS;
+
+    this.showBR = false;
+    this.isClickedBR = false;
+    this.showES = false;
+    this.isClickedES = false;
+    this.showPT = false;
+    this.isClickedPT = false;
+    this.showUK = false
+    this.isClickedUK = false;
+    this.showIT = false;
+    this.isClickedIT = false;
+    this.showJP = false;
+    this.isClickedJP = false;
+  }
+  btnUK(){
+    this.showUK = ! this.showUK;
+    this.isClickedUK = ! this.isClickedUK;
+
+    this.showBR = false;
+    this.isClickedBR = false;
+    this.showES = false;
+    this.isClickedES = false;
+    this.showPT = false;
+    this.isClickedPT = false;
+    this.showUS = false
+    this.isClickedUS = false;
+    this.showIT = false;
+    this.isClickedIT = false;
+    this.showJP = false;
+    this.isClickedJP = false;
+  }
+  btnIT(){
+    this.showIT = ! this.showIT;
+    this.isClickedIT = ! this.isClickedIT;
+
+    this.showBR = false;
+    this.isClickedBR = false;
+    this.showES = false;
+    this.isClickedES = false;
+    this.showPT = false;
+    this.isClickedPT = false;
+    this.showUS = false
+    this.isClickedUS = false;
+    this.showUK = false;
+    this.isClickedUK = false;
+    this.showJP = false;
+    this.isClickedJP = false;
+  }
+  btnJP(){
+    this.showJP = ! this.showJP;
+    this.isClickedJP = ! this.isClickedJP;
+
+    this.showBR = false;
+    this.isClickedBR = false;
+    this.showES = false;
+    this.isClickedES = false;
+    this.showPT = false;
+    this.isClickedPT = false;
+    this.showUS = false
+    this.isClickedUS = false;
+    this.showUK = false;
+    this.isClickedUK = false;
+    this.showIT = false;
+    this.isClickedIT = false;
   }
 
-  onCheckboxChange2(e) {
-    if (e.target.checked){
-      this.isDisabled2 = true;
-      this.outro_pais = null;
-      this.outra_cidade = null;
-
-      if(this.isDisabled1 == true){
-        this.btnDisabled = false;
-      }
-
-    }else{
-      this.isDisabled2 = false;
-      this.btnDisabled = true;
-    }
+  estadosBR(){
+    this.estadoClickedBR = ! this.estadoClickedBR;
   }
 
-  itemSelected1(meu_pais: any){
-    this.btnDisabled = false;
-  }
-  itemSelected2(minha_cidade: any){
-    this.btnDisabled = false;
-  }
-  itemSelected4(outro_pais: any){
-    this.btnDisabled = false;
-  }
-  itemSelected5(outra_cidade: any){
-    this.btnDisabled = false;
-  }
 
-  async submit(){
-    const alert = await this.alertController.create({
-      cssClass: 'customAlert',
-      header: 'Aviso',
-      message: 'Preencher essas informações nos ajudará a lhe fornecer uma melhor experiência. Deseja continuar mesmo assim?',
-      backdropDismiss: false,
-      buttons:[
-        {
-          text: 'Sim',
-          handler: () => {
-            this.router.navigate(['tabs'])
-          }
-        },
-        {
-          text: 'Não',
-          role: 'cancel',
-        }
-      ]
-    })
-
-    await alert.present()
+  btnBR1(){
+    this.showBR1 = ! this.showBR1;
+    this.showBtnES1 = ! this.showBtnES1;
+    this.showBtnPT1 = ! this.showBtnPT1;
+    this.showBtnUS1 = ! this.showBtnUS1;
+    this.showBtnUK1 = ! this.showBtnUK1;
+    this.showBtnIT1 = ! this.showBtnIT1;
+    this.showBtnJP1 = ! this.showBtnJP1;
+  }
+  btnES1(){
+    this.showES1 = ! this.showES1;
+    this.showBtnBR1 = ! this.showBtnBR1;
+    this.showBtnPT1 = ! this.showBtnPT1;
+    this.showBtnUS1 = ! this.showBtnUS1;
+    this.showBtnUK1 = ! this.showBtnUK1;
+    this.showBtnIT1 = ! this.showBtnIT1;
+    this.showBtnJP1 = ! this.showBtnJP1;
+  }
+  btnPT1(){
+    this.showPT1 = ! this.showPT1;
+    this.showBtnBR1 = ! this.showBtnBR1;
+    this.showBtnES1 = ! this.showBtnES1;
+    this.showBtnUS1 = ! this.showBtnUS1;
+    this.showBtnUK1 = ! this.showBtnUK1;
+    this.showBtnIT1 = ! this.showBtnIT1;
+    this.showBtnJP1 = ! this.showBtnJP1;
+  }
+  btnUS1(){
+    this.showUS1 = ! this.showUS1;
+    this.showBtnBR1 = ! this.showBtnBR1;
+    this.showBtnPT1 = ! this.showBtnPT1;
+    this.showBtnES1 = ! this.showBtnES1;
+    this.showBtnUK1 = ! this.showBtnUK1;
+    this.showBtnIT1 = ! this.showBtnIT1;
+    this.showBtnJP1 = ! this.showBtnJP1;
+  }
+  btnUK1(){
+    this.showUK1 = ! this.showUK1;
+    this.showBtnBR1 = ! this.showBtnBR1;
+    this.showBtnPT1 = ! this.showBtnPT1;
+    this.showBtnES1 = ! this.showBtnES1;
+    this.showBtnUS1 = ! this.showBtnUS1;
+    this.showBtnIT1 = ! this.showBtnIT1;
+    this.showBtnJP1 = ! this.showBtnJP1;
+  }
+  btnIT1(){
+    this.showIT1 = ! this.showIT1;
+    this.showBtnBR1 = ! this.showBtnBR1;
+    this.showBtnPT1 = ! this.showBtnPT1;
+    this.showBtnES1 = ! this.showBtnES1;
+    this.showBtnUS1 = ! this.showBtnUS1;
+    this.showBtnUK1 = ! this.showBtnUK1;
+    this.showBtnJP1 = ! this.showBtnJP1;
+  }
+  btnJP1(){
+    this.showJP1 = ! this.showJP1;
+    this.showBtnBR1 = ! this.showBtnBR1;
+    this.showBtnPT1 = ! this.showBtnPT1;
+    this.showBtnES1 = ! this.showBtnES1;
+    this.showBtnUS1 = ! this.showBtnUS1;
+    this.showBtnUK1 = ! this.showBtnUK1;
+    this.showBtnIT1 = ! this.showBtnIT1;
   }
 }

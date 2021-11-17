@@ -10,6 +10,7 @@ import { PopoverComponent } from './../components/popover/popover.component';
 })
 export class PostCompletoPage implements OnInit {
 
+  savePostIcon = 'bookmark-outline';
   constructor(public popoverController: PopoverController) { }
 
   async openStars(ev: any) {
@@ -30,6 +31,16 @@ export class PostCompletoPage implements OnInit {
       event: ev,
     });
     return await popover.present();
+  }
+
+  btnSavePost(): void{
+
+    if(this.savePostIcon == 'bookmark-outline'){
+      this.savePostIcon = 'bookmark';
+    }
+    else{
+      this.savePostIcon = 'bookmark-outline';
+    }
   }
 
   ngOnInit() {
