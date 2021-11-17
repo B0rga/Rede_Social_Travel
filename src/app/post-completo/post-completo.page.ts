@@ -9,12 +9,7 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post-completo.page.scss'],
 })
 export class PostCompletoPage implements OnInit {
-<<<<<<< HEAD
-
   savePostIcon = 'bookmark-outline';
-  constructor(public popoverController: PopoverController) { }
-
-=======
   thread:Object = {}
   replacedThread:Array<Object> = []
   constructor(public popoverController: PopoverController, private post:PostService) { }
@@ -24,7 +19,7 @@ export class PostCompletoPage implements OnInit {
       this.replaceThread(res['complement'][0])
       console.log(this.replacedThread)
     })
-    
+
   }
   replaceThread(thread){
     this.replacedThread.push(thread)
@@ -32,7 +27,6 @@ export class PostCompletoPage implements OnInit {
       this.replaceThread(thread.complement[0])
     }
   }
->>>>>>> 610c92bfec55bde1e2a23fec158e28bc2519c2e7
   async openStars(ev: any) {
     event.stopPropagation();
     const popover = await this.popoverController.create({
