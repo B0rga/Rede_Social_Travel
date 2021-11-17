@@ -25,12 +25,14 @@ export class Tab1Page implements OnInit {
     
   }
   getPosts(event?):void{
-    this.postService.getPosts().subscribe((res)=>{
-      this.posts = this.posts.concat(res.posts)
+    this.postService.getPosts().then(res=>{
+      res.subscribe((res)=>{
+        this.posts = this.posts.concat(res.posts)
+      })
+      if(event){
+        event.target.complete()
+      }
     })
-    if(event){
-      event.target.complete()
-    }
   }
   ngOnInit() {
     this.getPosts() 

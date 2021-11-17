@@ -13,11 +13,13 @@ export class PostCompletoPage implements OnInit {
   replacedThread:Array<Object> = []
   constructor(public popoverController: PopoverController, private post:PostService) { }
   getPost(){
-    this.post.getPost().subscribe((res)=>{
+    this.post.getPost('','').then(thread=>{
+      thread.subscribe((res)=>{
       this.thread = res
       this.replaceThread(res['complement'][0])
       console.log(this.replacedThread)
     })
+  })
     
   }
   replaceThread(thread){

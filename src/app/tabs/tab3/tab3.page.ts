@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IonInput } from '@ionic/angular';
 import { CameraService } from 'src/app/services/camera.service';
 import { BlobStorageService } from 'src/app/services/blob-storage.service';
+import { PostService } from 'src/app/services/post.service';
 @Component({
   selector: 'app-tab3',
   templateUrl: './tab3.page.html',
@@ -15,7 +16,13 @@ export class Tab3Page implements OnInit {
   images:Array<string> = []
   sas:string = 'sp=racwdl&st=2021-10-20T16:02:46Z&se=2021-10-21T00:02:46Z&spr=https&sv=2020-08-04&sr=c&sig=i5OpqJ5eQebI60MPDDZzJGg8zrZ99V1WzDtK3LtW080%3D'
   @ViewChild('local') local:IonInput
-  constructor(private cam:CameraService, private blobService:BlobStorageService) {
+  @ViewChild('title') title:IonInput
+  @ViewChild('content') content:IonInput
+  constructor(
+      private cam:CameraService,
+      private blobService:BlobStorageService,
+      private post:PostService
+      ) {
    //
    }
 
@@ -31,10 +38,19 @@ export class Tab3Page implements OnInit {
   clearPlaces(){
     this.places = []
   }
-  uploadImage(){
+  addPost(){
     this.images = this.blobService.upload(this.photo,'postimages',this.sas,()=>{
-      
+      console.log('imagens upadas')
     })
+    const thread = {
+      Locality: this.local.value as string,
+      Rote: null,
+      Title: this.title.value as string,
+      Content: this.content.value as string, 
+      Images: this.images,
+      Complement:null
+    }
+    this.post.addPost(thread)
   }
   searchLocalization(ev:any){
     const local = ev.target.value as string

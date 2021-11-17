@@ -1,9 +1,9 @@
 <ion-content>
-  <form>
+  <form >
     <ion-list lines="full">
       <ion-item>
         <ion-label position="floating">Título da postagem</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input #title type="text"></ion-input>
         <ion-icon name="create-outline" slot="end"></ion-icon>
       </ion-item>
       <ion-item>
@@ -20,7 +20,7 @@
      
       <ion-item id="contentItem">
         <ion-label position="floating">Conteúdo</ion-label>
-        <ion-textarea type="text" maxlength="300" rows="8" auto-grow="true">
+        <ion-textarea #content type="text" maxlength="300" rows="8" auto-grow="true">
           
         </ion-textarea>
         <ion-icon name="create-outline" slot="end"></ion-icon>
@@ -34,7 +34,7 @@
       </ion-item>
     </ion-list>
     <div class="divPosts">
-      <ion-chip (click)="uploadImage()">Post +</ion-chip>
+      <ion-chip (click)="addPost()">Post +</ion-chip>
       <ion-buttons slot="end">
         <ion-button>
           <ion-icon name="location-outline"></ion-icon>

@@ -5,12 +5,26 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SearchService {
+  apiAdress:string = ''
   public search:string
+  public results:any
   public cacheSearch:Array<string> = []
   constructor(private storage:Storage, private http:HttpClient) { 
     this.getCache()
   }
+  async getToken(){
+    await this.storage.create()
+    return await this.storage.get('ACCESS_TOKEN') 
+  }
   public onSearch(search:string){
+    const replacedSearch = search.replace(/ /g, '%20').replace(/,/g, '%2C')
+    this.getToken().then((token)=>{
+      this.http.get(`${this.apiAdress}/home/search/${replacedSearch}`, {headers:{
+        "Authorization": token
+      }}).subscribe((res)=>{
+        this.results = res
+      })
+    })
     this.search = search
     this.cache(search)
   }

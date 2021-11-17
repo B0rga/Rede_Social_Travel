@@ -56,6 +56,7 @@ export class AuthServiceService {
         if(res){
             await this.storage.create()
             await this.storage.set("ACCESS_TOKEN", res.token)
+            await this.storage.set("REFRESH_TOKEN", res.refreshToken)
             await this.storage.set("EXPIRES_IN", res.expiresin)
             this.authSubject.next(true)
         }
@@ -76,7 +77,7 @@ export class AuthServiceService {
     this.fb.login(['email','public_profile']).then(async (res:FacebookLoginResponse)=>{
       //this.httpClient.post(`${this.apiAdress}/loginFb`,res).subscribe()
       await this.storage.create()
-      await this.storage.set('ACESS_TOKEN',res.authResponse.accessToken)
+      await this.storage.set('ACCESS_TOKEN',res.authResponse.accessToken)
       await this.storage.set('EXPIRES_IN',res.authResponse.expiresIn)
       this.router.navigate(['tabs'])
     })
@@ -94,8 +95,9 @@ export class AuthServiceService {
     console.log(token)
     if(token){
       this.router.navigate(['tabs'])
+      console.log('nsei')
     }else{
-      
+     
       this.router.navigate(['home'])
     }
       
@@ -103,6 +105,7 @@ export class AuthServiceService {
   async logout(){
     await this.storage.create()
     await this.storage.remove("ACCESS_TOKEN")
+    await this.storage.remove("REFRESH_TOKEN")
     await this.storage.remove("EXPIRES_IN")
     this.authSubject.next(false)  
   }

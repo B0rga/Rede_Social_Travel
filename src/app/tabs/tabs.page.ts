@@ -2,6 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import {AuthServiceService} from '../services/auth/auth-service.service';
 import { SearchService } from '../services/search/search.service';
 import { ActionSheetController } from '@ionic/angular';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-tabs',
@@ -14,7 +15,8 @@ export class TabsPage implements OnInit {
   constructor(
     private auth:AuthServiceService,
     private search:SearchService,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    private post:PostService
     ) { }
   ngOnInit() {
     //this.auth.logado()
@@ -31,7 +33,9 @@ export class TabsPage implements OnInit {
   filter(ev):void{
     this.search.filterOptions(ev.detail.value)
   }
-
+  postThread(){
+    this.post.createPost()
+  }
   async btnConteudo(){
     const actionSheet = await this.actionSheetController.create({
       header: 'Prefências de conteúdo',
