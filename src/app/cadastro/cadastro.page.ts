@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import {Router} from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthServiceService } from '../services/auth/auth-service.service';
@@ -25,7 +25,7 @@ export class CadastroPage implements OnInit {
   get ConfirmPassword(){
     return this.cadastroForm.get('ConfirmPassword');
   }
-
+  confirmEmail:Boolean = false
   public errorMessages ={
     Name: [
       {type: 'required', message: 'Nome de usuário é obrigatório'},
@@ -46,7 +46,7 @@ export class CadastroPage implements OnInit {
     Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     Password:  ['', [Validators.required, Validators.minLength(8)]],
     ConfirmPassword:  new FormControl('', Validators.compose([Validators.required])),
-  }, {validators:this.matchPassword.bind(this)})
+  }, {validators:[this.matchPassword.bind(this), this.emailIsUsed.bind(this)]})
 
   constructor(
     private router: Router,
@@ -57,6 +57,17 @@ export class CadastroPage implements OnInit {
     const { value: password } = formGroup.get('Password');
     const { value: confirmPassword } = formGroup.get('ConfirmPassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
+  }
+  emailIsUsed(formGroup:FormGroup){
+    const campoEmail = formGroup.get('Email')
+    const {value:email} = campoEmail
+    if(campoEmail.valid){
+      this.auth.emailIsRegistered(email).subscribe((res:boolean)=>{
+        this.confirmEmail = res
+      })
+      return this.confirmEmail?{emailUsed:true}:null
+    }
+    
   }
   ngOnInit() {
   }

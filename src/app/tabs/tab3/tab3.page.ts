@@ -4,6 +4,7 @@ import { IonInput } from '@ionic/angular';
 import { CameraService } from 'src/app/services/camera.service';
 import { BlobStorageService } from 'src/app/services/blob-storage.service';
 import { PostService } from 'src/app/services/post.service';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-tab3',
   templateUrl: './tab3.page.html',
@@ -21,13 +22,14 @@ export class Tab3Page implements OnInit {
   constructor(
       private cam:CameraService,
       private blobService:BlobStorageService,
-      private post:PostService
+      private post:PostService,
+      private formBuilder:FormBuilder
       ) {
    //
    }
 
   ngOnInit() {
-    
+  
   }
   camera(){
     this.photo = this.cam.takePhoto()

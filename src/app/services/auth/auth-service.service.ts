@@ -13,7 +13,7 @@ import {Login} from './login'
   providedIn: 'root'
 })
 export class AuthServiceService {
-  apiAdress:  string  =  'http://41f6-45-165-177-41.ngrok.io'
+  apiAdress:  string  =  'https://5555-45-165-177-128.ngrok.io'
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
   private user:User
@@ -38,6 +38,9 @@ export class AuthServiceService {
       })
 
     )
+  }
+  emailIsRegistered(email){
+    return this.httpClient.get(`${this.apiAdress}/user/verify/email/${email}`)
   }
   clearUser(){
     this.user = null
@@ -92,12 +95,9 @@ export class AuthServiceService {
   async logado(){
     await this.storage.create()
     let token =  await this.storage.get("ACCESS_TOKEN")
-    console.log(token)
     if(token){
       this.router.navigate(['tabs'])
-      console.log('nsei')
     }else{
-     
       this.router.navigate(['home'])
     }
       

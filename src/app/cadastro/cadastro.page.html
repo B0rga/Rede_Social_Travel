@@ -39,11 +39,16 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Email</ion-label>
-        <ion-input formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
+        <ion-input #email formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.Email">
         <ng-container *ngIf="Email.hasError(error.type) && (Email.dirty || Email.touched)">
           <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <div>
+        <ng-container *ngIf="cadastroForm.hasError('emailUsed') && (Email.dirty || Email.touched)">
+          <small class="error-message">Esse email ja esta cadastrado</small>
         </ng-container>
       </div>
 

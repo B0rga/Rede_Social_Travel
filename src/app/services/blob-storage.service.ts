@@ -16,7 +16,7 @@ export class BlobStorageService {
     return new BlobServiceClient(`https://${this.accountName}.blob.core.windows.net?${token}`)
     .getContainerClient(containerName)
   }
-  showImage(){
+  showImage(containerName:string, sas?:string){
 
   }
   upload(files:Array<any>,containerName:string, sas:string, handler: ()=> void){
@@ -36,5 +36,8 @@ export class BlobStorageService {
         .then(()=>handler())
     })
     return fileNames
+  }
+  delete(){
+
   }
 }
