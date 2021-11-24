@@ -118,32 +118,30 @@ h4{
 }
 
 ion-chip{
-  margin: 2px;
-  padding: 0px 12px;
-  height: 26px;
-  font-size: 12px;
+  padding: 0px 16px 0px 16px;
   --background: none;
   border: 1px solid var(--ion-color-medium);
-}
-
-.btnEstados{
-  --background: #7ffcdd;
-  color: var(--ion-color-dark);
-  border: none;
-}
-
-.btnClicked{
-  --background:#00f9bb;
-  color: white;
+  height: 24px;
+  font-size: 12px;
   font-weight: bold;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  transition: all .3s linear ;
+}
+
+.selected{
+  --background: #00f9bb;
   border: none;
+  color: white;
 }
-
-.estadoClicked{
-  border: 1px solid var(--ion-color-dark);
-  filter:brightness(90%);
+.city{
+  --background: #00f9bb;
+  border:none;
 }
-
+.citySelected{
+  --background: #00f9bb;
+}
 /*============================================================================================================*/
 
 #btnCadastrarConta{

@@ -32,89 +32,32 @@
       </div>
 
       <div class="lugares">
-        <ion-chip (click)="btnBR()" *ngIf="showBtnBR" [class.btnClicked]="isClickedBR">Brasil</ion-chip>
-        <ion-chip (click)="btnSP()" *ngIf="showBR" [class.estadoClicked]="sp" class="btnEstados">São Paulo</ion-chip>
-        <ion-chip (click)="btnBH()" *ngIf="showBR" [class.estadoClicked]="bh" class="btnEstados">Belo Horizonte</ion-chip>
-        <ion-chip (click)="btnRJ()" *ngIf="showBR" [class.estadoClicked]="rj" class="btnEstados">Rio de Janeiro</ion-chip>
-        <ion-chip (click)="btnCR()" *ngIf="showBR" [class.estadoClicked]="cr" class="btnEstados">Curitiba</ion-chip>
-
-        <ion-chip (click)="btnES()" *ngIf="showBtnES" [class.btnClicked]="isClickedES">Espanha</ion-chip>
-        <ion-chip (click)="btnBC()" *ngIf="showES" [class.estadoClicked]="bc" class="btnEstados">Barcelona</ion-chip>
-        <ion-chip (click)="btnVL()" *ngIf="showES" [class.estadoClicked]="vl" class="btnEstados">Valencia</ion-chip>
-        <ion-chip (click)="btnMD()" *ngIf="showES" [class.estadoClicked]="md" class="btnEstados">Madrid</ion-chip>
-
-        <ion-chip (click)="btnPT()" *ngIf="showBtnPT" [class.btnClicked]="isClickedPT">Portugal</ion-chip>
-        <ion-chip (click)="btnLB()" *ngIf="showPT" [class.estadoClicked]="lb" class="btnEstados">Lisbon</ion-chip>
-        <ion-chip (click)="btnCB()" *ngIf="showPT" [class.estadoClicked]="cb" class="btnEstados">Coimbra</ion-chip>
-        <ion-chip (click)="btnPO()" *ngIf="showPT" [class.estadoClicked]="po" class="btnEstados">Porto</ion-chip>
-
-        <ion-chip (click)="btnUS()" *ngIf="showBtnUS" [class.btnClicked]="isClickedUS">EUA</ion-chip>
-        <ion-chip (click)="btnSF()" *ngIf="showUS" [class.estadoClicked]="sf" class="btnEstados">San Francisco</ion-chip>
-        <ion-chip (click)="btnLV()" *ngIf="showUS" [class.estadoClicked]="lv" class="btnEstados">Las Vegas</ion-chip>
-        <ion-chip (click)="btnLA()" *ngIf="showUS" [class.estadoClicked]="la" class="btnEstados">Los Angeles</ion-chip>
-        <ion-chip (click)="btnNY()" *ngIf="showUS" [class.estadoClicked]="ny" class="btnEstados">New York</ion-chip>
-        <ion-chip (click)="btnOL()" *ngIf="showUS" [class.estadoClicked]="ol" class="btnEstados">Orlando</ion-chip>
-
-        <ion-chip (click)="btnUK()" *ngIf="showBtnUK" [class.btnClicked]="isClickedUK">Reino Unido</ion-chip>
-        <ion-chip (click)="btnLD()" *ngIf="showUK" [class.estadoClicked]="ld" class="btnEstados">London</ion-chip>
-        <ion-chip (click)="btnLP()" *ngIf="showUK" [class.estadoClicked]="lp" class="btnEstados">Liverpool</ion-chip>
-        <ion-chip (click)="btnMC()" *ngIf="showUK" [class.estadoClicked]="mc" class="btnEstados">Manchester</ion-chip>
-
-        <ion-chip (click)="btnIT()" *ngIf="showBtnIT" [class.btnClicked]="isClickedIT">Itália</ion-chip>
-        <ion-chip (click)="btnRM()" *ngIf="showIT" [class.estadoClicked]="rm" class="btnEstados">Rome</ion-chip>
-        <ion-chip (click)="btnVN()" *ngIf="showIT" [class.estadoClicked]="vn" class="btnEstados">Venice</ion-chip>
-        <ion-chip (click)="btnML()" *ngIf="showIT" [class.estadoClicked]="ml" class="btnEstados">Milan</ion-chip>
-        <ion-chip (click)="btnFR()" *ngIf="showIT" [class.estadoClicked]="fr" class="btnEstados">Florence</ion-chip>
-
-        <ion-chip (click)="btnJP()" *ngIf="showBtnJP" [class.btnClicked]="isClickedJP">Japão</ion-chip>
-        <ion-chip (click)="btnTK()" *ngIf="showJP" [class.estadoClicked]="tk" class="btnEstados">Tokyo</ion-chip>
-        <ion-chip (click)="btnKT()" *ngIf="showJP" [class.estadoClicked]="kt" class="btnEstados">Kyoto</ion-chip>
-        <ion-chip (click)="btnHS()" *ngIf="showJP" [class.estadoClicked]="hs" class="btnEstados">Hiroshima</ion-chip>
+        <ng-container *ngFor="let country of countrys">
+          <ion-chip *ngIf="countrySelected == country || countrySelected == ''" [class]="countrySelected==country?'selected':''" (click)="selectCountry(country)">
+            <ion-label>{{country}}</ion-label>
+          </ion-chip>
+          <ng-container *ngFor="let city of locality[countrySelected]">
+            <ion-chip *ngIf="countrySelected == country && (citySelected == '' || citySelected == city)" (click)="selectCity(city)" [class]="citySelected == city?'citySelected':'city'" >
+              <ion-label>{{city}}</ion-label>
+            </ion-chip>
+          </ng-container>
+        </ng-container>
       </div>
 
       <div class="divContexto">
         <h4>Aonde quer conhecer?</h4>
       </div>
-
       <div class="lugares">
-        <ion-chip (click)="btnBR1()" *ngIf="showBtnBR1" [class.btnClicked]="isClickedBR1">Brasil</ion-chip>
-        <ion-chip (click)="btnSP1()" *ngIf="showBR1" [class.estadoClicked]="sp1" class="btnEstados">São Paulo</ion-chip>
-        <ion-chip (click)="btnBH1()" *ngIf="showBR1" [class.estadoClicked]="bh1" class="btnEstados">Belo Horizonte</ion-chip>
-        <ion-chip (click)="btnRJ1()" *ngIf="showBR1" [class.estadoClicked]="rj1" class="btnEstados">Rio de Janeiro</ion-chip>
-        <ion-chip (click)="btnCR1()" *ngIf="showBR1" [class.estadoClicked]="cr1" class="btnEstados">Curitiba</ion-chip>
-
-        <ion-chip (click)="btnES1()" *ngIf="showBtnES1" [class.btnClicked]="isClickedES1">Espanha</ion-chip>
-        <ion-chip (click)="btnBC1()" *ngIf="showES1" [class.estadoClicked]="bc1" class="btnEstados">Barcelona</ion-chip>
-        <ion-chip (click)="btnVL1()" *ngIf="showES1" [class.estadoClicked]="vl1" class="btnEstados">Valencia</ion-chip>
-        <ion-chip (click)="btnMD1()" *ngIf="showES1" [class.estadoClicked]="md1" class="btnEstados">Madrid</ion-chip>
-
-        <ion-chip (click)="btnPT1()" *ngIf="showBtnPT1" [class.btnClicked]="isClickedPT1">Portugal</ion-chip>
-        <ion-chip (click)="btnLB1()" *ngIf="showPT1" [class.estadoClicked]="lb1" class="btnEstados">Lisbon</ion-chip>
-        <ion-chip (click)="btnCB1()" *ngIf="showPT1" [class.estadoClicked]="cb1" class="btnEstados">Coimbra</ion-chip>
-        <ion-chip (click)="btnPO1()" *ngIf="showPT1" [class.estadoClicked]="po1" class="btnEstados">Porto</ion-chip>
-
-        <ion-chip (click)="btnUS1()" *ngIf="showBtnUS1" [class.btnClicked]="isClickedUS1">EUA</ion-chip>
-        <ion-chip (click)="btnSF1()" *ngIf="showUS1" [class.estadoClicked]="sf1" class="btnEstados">San Francisco</ion-chip>
-        <ion-chip (click)="btnLV1()" *ngIf="showUS1" [class.estadoClicked]="lv1" class="btnEstados">Las Vegas</ion-chip>
-        <ion-chip (click)="btnLA1()" *ngIf="showUS1" [class.estadoClicked]="la1" class="btnEstados">Los Angeles</ion-chip>
-        <ion-chip (click)="btnNY1()" *ngIf="showUS1" [class.estadoClicked]="ny1" class="btnEstados">New York</ion-chip>
-        <ion-chip (click)="btnOL1()" *ngIf="showUS1" [class.estadoClicked]="ol1" class="btnEstados">Orlando</ion-chip>
-
-        <ion-chip (click)="btnUK1()" *ngIf="showBtnUK1" [class.btnClicked]="isClickedUK1">Reino Unido</ion-chip>
-        <ion-chip (click)="btnLD1()" *ngIf="showUK1" [class.estadoClicked]="ld1" class="btnEstados">London</ion-chip>
-        <ion-chip (click)="btnLP1()" *ngIf="showUK1" [class.estadoClicked]="lp1" class="btnEstados">Liverpool</ion-chip>
-        <ion-chip (click)="btnMC1()" *ngIf="showUK1" [class.estadoClicked]="mc1" class="btnEstados">Manchester</ion-chip>
-
-        <ion-chip (click)="btnIT1()" *ngIf="showBtnIT1" [class.btnClicked]="isClickedIT1">Itália</ion-chip>
-        <ion-chip (click)="btnRM1()" *ngIf="showIT1" [class.estadoClicked]="rm1" class="btnEstados">Rome</ion-chip>
-        <ion-chip (click)="btnVN1()" *ngIf="showIT1" [class.estadoClicked]="vn1" class="btnEstados">Venice</ion-chip>
-        <ion-chip (click)="btnML1()" *ngIf="showIT1" [class.estadoClicked]="ml1" class="btnEstados">Milan</ion-chip>
-        <ion-chip (click)="btnFR1()" *ngIf="showIT1" [class.estadoClicked]="fr1" class="btnEstados">Florence</ion-chip>
-
-        <ion-chip (click)="btnJP1()" *ngIf="showBtnJP1" [class.btnClicked]="isClickedJP1">Japão</ion-chip>
-        <ion-chip (click)="btnTK1()" *ngIf="showJP1" [class.estadoClicked]="tk1" class="btnEstados">Tokyo</ion-chip>
-        <ion-chip (click)="btnKT1()" *ngIf="showJP1" [class.estadoClicked]="kt1" class="btnEstados">Kyoto</ion-chip>
-        <ion-chip (click)="btnHS1()" *ngIf="showJP1" [class.estadoClicked]="hs1" class="btnEstados">Hiroshima</ion-chip>
+        <ng-container *ngFor="let country of countrys">
+          <ion-chip *ngIf="interestCountry == country || interestCountry == ''" [class]="interestCountry==country?'selected':''" (click)="selectInterestCountry(country)">
+            <ion-label>{{country}}</ion-label>
+          </ion-chip>
+          <ng-container *ngFor="let city of locality[countrySelected]">
+            <ion-chip *ngIf="interestCountry == country && (interestCity == '' || interestCity == city)" (click)="selectInterestCity(city)" [class]="interestCity == city?'citySelected':'city'" >
+              <ion-label>{{city}}</ion-label>
+            </ion-chip>
+          </ng-container>
+        </ng-container>
       </div>
 
       <ion-button (click)="btnPronto()" type="submit" id="btnCadastrarConta" expand="full" shape="round">

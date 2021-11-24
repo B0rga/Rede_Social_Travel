@@ -26,7 +26,7 @@ interface Thread{
 export class PostService {
   post:Post
   thread:Thread
-  apiAddress:string = 'https://b30b-45-165-177-128.ngrok.io'
+  apiAddress:string = 'http://bbed-45-165-177-121.ngrok.io'
   constructor(private http:HttpClient, private storage:Storage) { }
   async getPost(user,postId){
     const token = await this.getToken()
