@@ -9,7 +9,9 @@ import { AuthServiceService } from '../services/auth/auth-service.service';
   styleUrls: ['./cadastro.page.scss'],
 })
 export class CadastroPage implements OnInit {
-
+  get UserId(){
+    return this.cadastroForm.get('UserId')
+  }
   get Name(){
     return this.cadastroForm.get('Name');
   }
@@ -27,6 +29,9 @@ export class CadastroPage implements OnInit {
   }
   confirmEmail:Boolean = false
   public errorMessages ={
+    UserId: [
+      {type:'required', message:'UserId é obrigatorio'}
+    ],
     Name: [
       {type: 'required', message: 'Nome de usuário é obrigatório'},
       {type: 'pattern', message: 'Por favor insira um nome de usuário válido'}
@@ -42,6 +47,7 @@ export class CadastroPage implements OnInit {
   }
 
   cadastroForm = this.FormBuilder.group({
+    UserId: ['',Validators.required],
     Name:  ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
     Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     Password:  ['', [Validators.required, Validators.minLength(8)]],

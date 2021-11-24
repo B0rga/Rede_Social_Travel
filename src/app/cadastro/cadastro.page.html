@@ -28,6 +28,15 @@
 
     <form [formGroup]="cadastroForm" (ngSubmit)="submit()">
       <ion-item lines="full">
+        <ion-label position="floating">UserId</ion-label>
+        <ion-input formControlName="UserId" type="text" placeholder="Digite aqui o nome" required></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.UserId">
+        <ng-container *ngIf="UserId.hasError(error.type) && (UserId.dirty || UserId.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <ion-item lines="full">
         <ion-label position="floating">Nome de usuário</ion-label>
         <ion-input formControlName="Name" type="text" placeholder="Digite aqui o nome" required></ion-input>
       </ion-item>

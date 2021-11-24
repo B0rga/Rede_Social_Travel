@@ -7,6 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class CameraService extends Camera{
   photos:Array<any>=[]
   takePhoto(){
+    this.photos = []
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.DestinationType.DATA_URL,
@@ -27,6 +28,7 @@ export class CameraService extends Camera{
 
   }
   getPhotos(){
+    this.photos = []
     const options: CameraOptions = {
       sourceType: this.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.DestinationType.DATA_URL,

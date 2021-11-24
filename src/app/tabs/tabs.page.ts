@@ -34,7 +34,11 @@ export class TabsPage implements OnInit {
     this.search.filterOptions(ev.detail.value)
   }
   postThread(){
-    this.post.createPost()
+    this.post.createPost().then(post=>{
+      post.subscribe((res)=>{
+        
+      })
+    })
   }
   async btnConteudo(){
     const actionSheet = await this.actionSheetController.create({

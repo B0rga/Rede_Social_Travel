@@ -13,6 +13,7 @@ interface PostResponse{
 }
 interface Thread{
   Locality:string,
+  Business:string,
   Rote:string,
   Title:string,
   Content:string,
@@ -25,7 +26,7 @@ interface Thread{
 export class PostService {
   post:Post
   thread:Thread
-  apiAddress:string = 'https://94b6-45-165-177-78.ngrok.io'
+  apiAddress:string = 'https://b30b-45-165-177-128.ngrok.io'
   constructor(private http:HttpClient, private storage:Storage) { }
   async getPost(user,postId){
     const token = await this.getToken()
@@ -34,6 +35,7 @@ export class PostService {
     }}).pipe()
   }
   addPost(thread:Thread){
+    console.log(thread)
     if(!this.thread){
       this.thread = thread
     }else{
@@ -60,7 +62,7 @@ export class PostService {
     if(this.thread){
       let token = await this.getToken()
       let user = await this.getUser()
-    return  this.http.post(`${this.apiAddress}/${user.name}/publication/publish`, this.thread, {headers:{
+    return  this.http.post(`${this.apiAddress}/user/publication/publish`, this.thread, {headers:{
       "Authorization": token
     }})
     }

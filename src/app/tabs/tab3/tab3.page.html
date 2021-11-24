@@ -3,24 +3,30 @@
     <ion-list lines="full">
       <ion-item>
         <ion-label position="floating">Título da postagem</ion-label>
-        <ion-input #title type="text"></ion-input>
+        <ion-input formControlName="Title" type="text"></ion-input>
         <ion-icon name="create-outline" slot="end"></ion-icon>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">Localização</ion-label>
-        <ion-input #local clearInput (ionBlur)="clearPlaces()" (ionChange)="searchLocalization($event)" type="text" placeholder="Ex: São Paulo, Brasil / Restaurante"></ion-input>
-        <ng-container>
-          <span class="options" *ngFor="let lugar of places" (click)="selectPlace(lugar)">
-            <p>{{lugar.description}}</p> 
-            <ion-icon slot="end" name="open-outline"></ion-icon>
-          </span> 
-        </ng-container>
-        <ion-icon name="create-outline" slot="end"></ion-icon>
+      <ion-item class="Locality">
+        <div>
+          <ion-label>Localização</ion-label>
+          <ng-container *ngFor="let country of countrys">
+            <ion-chip *ngIf="countrySelected == country || countrySelected == ''" [class]="countrySelected==country?'selected':''" (click)="selectCountry(country)">
+              <ion-label>{{country}}</ion-label>
+            </ion-chip>
+            <ng-container *ngFor="let city of locality[countrySelected]">
+              <ion-chip *ngIf="countrySelected == country && (citySelected == '' || citySelected == city)" (click)="selectCity(city)" [class]="citySelected == city?'citySelected':'city'" >
+                <ion-label>{{city}}</ion-label>
+              </ion-chip>
+            </ng-container>
+          </ng-container>
+          
+        </div>
+        
       </ion-item>
      
       <ion-item id="contentItem">
         <ion-label position="floating">Conteúdo</ion-label>
-        <ion-textarea #content type="text" maxlength="300" rows="8" auto-grow="true">
+        <ion-textarea formControlName="Content" type="text" maxlength="300" rows="8" auto-grow="true">
           
         </ion-textarea>
         <ion-icon name="create-outline" slot="end"></ion-icon>
@@ -31,6 +37,14 @@
             <ion-col  *ngFor="let foto of photo" size="6"><img [src]="foto.data"/></ion-col>
           </ion-row>
         </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Rota</ion-label>
+        <ion-input #local (ionBlur)="clearPlaces()" (ionChange)="searchLocalization($event)" formControlName="Rote" type="text"></ion-input>
+        <ion-icon name="create-outline" slot="end"></ion-icon>
+        <div (click)="selectPlace(op)" class="options" *ngFor="let op of places">
+          {{op.description}}
+        </div>
       </ion-item>
     </ion-list>
     <div class="divPosts">

@@ -25,9 +25,6 @@ export class Tab5Page implements AfterViewInit{
     const array = this.cache.toArray()
     this.longPress(array)
   }
-  mouseDown(){
-    console.log('mouse down')
-  }
   longPress(cacheArray:Array<ElementRef>){
     cacheArray.forEach((el:ElementRef,pos)=>{
       if(pos>0){
