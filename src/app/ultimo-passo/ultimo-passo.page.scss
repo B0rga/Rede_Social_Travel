@@ -103,58 +103,45 @@ h3{
   display: flex;
   justify-content: left;
   color:black;
-  margin-top: 8%;
+  margin-top: 12px;
+  margin-bottom: 2px;
 }
 
-.divContexto h4{
+h4{
   font-size: 18px;
   line-height: 1.5;
 }
 
-/*============================================================================================================*/
-
 .lugares{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: left;
+  margin-bottom: 24px
 }
 
-.lugares ion-item{
-  font-size: 18px;
-  color: black;
-  --border-color: #707070;
-  --background: white;
-  --min-height: 16px;
-  padding: 0px 10px 0px 10px;
-  width: 80%;
-}
-
-.lugares ion-select{
-  font-size: 14px;
-  font-weight: bold;
-  padding-top: 10px;
-}
-
-/*============================================================================================================*/
-
-.divCheck{
-  display: flex;
-  margin-top: 5%;
+ion-chip{
+  margin: 2px;
+  padding: 0px 12px;
+  height: 26px;
   font-size: 12px;
+  --background: none;
+  border: 1px solid var(--ion-color-medium);
 }
 
-.divCheck ion-checkbox {
-  top: 15%;
-  width: 16px;
-  height: 16px;
-  --border-color: #707070;
-  --border-radius: 4px;
-  --background: white;
+.btnEstados{
+  --background: #7ffcdd;
+  color: var(--ion-color-dark);
+  border: none;
 }
 
-.divCheck ion-label{
-  padding-left: 5px;
+.btnClicked{
+  --background:#00f9bb;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
 
+.estadoClicked{
+  border: 1px solid var(--ion-color-dark);
+  filter:brightness(90%);
 }
 
 /*============================================================================================================*/

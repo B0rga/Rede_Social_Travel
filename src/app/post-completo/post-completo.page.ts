@@ -9,6 +9,7 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post-completo.page.scss'],
 })
 export class PostCompletoPage implements OnInit {
+  savePostIcon = 'bookmark-outline';
   thread:Object = {}
   replacedThread:Array<Object> = []
   constructor(public popoverController: PopoverController, private post:PostService) { }
@@ -46,6 +47,16 @@ export class PostCompletoPage implements OnInit {
       event: ev,
     });
     return await popover.present();
+  }
+
+  btnSavePost(): void{
+
+    if(this.savePostIcon == 'bookmark-outline'){
+      this.savePostIcon = 'bookmark';
+    }
+    else{
+      this.savePostIcon = 'bookmark-outline';
+    }
   }
 
   ngOnInit() {
