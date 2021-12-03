@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
 })
 export class ConfiguracoesPage implements OnInit {
   userInfo:Object = {}
-  constructor(private auth:AuthServiceService) { }
+  constructor(private auth:AuthServiceService, private router:Router) { }
 
   ngOnInit() {
     this.userInfo = {
@@ -17,6 +18,9 @@ export class ConfiguracoesPage implements OnInit {
       phone: "11 91280-4222",
       place: "São Paulo SP Brasil"
     }
+  }
+  alterarEmail(){
+    this.router.navigate(['alterar-email'])
   }
 
 

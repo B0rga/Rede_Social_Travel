@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
+import {apiAddress} from '../api-address'
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  apiAdress:string = ''
+  apiAdress:string = apiAddress
   public search:string
-  public results:any
+  private _results:any
   public cacheSearch:Array<string> = []
+  set results(results){
+    this._results = results
+  }
+  get results(){
+    return this._results
+  }
   constructor(private storage:Storage, private http:HttpClient) { 
     this.getCache()
   }
@@ -20,9 +27,10 @@ export class SearchService {
     const replacedSearch = search.replace(/ /g, '%20').replace(/,/g, '%2C')
     this.getToken().then((token)=>{
       this.http.get(`${this.apiAdress}/home/search/${replacedSearch}`, {headers:{
-        "Authorization": token
+        "Authorization": `Bearer ${token}`
       }}).subscribe((res)=>{
         this.results = res
+        console.log(res)
       })
     })
     this.search = search

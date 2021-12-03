@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { of } from 'rxjs';
+import { AuthServiceService } from '../services/auth/auth-service.service';
 
 @Component({
   selector: 'app-ultimo-passo',
@@ -11,8 +11,8 @@ export class UltimoPassoPage implements OnInit {
 
   countrySelected:string=''
   citySelected:string=''
-  interestCountry:string = ''
-  interestCity:string = ''
+  interestCountry:Array<string> = []
+  interestCity:Array<string> = []
   locality:any = {
     "Brasil": ["São Paulo", "Belo Horizonte", "Rio de Janeiro","Curitiba"],
     "Reino Unido": ["London", "Liverpool", "Manchester"],
@@ -22,20 +22,24 @@ export class UltimoPassoPage implements OnInit {
     "Italia": ["Rome", "Venice", "Milan", "Florence"],
     "Espanha": ["Barcelona", "Valencia", "Madrid"]
   }
+  countryCode:Array<string> = ['BR', 'UK', "EUA", 'JP', 'PT', 'IT','ES']
   countrys:Array<string> = ['Brasil', "Reino Unido", "EUA", "Japão", "Portugal", "Italia", "Espanha"]
- 
+  countryIndex:number
 
   constructor(
-    private router: Router
+    private router: Router,
+    private auth:AuthServiceService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
   selectCountry(country){
     if(this.countrySelected == country){
       this.countrySelected = ''
+      this.countryIndex = -1
     }else{
       this.countrySelected = country
+      this.countryIndex = this.countrys.indexOf(country)
     }
     this.citySelected = ''
    
@@ -49,23 +53,37 @@ export class UltimoPassoPage implements OnInit {
     
   }
   selectInterestCountry(country){
-    if(this.interestCountry == country){
-      this.interestCountry = ''
+    let index = this.interestCountry.indexOf(country)
+    if(index == -1){
+      this.interestCountry.push(country)
     }else{
-      this.interestCountry = country
+      this.locality[country].map((city)=>{
+        let indexOfCity = this.interestCity.indexOf(city)
+        if(indexOfCity != -1){
+          this.interestCity.splice(indexOfCity)
+        }
+      })
+      this.interestCountry.splice(index)
     }
-    this.interestCity = ''
+    
    
   }
   selectInterestCity(city){
-    if(this.interestCity == city){
-      this.interestCity = ''
+    console.log(this.interestCity)
+    let index = this.interestCity.indexOf(city)
+    if(index == -1){
+      this.interestCity.push(city)
     }else{
-      this.interestCity = city
-    }
-    
+      this.interestCountry.splice(index)
+    }    
   }
-
+  finish(){
+    if(this.countrySelected != '' && this.citySelected != ''){
+      this.auth.setUserLocation(this.countrySelected, this.citySelected, this.countryCode[this.countryIndex])
+      this.auth.setUserInterest(this.interestCity)
+      this.auth.singIn().subscribe((res)=>console.log(res))
+    }
+  }
  
 
 }

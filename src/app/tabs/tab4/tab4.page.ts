@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { UserService } from 'src/app/services/user.service';
+import {apiAddress} from '../../services/api-address'
 
 @Component({
   selector: 'app-tab4',
@@ -8,27 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab4Page implements OnInit {
   notifications:Array<object> = []
-  constructor() {
+  constructor(
+    private http:HttpClient, private user:UserService
+  ) {
   }
 
   ngOnInit() {
-    
-    this.notifications.push({
-      id:1,
-      texto:"Matheus almeida comentou na sua publicação",
-      tempo:"3 minutos atras",
-      conteudo:null
-    },{
-      id:2,
-      texto:"Matheus almeida respondeu seu comentario",
-      tempo:"3 minutos atras",
-      conteudo:"Essa foi minha primeira viagem para o Brasil, e foi incrivel"
-    },
-    {
-      id:3,
-      texto:"Matheus almeida respondeu seu comentario",
-      tempo:"3 minutos atras",
-      conteudo:"Essa foi minha primeira viagem para o Brasil, e foi incrivel"
+    this.user.getToken().then(async (token)=>{
+      const user = await this.user.getUser()
+      this.http.get(`${apiAddress}/home/notifications/${user.id}`, {headers:{
+        "Authorization": `Bearer ${token}`
+      }}).subscribe(res=>{
+        console.log(res)
+      })
     })
     
   }

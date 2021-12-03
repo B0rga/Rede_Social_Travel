@@ -9,14 +9,15 @@ import {Router} from '@angular/router'
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { GooglePlus } from '@ionic-native/google-plus'
 import {Login} from './login'
+import {apiAddress} from '../api-address'
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
-  apiAdress:  string  =  'https://5555-45-165-177-128.ngrok.io'
+  apiAdress:  string  =  apiAddress
   authSubject  =  new  BehaviorSubject(false)
   cookie:string
-  private user:User
+  user:User
   constructor(
     private router: Router,
     private  httpClient:  HttpClient,
@@ -25,14 +26,14 @@ export class AuthServiceService {
     ) { 
   }
   login(user: Login): Observable<AuthResponse>  {
-    console.log(user)
-    return this.httpClient.post(`${this.apiAdress}/user/login`, user).pipe(
+    return this.httpClient.post(`${this.apiAdress}/login`, user).pipe(
       tap(async (res:  AuthResponse ) => {
         if(res){
           await this.storage.create()
           await this.storage.set("ACCESS_TOKEN", res.token)
-          await this.storage.set("EXPIRES_IN", res.expiresin)
+          await this.storage.set("REFRESH_TOKEN", res.refreshToken)
           await this.storage.set("USER", res.user)
+          this.router.navigate(['tabs'])
           this.authSubject.next(true)
         }
       })
@@ -40,7 +41,10 @@ export class AuthServiceService {
     )
   }
   emailIsRegistered(email){
-    return this.httpClient.get(`${this.apiAdress}/user/verify/email/${email}`)
+    return this.httpClient.get(`${this.apiAdress}/user/validate/email/${email}`)
+  }
+  idIsRegistered(id){
+    return this.httpClient.get(`${this.apiAdress}/user/validate/id/${id}`)
   }
   clearUser(){
     this.user = null
@@ -54,13 +58,15 @@ export class AuthServiceService {
     this.user = user
   }
   singIn(): Observable<AuthResponse>  {
+    console.log(this.user)
     return this.httpClient.post<AuthResponse>(`${this.apiAdress}/user/create`, this.user).pipe(
       tap(async (res:  AuthResponse ) => {
         if(res){
             await this.storage.create()
             await this.storage.set("ACCESS_TOKEN", res.token)
             await this.storage.set("REFRESH_TOKEN", res.refreshToken)
-            await this.storage.set("EXPIRES_IN", res.expiresin)
+            await this.storage.set("USER", res.user)
+            this.router.navigate(['tabs'])
             this.authSubject.next(true)
         }
       })
@@ -68,8 +74,7 @@ export class AuthServiceService {
     )
   }
   sendMail(code){
-    
-    return this.httpClient.post(`${this.apiAdress}/user/emailVerification`,{Email: this.user.Email, Code: code})
+    return this.httpClient.get(`${this.apiAdress}/user/verify/email/${this.user.Email}&${code}`)
     .pipe(
       tap(async (res)=>{
         
@@ -85,8 +90,18 @@ export class AuthServiceService {
       this.router.navigate(['tabs'])
     })
   }
-  getUser(username){
-    this.httpClient.get(`${this.apiAdress}/api/user/`)
+  getUser(userId){
+    return this.httpClient.get(`${this.apiAdress}/user/${userId}`)
+  }
+  setUserInterest(interest){
+    this.user.Interests = interest
+  }
+  setUserLocation(country, locality, countrycode?){
+    this.user.Location = {
+      Country: country,
+      CountryCode: countrycode,
+      Locality: locality
+    }
   }
   loginWithGoogle(){
     GooglePlus.login({'webClientId':'251518684476-md8hta1ij3eqceu459mumbflf48n5l8v.apps.googleusercontent.com', 'offiline':true})

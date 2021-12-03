@@ -50,7 +50,13 @@ ion-item{
   --padding-top: 2px;
   
 }
-ion-chip{
+.mainTitle{
+  color: var(--ion-color-dark);
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+}
+.places{
   padding: 0px 16px 0px 16px;
   --background: none;
   border: 1px solid var(--ion-color-medium);
@@ -62,6 +68,16 @@ ion-chip{
   margin-bottom: 5px;
   transition: all .3s linear ;
 }
+ion-chip{
+  margin: 0px 10px 0px 10px;
+  padding: 0px 16px 0px 16px;
+  --background: none;
+  border: 1px solid var(--ion-color-medium);
+  height: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.5s linear;
+}
 
 .selected{
   --background: #00f9bb;
@@ -69,11 +85,13 @@ ion-chip{
   color: white;
 }
 .city{
-  --background: #00f9bb;
+  --background: #00f9bb93;
   border:none;
+  color: black;
 }
 .citySelected{
   --background: #00f9bb;
+  color: black;  
 }
 .divPosts{
   display: flex;

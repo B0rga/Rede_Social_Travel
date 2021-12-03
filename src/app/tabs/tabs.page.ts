@@ -31,15 +31,13 @@ export class TabsPage implements OnInit {
     }
   }
   filter(ev):void{
-    this.search.filterOptions(ev.detail.value)
+    const search = ev.detail.value as string
+    if(!search.trim().length){
+      this.search.results = null
+    }
+    this.search.filterOptions(search)
   }
-  postThread(){
-    this.post.createPost().then(post=>{
-      post.subscribe((res)=>{
-        
-      })
-    })
-  }
+  
   async btnConteudo(){
     const actionSheet = await this.actionSheetController.create({
       header: 'Prefências de conteúdo',

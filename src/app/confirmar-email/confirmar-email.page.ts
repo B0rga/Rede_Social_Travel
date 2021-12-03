@@ -23,8 +23,8 @@ export class ConfirmarEmailPage implements OnInit {
 
   ngOnInit() {
     this.code = Math.floor((Math.random()*9999))
-    console.log(this.code)
-    //this.auth.sendMail(this.code).subscribe()
+    console.log(this.code, this.auth.user)
+    this.auth.sendMail(this.code).subscribe()
     this.interval = setInterval(()=>{this.clock()},1000)
   }
 
@@ -62,6 +62,7 @@ export class ConfirmarEmailPage implements OnInit {
   }
 
   public submit(){
+    clearInterval(this.interval)
     this.router.navigate(['ultimo-passo'])
   }
 

@@ -8,10 +8,10 @@
     <div class="divHeadSuperior">
       <div class="grid">
         <div class="divTitulo">
-          <p>Jesse Pinkman</p>
+          <p>{{data.username}}</p>
         </div>
         <div class="divTempo">
-          <p>X dias atrás</p>
+          <p>{{data.time}}</p>
         </div>
       </div>
 
@@ -23,9 +23,7 @@
     </div>
     <div class="divSinopse">
       <p>
-      Essa foi minha primeira viagem para a França, e foi incrível.
-      O povo francês é muito acolhedor e a comida francesa
-      é a melhor.
+      {{data.content}}
       </p>
     </div>
 
@@ -46,10 +44,10 @@
           </tr>
           <tr>
             <td>
-              <p>2</p>
+              <p>{{data.upvotes}}</p>
             </td>
             <td>
-              <p>2</p>
+              <p>{{data.downvotes}}</p>
             </td>
           </tr>
         </table>

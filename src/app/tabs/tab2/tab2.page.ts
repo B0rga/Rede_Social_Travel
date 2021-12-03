@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-tab2',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-
-  constructor() { }
+  posts:object
+  constructor(private post:PostService) { }
 
   ngOnInit() {
+    this.loadPosts()
   }
-
+  loadPosts(){
+    this.post.getPopular().then(post=>{
+      post.subscribe(res=>{
+        this.posts = res
+      })
+    })
+  }
 }

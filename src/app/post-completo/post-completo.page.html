@@ -10,12 +10,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="thread">
 
-  <div class=divSuperior>
+  <div class=divSuperior >
 
     <div class="divEsquerda">
-      <div class="divAvatar"><ion-avatar><img src="/assets/jesse.jpg"></ion-avatar></div>
+      <div class="divAvatar"><ion-avatar><img [src]="thread.author.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+thread.author.profileImageUrl:'/assets/profile.png'"></ion-avatar></div>
       <div class="divLine"></div>
     </div>
 
@@ -23,7 +23,7 @@
       <div class="divHeadSuperior">
         <div class="grid">
           <div class="divTitulo">
-            <p>Jesse Pinkman</p>
+            <p>{{thread.author.name}}</p>
           </div>
           <div class="divTempo">
             <p>X dias atrás</p>
@@ -46,10 +46,54 @@
         {{thread.content}}
         </p>
       </div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6" *ngFor="let img of thread.images"><ion-img [src]="'https://storageapptravel.blob.core.windows.net/postimages/'+img"></ion-img></ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
   </div>
 
   <div class="divPrincipal" *ngFor="let post of replacedThread">
+    <div class="divEsquerda">
+      <ion-icon name="ellipse-outline"></ion-icon>
+      <div class="divLine"></div>
+    </div>
+
+    <div class="divDesc">
+      <div class="divHeadPrincipal">
+        <div class="divTitulo">
+            <p> &nbsp;</p>
+            <p>X dias atrás</p>
+        </div>
+        <ion-buttons slot="end">
+          <ion-button (click)="openPopover($event)">
+            <ion-icon name="ellipsis-horizontal"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+      
+      <div class="title">
+        <p>
+          {{post.title}}
+        </p>
+      </div>
+      <div class="divSinopse">
+        <p>
+          {{post.content}}
+        </p>
+      </div>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="6" *ngFor="let img of post.images"><ion-img [src]="'https://storageapptravel.blob.core.windows.net/postimages/'+img"></ion-img></ion-col>
+        </ion-row>
+      </ion-grid>
+      
+
+    </div>
+  </div>
+  
+  <div class="divPrincipal" *ngIf="linkRote">
     <div class="divEsquerda">
       <ion-icon name="ellipse-outline"></ion-icon>
       <div class="divLine"></div>
@@ -68,16 +112,15 @@
         </ion-buttons>
       </div>
       <div class="divLocal">
-        <p>Sobre o Hotel&nbsp;</p>
-        <a>Hotel Vendaval</a>
-        <ion-icon name="location-outline"></ion-icon>
+        <p>Rota Completa&nbsp;</p>
+        
       </div>
       <div class="divSinopse">
         <p>
-          {{post.content}}
         </p>
       </div>
-      <div class="divImg1"></div>
+      <div class="divImg1">
+      </div>
 
     </div>
   </div>
@@ -94,8 +137,8 @@
     </ion-button>
   </ion-buttons>
 
-  <h1>1240 Avaliações</h1>
-  <div class="divDesempenho">
+  <h1>{{thread.evaluation.evaluetionsCount}} Avaliações</h1>
+  <div class="divDesempenho" *ngIf="thread">
     <div class="avaliacoes">
 
       <table>
@@ -111,7 +154,7 @@
             </div>
           </td>
           <td>
-            <p>30</p>
+            <p>{{thread.totalFiveStars}}</p>
           </td>
         </tr>
 
@@ -125,7 +168,7 @@
             </div>
           </td>
           <td>
-            <p>1200</p>
+            <p>{{thread.totalFourStars}}</p>
           </td>
         </tr>
 
@@ -138,7 +181,7 @@
             </div>
           </td>
           <td>
-            <p>5</p>
+            <p>{{thread.totalThreeStars}}</p>
           </td>
         </tr>
 
@@ -150,7 +193,7 @@
             </div>
           </td>
           <td>
-            <p>3</p>
+            <p>{{thread.totalTwoStars}}</p>
           </td>
         </tr>
 
@@ -161,27 +204,17 @@
             </div>
           </td>
           <td>
-            <p>2</p>
+            <p>{{thread.totalOneStars}}</p>
           </td>
         </tr>
       </table>
     </div>
 
     <div class="avaliacoes">
-      <h2>4,2</h2>
+      <h2>{{thread.evaluation.totalRate}}</h2>
     </div>
   </div>
 
   <h1>1240 Comentários</h1>
-
-  <app-comentario></app-comentario>
-  <div class="resposta">
-    <app-comentario></app-comentario>
-  </div>
-  <app-comentario></app-comentario>
-  <div class="resposta">
-    <app-comentario></app-comentario>
-  </div>
-
 
 </ion-content>

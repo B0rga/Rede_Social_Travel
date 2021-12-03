@@ -63,6 +63,14 @@ const routes: Routes = [
     path: 'outro-perfil',
     loadChildren: () => import('./outro-perfil/outro-perfil.module').then( m => m.OutroPerfilPageModule)
   },
+  {
+    path: 'alterar-email',
+    loadChildren: () => import('./alterar-email/alterar-email.module').then( m => m.AlterarEmailPageModule)
+  },
+  {
+    path: 'redigitar-senha',
+    loadChildren: () => import('./redigitar-senha/redigitar-senha.module').then( m => m.RedigitarSenhaPageModule)
+  },
 ];
 
 @NgModule({

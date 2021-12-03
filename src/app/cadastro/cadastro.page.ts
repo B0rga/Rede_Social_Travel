@@ -9,8 +9,8 @@ import { AuthServiceService } from '../services/auth/auth-service.service';
   styleUrls: ['./cadastro.page.scss'],
 })
 export class CadastroPage implements OnInit {
-  get UserId(){
-    return this.cadastroForm.get('UserId')
+  get Id(){
+    return this.cadastroForm.get('Id')
   }
   get Name(){
     return this.cadastroForm.get('Name');
@@ -29,8 +29,8 @@ export class CadastroPage implements OnInit {
   }
   confirmEmail:Boolean = false
   public errorMessages ={
-    UserId: [
-      {type:'required', message:'UserId é obrigatorio'}
+    Id: [
+      {type:'required', message:'Id é obrigatorio'}
     ],
     Name: [
       {type: 'required', message: 'Nome de usuário é obrigatório'},
@@ -47,12 +47,12 @@ export class CadastroPage implements OnInit {
   }
 
   cadastroForm = this.FormBuilder.group({
-    UserId: ['',Validators.required],
+    Id: ['',Validators.required],
     Name:  ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
     Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     Password:  ['', [Validators.required, Validators.minLength(8)]],
     ConfirmPassword:  new FormControl('', Validators.compose([Validators.required])),
-  }, {validators:[this.matchPassword.bind(this), this.emailIsUsed.bind(this)]})
+  }, {validators:[this.matchPassword.bind(this), this.emailIsUsed.bind(this), this.idIsUsed.bind(this)]})
 
   constructor(
     private router: Router,
@@ -64,12 +64,24 @@ export class CadastroPage implements OnInit {
     const { value: confirmPassword } = formGroup.get('ConfirmPassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
+  idIsUsed(formGroup:FormGroup){
+    const campoId = formGroup.get('Id')
+    const {value:Id} = campoId
+    if(campoId.valid){
+      this.auth.idIsRegistered(Id).subscribe((res:any)=>{
+        console.log(res)
+        this.confirmEmail = res.result
+      })
+      return this.confirmEmail?{idIsUsed:true}:null
+    }
+  }
   emailIsUsed(formGroup:FormGroup){
     const campoEmail = formGroup.get('Email')
     const {value:email} = campoEmail
     if(campoEmail.valid){
-      this.auth.emailIsRegistered(email).subscribe((res:boolean)=>{
-        this.confirmEmail = res
+      this.auth.emailIsRegistered(email).subscribe((res:any)=>{
+        console.log(res)
+        this.confirmEmail = res.result
       })
       return this.confirmEmail?{emailUsed:true}:null
     }
@@ -80,6 +92,7 @@ export class CadastroPage implements OnInit {
 
   public submit(){
     if(this.cadastroForm.valid){
+      delete this.cadastroForm.value.ConfirmPassword
       this.auth.createUser(this.cadastroForm.value)
       this.router.navigate(['confirmar-email'])
     }else {

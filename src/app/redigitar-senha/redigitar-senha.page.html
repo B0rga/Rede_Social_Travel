@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      travel
+      <img src= "/assets/logoprincipal.svg" id="logoPrincipal">
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divPrincipal">
+    <h3>Re-digite sua senha</h3>
+    <p id="Descricao">Re-digite sua senha para poder continuar.</p>
+
+    <form [formGroup]="alterForm" (ngSubmit)="submit()">
+      <ion-item lines="full">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input formControlName="Password" [type]="showPassword ? 'text' : 'password'" placeholder="Digite aqui a senha" required></ion-input>
+        <ion-icon slot="end" [name]="passwordToggleIcon" id="eye" (click)="btnShowHide()"></ion-icon>
+      </ion-item>
+      
+
+      <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round" [disabled]="alterForm.invalid">
+        Confirmar
+      </ion-button>
+      <ion-button class='cancel' (click)="onClick()" expand="full" fill="clear" shape="round">
+        Cancelar
+      </ion-button>
+    </form>
+
+  </div>
+</ion-content>

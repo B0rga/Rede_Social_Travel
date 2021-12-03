@@ -1,9 +1,13 @@
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <ion-label>
-        Em Alta
-      </ion-label>
-    </ion-item>
-  </ion-card>
+
+  <h4>Popular</h4>
+  <app-post [post_data]="posts" *ngFor="let posts of posts"></app-post>
+
+  <ion-infinite-scroll (ionInfinite)="loadPosts($event)">
+    <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Carregando mais posts...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

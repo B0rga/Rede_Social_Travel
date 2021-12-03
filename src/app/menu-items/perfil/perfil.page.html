@@ -5,7 +5,7 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>Travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
+    <ion-title>travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
 
   </ion-toolbar>
 </ion-header>
@@ -19,21 +19,21 @@
 
   <div class="divInfos">
     <a>
-      <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img src="/assets/jesse.jpg">
+      <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img [src]="userProfile.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+userProfile.profileImageUrl:'/assets/profile.png'">
         <ion-ripple-effect type=unbounded></ion-ripple-effect>
       </ion-avatar>
     </a>
 
     <div class="divId">
-      <a id="nome" class="ion-activatable ripple-parent">Jesse Pinkman
+      <a id="nome" class="ion-activatable ripple-parent">{{userProfile.name}}
         <ion-ripple-effect type=unbounded></ion-ripple-effect>
       </a>
 
-      <p id="usuario">@JesseBeach</p>
+      <p id="usuario">@{{userProfile.id}}</p>
 
       <div class="divLocal">
         <ion-icon name="location-outline"></ion-icon>
-        <p>São Paulo, Brasil</p>
+        <p>{{userProfile.location.locality}}, {{userProfile.location.country}}</p>
       </div>
 
     </div>
@@ -42,15 +42,15 @@
 
   <div class="divStats">
     <div>
-      <p>1</p>
+      <p>{{userProfile.publicationCount}}</p>
       <p>Posts</p>
     </div>
     <div>
-      <p>50</p>
+      <p>{{userProfile.followingCount}}</p>
       <p>Seguindo</p>
     </div>
     <div>
-      <p>87</p>
+      <p>{{userProfile.followersCount}}</p>
       <p>Seguidores</p>
     </div>
   </div>
@@ -71,6 +71,6 @@
 
   </div>
 
-  <app-post></app-post>
+  <app-post *ngFor="let post of userPosts" [post_data]="post"></app-post>
 
 </ion-content>

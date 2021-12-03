@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header *ngIf='selectedTab != "tab3"'>
   <ion-toolbar>
 
     <ion-buttons slot="start">
@@ -7,14 +7,7 @@
 
     <ion-title class="mainTitle" *ngIf='selectedTab == "tab1" || selectedTab =="tab2"'>travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
 
-    <ion-title *ngIf='selectedTab == "tab3"' id="postTitle" >
-      Criar post
-    </ion-title>
-
-    <ion-chip *ngIf='selectedTab == "tab3"' slot="end" (click)="postThread()">
-      <ion-label>Postar</ion-label>
-    </ion-chip>
-
+   
     <div id="notifica" *ngIf='selectedTab == "tab4"'>
       <ion-title class="mainTitle">
         Notificações

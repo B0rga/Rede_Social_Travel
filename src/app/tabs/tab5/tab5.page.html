@@ -1,21 +1,44 @@
 <ion-content>
   <ion-list >
-    <ion-item id="titulo" *ngIf="this.search.cacheSearch.length>0">
+    <ion-item id="titulo" *ngIf="this.search.cacheSearch.length>0 && !this.search.results">
       <ion-label>Pesquisado recentemente</ion-label>
         <ion-button (click)="clearCache()">
           <ion-icon name="close-circle" slot="icon-only" color="danger"></ion-icon>
         </ion-button>
     </ion-item>
-      
-      <ion-item class="cache" (click)="Search(op)" *ngFor="let op of this.search.cacheSearch; let last = last" >
-        <ng-container *ngIf="last">
-          {{setGesture()}}
-        </ng-container>
-        <ion-label>
-          {{op}}
-        </ion-label>
-        <ion-icon name="open-outline"></ion-icon>
+    <ng-container *ngIf="this.search.results">
+      <ion-item id="titulo">
+        <ion-label>Usuarios:</ion-label>
       </ion-item>
+      <ion-item *ngFor="let user of search.results.users" (click)="openProfile(user)">
+        <ion-avatar>
+          <img [src]="user.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+user.profileImageUrl:'/assets/profile.png'" />
+        </ion-avatar>
+        <div class="user">
+          <ion-label>{{user.name}}</ion-label>
+          <small>@{{user.id}}</small>
+        </div>
+        
+      </ion-item>
+      <ion-item>
+        <ion-label>Posts:</ion-label>
+      </ion-item>
+      <app-post [post_data]="post" *ngFor="let post of search.results.publications" >
+
+      </app-post>
+    </ng-container>
+      <ng-container *ngIf="!this.search.results">
+        <ion-item class="cache" (click)="Search(op)" *ngFor="let op of this.search.cacheSearch; let last = last; let cacheIndex = index" >
+          <ng-container *ngIf="last">
+            {{setGesture()}}
+          </ng-container>
+          <ion-label>
+            {{op}}
+          </ion-label>
+          <ion-icon name="open-outline"></ion-icon>
+        </ion-item>
+      </ng-container>
+     
 
   </ion-list>
 </ion-content>

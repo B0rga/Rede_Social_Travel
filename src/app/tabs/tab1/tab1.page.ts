@@ -26,8 +26,8 @@ export class Tab1Page implements OnInit {
   }
   getPosts(event?):void{
     this.postService.getPosts().then(res=>{
-      res.subscribe((res)=>{
-        this.posts = this.posts.concat(res.posts)
+      res.subscribe((res:any)=>{
+        this.posts = res
       })
       if(event){
         event.target.complete()

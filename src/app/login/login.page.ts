@@ -27,13 +27,13 @@ export class LoginPage implements OnInit {
     ],
     Password: [
       {type: 'required', message: 'Senha é obrigatória'},
-      {type: 'minlength', message: 'Senha não poder ter menos que 6 caracteres'}
+      {type: 'minlength', message: 'Senha não poder ter menos que 8 caracteres'}
     ]
   }
 
   loginForm = this.FormBuilder.group({
     Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-    Password:  ['', [Validators.required, Validators.minLength(6)]]
+    Password:  ['', [Validators.required, Validators.minLength(8)]]
   })
 
   constructor(

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { SharedComponentsModule } from './../../components/shared-components.module';
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 
 import { Tab2Page } from './tab2.page';
@@ -13,7 +13,8 @@ import { Tab2Page } from './tab2.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    Tab2PageRoutingModule
+    Tab2PageRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [Tab2Page]
 })

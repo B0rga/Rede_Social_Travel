@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      travel
+      <img src= "/assets/logoprincipal.svg" id="logoPrincipal">
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divPrincipal">
+    <h3>Alterar email</h3>
+    <p id="Descricao">Seu endereço de email anterior é {{emailAnt}}. Para qual email você gostaria de atualizar?</p>
+
+    <form [formGroup]="alterForm" (ngSubmit)="submit()">
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
+      </ion-item>
+      <div *ngFor="let error of errorMessages.email">
+        <ng-container *ngIf="email.hasError(error.type) && (email.dirty || email.touched)">
+          <small class="error-message">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round" [disabled]="alterForm.invalid">
+        Atualizar email
+      </ion-button>
+      <ion-button class='cancel' (click)="onClick()" expand="full" fill="clear" shape="round">
+        Cancelar
+      </ion-button>
+    </form>
+
+  </div>
+</ion-content>

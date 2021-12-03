@@ -1,17 +1,17 @@
 <ion-card class="post" button="true" (click)="entrarPost()">
   <div class=divSuperior>
     <div class="divAvatar">
-      <ion-avatar> <img src="/assets/jesse.jpg"> </ion-avatar>
+      <ion-avatar> <img [src]="data.author.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+data.author.profileImageUrl:'/assets/profile.png'"> </ion-avatar>
     </div>
     <div class="divHeadSuperior">
       <div class="grid">
         <div class="divTitulo">
-          <p>{{this.name}}</p>
+          <p>{{data.author.name}}</p>
         </div>
         <div class="divTempo">
           <p>{{this.time}}</p>
-          <p class="lugar">&nbsp;em&nbsp;{{this.city}},&nbsp;</p>
-          <p class="lugar">{{this.country}}</p>
+          <p class="lugar">&nbsp;em&nbsp;{{data.locality}},&nbsp;</p>
+          <p class="lugar">{{data.country}}</p>
         </div>
       </div>
 
@@ -24,35 +24,36 @@
   </div>
 
   <div class="title">
-    <p>Viajei para São Paulo e foi incrível!!</p>
+    <p>{{data.title}}</p>
   </div>
   <div class="divSinopse">
     <p>
-    {{this.content}}
+    {{data.content}}
     </p>
   </div>
 
   <div class="divImagens">
-    <div class="divMaior"></div>
+    <div class="divMaior" [style]="images[0]?'background-image: url('+images[0]+')':''"></div>
     <div class="linhaVertical"></div>
 
     <div class="divDireita">
-      <div class="divMenor"></div>
+      <div class="divMenor" [style]="images[1]?'background-image: url('+images[1]+')':''"></div>
       <div class="linhaHorizontal"></div>
-      <div class="divMenor2"></div>
+      <div class="divMenor2" [style]="images[2]?'background-image: url('+images[2]+')':''"></div>
     </div>
   </div>
+
 
   <div class="divRelevancia">
 
     <div class="divStats">
       <ion-icon name="star-outline"></ion-icon>
-      <ion-label>4.2</ion-label>
+      <ion-label>{{data.evaluation.totalRate}}</ion-label>
     </div>
 
     <div class="divStats">
       <ion-icon name="chatbubble-outline"></ion-icon>
-    <ion-label>32</ion-label>
+    <ion-label>{{data.totalComments}}</ion-label>
     </div>
   </div>
 </ion-card>

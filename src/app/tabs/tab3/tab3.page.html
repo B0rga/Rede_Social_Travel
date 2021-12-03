@@ -1,3 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="mainTitle">
+      Criar post
+    </ion-title>
+
+    <ion-chip slot="end" [class]='(citySelected.trim().length && postForm.valid)?"citySelected":""' (click)="postThread()">
+      <ion-label>Postar</ion-label>
+    </ion-chip>
+
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <form [formGroup]="postForm">
     <ion-list lines="full">
@@ -10,11 +25,11 @@
         <div>
           <ion-label>Localização</ion-label>
           <ng-container *ngFor="let country of countrys">
-            <ion-chip *ngIf="countrySelected == country || countrySelected == ''" [class]="countrySelected==country?'selected':''" (click)="selectCountry(country)">
+            <ion-chip *ngIf="countrySelected == country || countrySelected == ''" [class]="(countrySelected==country?'selected':'')+' places'" (click)="selectCountry(country)">
               <ion-label>{{country}}</ion-label>
             </ion-chip>
             <ng-container *ngFor="let city of locality[countrySelected]">
-              <ion-chip *ngIf="countrySelected == country && (citySelected == '' || citySelected == city)" (click)="selectCity(city)" [class]="citySelected == city?'citySelected':'city'" >
+              <ion-chip *ngIf="countrySelected == country && (citySelected == '' || citySelected == city)" (click)="selectCity(city)" [class]="(citySelected == city?'citySelected':'city')+' places'" >
                 <ion-label>{{city}}</ion-label>
               </ion-chip>
             </ng-container>
@@ -42,6 +57,7 @@
         <ion-label position="floating">Rota</ion-label>
         <ion-input #local (ionBlur)="clearPlaces()" (ionChange)="searchLocalization($event)" formControlName="Rote" type="text"></ion-input>
         <ion-icon name="create-outline" slot="end"></ion-icon>
+        <div #teste></div>
         <div (click)="selectPlace(op)" class="options" *ngFor="let op of places">
           {{op.description}}
         </div>
@@ -49,10 +65,7 @@
     </ion-list>
     <div class="divPosts">
       <ion-chip (click)="addPost()">Post +</ion-chip>
-      <ion-buttons slot="end">
-        <ion-button>
-          <ion-icon name="location-outline"></ion-icon>
-        </ion-button>
+      <ion-buttons slot="end">  
         <ion-button (click)="galery()">
           <ion-icon name="images-outline"></ion-icon>
         </ion-button>

@@ -48,19 +48,24 @@
         <h4>Aonde quer conhecer?</h4>
       </div>
       <div class="lugares">
-        <ng-container *ngFor="let country of countrys">
-          <ion-chip *ngIf="interestCountry == country || interestCountry == ''" [class]="interestCountry==country?'selected':''" (click)="selectInterestCountry(country)">
+        <ng-container *ngFor="let country of countrys; let indexCountry = index">
+          <ion-chip [class]="interestCountry.indexOf(country)!=-1?'selected':''" (click)="selectInterestCountry(country)">
             <ion-label>{{country}}</ion-label>
           </ion-chip>
-          <ng-container *ngFor="let city of locality[countrySelected]">
-            <ion-chip *ngIf="interestCountry == country && (interestCity == '' || interestCity == city)" (click)="selectInterestCity(city)" [class]="interestCity == city?'citySelected':'city'" >
-              <ion-label>{{city}}</ion-label>
-            </ion-chip>
-          </ng-container>
+            <ng-container *ngFor="let countryInt of interestCountry">
+              <ng-container *ngFor="let city of locality[countryInt]">
+                <ion-chip *ngIf="interestCountry.indexOf(country)!=-1 && locality[country].indexOf(city) != -1" (click)="selectInterestCity(city)" [class]="interestCity.indexOf(city)!=-1?'citySelected':'city'" >
+                  <ion-label>{{city}}</ion-label>
+                </ion-chip>
+              </ng-container>
+            </ng-container>
+          
+          
+          
         </ng-container>
       </div>
 
-      <ion-button (click)="btnPronto()" type="submit" id="btnCadastrarConta" expand="full" shape="round">
+      <ion-button (click)="finish()" type="submit" id="btnCadastrarConta" expand="full" shape="round">
         Pronto
       </ion-button>
     </form>

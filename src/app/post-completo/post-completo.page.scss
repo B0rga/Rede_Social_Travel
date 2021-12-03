@@ -29,6 +29,7 @@ ion-content{
   --padding-start: 8px;
   --padding-end: 8px;
   --padding-bottom: 24px;
+  width: 100%;
 }
 
 //=============================================================================================================//
@@ -36,6 +37,8 @@ ion-content{
 .divSuperior{
   display: flex;
   margin-bottom: 4px;
+  justify-content: center;
+  width: 100%;
 }
 
 //=============================================================================================================//
@@ -46,18 +49,18 @@ ion-content{
   align-items: center;
   min-width: 30px;
   padding-top: 4px;
-
+  .divLine{
+    width: 1px;
+    background-color: var(--ion-color-divider);
+    height: 100%;
+    margin-top: 8px;
+  }
   ion-icon{
     color: var(--ion-color-medium);
   }
 }
 
-.divLine{
-  width: 1px;
-  background-color: var(--ion-color-divider);
-  height: 100%;
-  margin-top: 8px;
-}
+
 
 .divAvatar ion-avatar{
   background: #707070;
@@ -143,11 +146,14 @@ ion-buttons{
 .divPrincipal{
   display: flex;
   margin-bottom: 4px;
+  width: 100%;
+  justify-content: center;
 }
 
 .divHeadPrincipal{
   display: flex;
   justify-content: space-between;
+  justify-content: center;
 }
 
 //=============================================================================================================//

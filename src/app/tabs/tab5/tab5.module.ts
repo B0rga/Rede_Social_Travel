@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { Tab5PageRoutingModule } from './tab5-routing.module';
-
+import { SharedComponentsModule } from './../../components/shared-components.module';
 import { Tab5Page } from './tab5.page';
 
 @NgModule({
@@ -14,6 +14,7 @@ import { Tab5Page } from './tab5.page';
     FormsModule,
     IonicModule,
     Tab5PageRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [Tab5Page]
 })

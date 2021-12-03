@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comentario',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comentario.component.scss'],
 })
 export class ComentarioComponent implements OnInit {
-
+  @Input('comment_data') data
   constructor() { }
 
   ngOnInit() {}

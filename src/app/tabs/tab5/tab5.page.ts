@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search/search.service';
 import { GestureController, Gesture, IonItem, AlertController } from '@ionic/angular';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab5',
   templateUrl: './tab5.page.html',
@@ -13,17 +15,20 @@ export class Tab5Page implements AfterViewInit{
   constructor(
     private search:SearchService,
     private gestureCtrl:GestureController,
-    private alertCtrl:AlertController
+    private alertCtrl:AlertController,
+    private user:UserService,
+    private router:Router
      ){
     
   }
   
   ngAfterViewInit(){
-   
   }
   setGesture(){
-    const array = this.cache.toArray()
-    this.longPress(array)
+    if(this.cache){
+      const array = this.cache.toArray()
+      this.longPress(array)
+    }
   }
   longPress(cacheArray:Array<ElementRef>){
     cacheArray.forEach((el:ElementRef,pos)=>{
@@ -45,6 +50,10 @@ export class Tab5Page implements AfterViewInit{
       }
     })
     
+  }
+  openProfile(user){
+    this.user.otherUser = user
+    this.router.navigate(['perfil'])
   }
   onLongPress(cached){
     setTimeout(async ()=>{
