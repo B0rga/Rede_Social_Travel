@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-configuracoes',
@@ -8,21 +9,23 @@ import { AuthServiceService } from 'src/app/services/auth/auth-service.service';
   styleUrls: ['./configuracoes.page.scss'],
 })
 export class ConfiguracoesPage implements OnInit {
-  userInfo:Object = {}
-  constructor(private auth:AuthServiceService, private router:Router) { }
+  userInfo:Object
+  constructor(private auth:AuthServiceService, private router:Router, private user:UserService) { }
 
   ngOnInit() {
-    this.userInfo = {
-      userName: "@jesse",
-      email: "jesse@jesse.com",
-      phone: "11 91280-4222",
-      place: "São Paulo SP Brasil"
-    }
+    this.getUser()
+  }
+  async getUser(){
+    this.userInfo = await this.user.getUser()
   }
   alterarEmail(){
     this.router.navigate(['alterar-email'])
   }
-
-
+  alterarId(){
+    this.router.navigate(['alterar-id'])
+  }
+  alterarNome(){
+    this.router.navigate(['alterar-nome'])
+  }
 }
 

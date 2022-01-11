@@ -7,7 +7,7 @@
       Criar post
     </ion-title>
 
-    <ion-chip slot="end" [class]='(citySelected.trim().length && postForm.valid)?"citySelected":""' (click)="postThread()">
+    <ion-chip slot="end" [class]='(citySelected.trim().length && postForm.valid)?"selected":""' (click)="postThread()">
       <ion-label>Postar</ion-label>
     </ion-chip>
 

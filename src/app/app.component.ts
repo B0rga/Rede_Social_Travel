@@ -32,13 +32,8 @@ export class AppComponent implements AfterViewInit{
       }
   }
   ngAfterViewInit(){
-    this.user.getUser().then(user=>{
-      this.userProfile = user
-      this.user.consultUser(user.id).subscribe(res=>{
-        this.userProfile = user
-        this.user.updateUser(user)
-      })
-    })
+    
+    
   }
   onLoad(){
     if(this.thisPage != this.router.url){
@@ -47,6 +42,17 @@ export class AppComponent implements AfterViewInit{
         this.menu.enable(false,'main-menu')
       }else{
         this.menu.enable(true, 'main-menu')
+        this.user.getUser().then(user=>{
+          if(user){
+            this.userProfile = user
+            this.user.consultUser(user.id).subscribe(res=>{
+              this.userProfile = res
+              this.user.updateUser(res)
+            })
+          }
+          
+        })
+      
       }
     }
     

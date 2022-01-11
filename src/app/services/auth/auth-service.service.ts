@@ -122,6 +122,8 @@ export class AuthServiceService {
     await this.storage.remove("ACCESS_TOKEN")
     await this.storage.remove("REFRESH_TOKEN")
     await this.storage.remove("EXPIRES_IN")
+    await this.storage.remove("POSTS")
+    await this.storage.remove("USER")
     this.authSubject.next(false)  
   }
  

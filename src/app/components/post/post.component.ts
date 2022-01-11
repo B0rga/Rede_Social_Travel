@@ -4,6 +4,7 @@ import { PopoverController } from '@ionic/angular';
 import { PopoverComponent } from '../../components/popover/popover.component';
 import { PostService } from 'src/app/services/post.service';
 import {Post} from '../../post-interface'
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post',
@@ -23,7 +24,8 @@ export class PostComponent implements OnInit{
   constructor(
     public popoverController: PopoverController,
     public router: Router,
-    private post:PostService
+    private post:PostService,
+    private user:UserService
     ) { }
   ngOnInit(){
     this.images = this.data.images
@@ -36,6 +38,8 @@ export class PostComponent implements OnInit{
   }
   async openPopover(ev: any) {
     event.stopPropagation();
+    this.user.otherUser = this.data.author
+    this.post.openPost = this.data
     const popover = await this.popoverController.create({
       component: PopoverComponent,
       cssClass: 'customPopover',
@@ -48,5 +52,4 @@ export class PostComponent implements OnInit{
     this.post.openPost = {author: this.data.author, id: this.data.id}
     this.router.navigate(['post-completo'])
   }
-
 }

@@ -37,8 +37,9 @@ ion-content{
 .divSuperior{
   display: flex;
   margin-bottom: 4px;
-  justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 //=============================================================================================================//
@@ -75,29 +76,36 @@ ion-content{
   padding-left: 6px;
 }
 
-.divHeadSuperior{
-  display: flex;
-  justify-content: space-between;
-  align-items:center;
-}
+
 
 .grid{
-  display:grid;
+  display:flex;
+  .divHeadSuperior{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+  .divTitulo{
+    padding-top: 2px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width: 80%;  
+    p:first-child{
+      font-size: 12px;
+    }
+  
+    p{
+      font-size: 8px;
+      width: 100%;
+    }
+  }
+  ion-buttons{
+    
+  }
 }
 
-.divTitulo{
-  padding-top: 2px;
-  display: flex;
-  align-items:baseline;
 
-  p:first-child{
-    font-size: 12px;
-  }
-
-  p{
-    font-size: 8px;
-  }
-}
 
 .divTempo{
   display: flex;
@@ -147,13 +155,12 @@ ion-buttons{
   display: flex;
   margin-bottom: 4px;
   width: 100%;
-  justify-content: center;
+
 }
 
 .divHeadPrincipal{
   display: flex;
   justify-content: space-between;
-  justify-content: center;
 }
 
 //=============================================================================================================//
@@ -175,44 +182,6 @@ ion-buttons{
 
   ion-icon{
     font-size: 10px;
-  }
-}
-
-.divImg1{
-  width: 100%;
-  min-height: 140px;
-  border-radius: 14px;
-  background-image: url('/assets/monument1.jpg');
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
-}
-
-.divImg2{
-  width: 100%;
-  min-height: 140px;
-  border-radius: 14px;
-  background-image: url('/assets/monument2.jpg');
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
-}
-
-.divImg3{
-  width: 100%;
-  min-height: 140px;
-  border-radius: 14px;
-  background-image: url('/assets/torre.jpg');
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: right;
-  align-items:flex-end;
-  padding: 2px;
-
-  ion-icon{
-    font-size: 22px;
   }
 }
 
@@ -254,7 +223,20 @@ h1{
 .divStar{
   width: 90px;
 }
-
+.comentar{
+  display: flex;
+  width: 100%;
+  ion-chip{
+    padding: 0px 10px 0px 10px;
+    --background: #00f9bb;
+    border: 1px solid var(--ion-color-medium);
+    height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.5s linear;
+    align-self: center;
+  }
+}
 .star{
   display: flex;
   align-items: center;
@@ -273,10 +255,22 @@ table{
     font-size: 12px;
   }
 }
-
+ion-grid{
+  ion-row{
+    height: 100%;
+   ion-col{
+     img{
+       width: 100%;
+       max-height: 100px;
+       border-radius: 8px;
+       padding-left: 3px;
+       padding-top: 3px;
+     }
+   }
+  }
+ }
 .resposta{
   margin-left: 24px;
 }
-
 
 

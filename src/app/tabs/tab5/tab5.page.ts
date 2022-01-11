@@ -53,7 +53,7 @@ export class Tab5Page implements AfterViewInit{
   }
   openProfile(user){
     this.user.otherUser = user
-    this.router.navigate(['perfil'])
+    this.router.navigate(['outro-perfil'])
   }
   onLongPress(cached){
     setTimeout(async ()=>{

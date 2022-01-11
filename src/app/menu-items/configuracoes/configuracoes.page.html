@@ -10,19 +10,19 @@
   
   <div id="divPrincipal">
     <h3>Configurações</h3>
-    <ion-list>
+    <ion-list *ngIf="userInfo">
       <ion-item-group>
         <ion-item>
           <ion-label>Login e Segurança</ion-label>
         </ion-item>
-        <ion-item>
-          <ion-label>User Name: <br>{{this.userInfo.userName}}</ion-label>
+        <ion-item (click)="alterarNome()">
+          <ion-label>Nome: <br>{{userInfo.name}}</ion-label>
+        </ion-item>
+        <ion-item (click)="alterarId()">
+          <ion-label>Id: <br>@{{userInfo.id}}</ion-label>
         </ion-item>
         <ion-item (click)="alterarEmail()">
-          <ion-label>Email: <br>{{this.userInfo.email}}</ion-label>
-        </ion-item>
-        <ion-item>
-          <ion-label>Telefone: <br>{{this.userInfo.phone}}</ion-label>
+          <ion-label>Email: <br>{{userInfo.email}}</ion-label>
         </ion-item>
       </ion-item-group>
      
@@ -31,7 +31,7 @@
           <ion-label>Permissões de Dados</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>Localidade <br> {{this.userInfo.place}}</ion-label>
+          <ion-label>Localidade <br> {{userInfo.location.locality}}, {{userInfo.location.country}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-label>Seus dados no travel</ion-label>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import {AuthServiceService} from '../services/auth/auth-service.service'
+import { HttpErrorResponse } from '@angular/common/http';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -39,7 +41,8 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private FormBuilder: FormBuilder,
-    private auth:AuthServiceService
+    private auth:AuthServiceService,
+    private toastController:ToastController
   ) { }
 
   ngOnInit() {
@@ -69,9 +72,24 @@ export class LoginPage implements OnInit {
   LoginWithGoogle(){
     this.auth.loginWithGoogle()
   }
+  async errorMessage(message){
+    const toast = await this.toastController.create({
+      cssClass: 'publicado',
+      message: message,
+      duration: 1000,
+      translucent: true
+    });
+    toast.present();
+  }
   public submit(){
     if(this.loginForm.valid){
-      this.auth.login(this.loginForm.value).subscribe()
+      this.auth.login(this.loginForm.value).subscribe(()=>{},(err:HttpErrorResponse)=>{
+        if(err.status == 500){
+          this.errorMessage('Problemas no servidor')
+        }else if(400){
+          this.loginForm.setErrors({loginInvalid:true})
+        }
+      })
 
     }else {
       alert("Preencha os campos corretamente!");

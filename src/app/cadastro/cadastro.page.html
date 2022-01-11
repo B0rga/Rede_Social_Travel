@@ -29,14 +29,14 @@
     <form [formGroup]="cadastroForm" (ngSubmit)="submit()">
       <ion-item lines="full">
         <ion-label position="floating">Id</ion-label>
-        <ion-input formControlName="Id" type="text" placeholder="Digite aqui o nome" required></ion-input>
+        <ion-input (ionChange)="idIsUsed()" formControlName="Id" type="text" placeholder="Digite aqui o nome" required></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.Id">
         <ng-container *ngIf="Id.hasError(error.type) && (Id.dirty || Id.touched)">
           <small class="error-message">{{error.message}}</small>
         </ng-container>
       </div>
-      <ng-container *ngIf="cadastroForm.hasError('idIsUsed') && (Id.dirty || Id.touched)">
+      <ng-container *ngIf="confirmId && (Id.dirty || Id.touched)">
         <small class="error-message">Esse Id ja esta cadastrado</small>
       </ng-container>
       <ion-item lines="full">
@@ -51,7 +51,7 @@
 
       <ion-item lines="full">
         <ion-label position="floating">Email</ion-label>
-        <ion-input #email formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
+        <ion-input (ionChange)="emailIsUsed()" formControlName="Email" type="email" placeholder="Digite aqui o email" required></ion-input>
       </ion-item>
       <div *ngFor="let error of errorMessages.Email">
         <ng-container *ngIf="Email.hasError(error.type) && (Email.dirty || Email.touched)">
@@ -59,8 +59,8 @@
         </ng-container>
       </div>
       <div>
-        <ng-container *ngIf="cadastroForm.hasError('emailUsed') && (Email.dirty || Email.touched)">
-          <small class="error-message">Esse email ja esta cadastrado</small>
+        <ng-container *ngIf="confirmEmail && (Email.dirty || Email.touched)">
+          <small class="error-message">Esse email já está cadastrado</small>
         </ng-container>
       </div>
 
@@ -89,7 +89,7 @@
         <a id="Termos">Termos e políticas de dados.</a>
       </div>
 
-      <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" [disabled]="cadastroForm.invalid">
+      <ion-button type="submit" id="btnCadastrarConta" expand="full" shape="round" [disabled]="cadastroForm.invalid || confirmEmail || confirmId">
         Continuar
       </ion-button>
     </form>

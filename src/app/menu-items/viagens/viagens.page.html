@@ -1,12 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Viagens</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
+    <ion-title>travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+<ion-content>
+<h4>Salvos</h4>
+<app-post [post_data]="post" *ngFor="let post of posts">
+
+</app-post>
 </ion-content>

@@ -1,5 +1,5 @@
 export interface Post{
-    author: object,
+    author: any,
     id: string,
     publishedAt: string,
     locality: string,

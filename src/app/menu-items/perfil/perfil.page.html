@@ -12,14 +12,14 @@
 
 <ion-content>
   <a>
-    <div id="divPaisagem" class="ion-activatable ripple-parent">
+    <div id="divPaisagem" (click)="updateBannerImage()" [style]="userProfile.profileBannerUrl?'background-image: url(https://storageapptravel.blob.core.windows.net/bannerimg/'+userProfile.profileBannerUrl+')':''" class="ion-activatable ripple-parent">
       <ion-ripple-effect type=unbounded></ion-ripple-effect>
     </div>
   </a>
 
   <div class="divInfos">
     <a>
-      <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img [src]="userProfile.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+userProfile.profileImageUrl:'/assets/profile.png'">
+      <ion-avatar id="avatar" (click)="updateProfileImage()" class="ion-activatable ripple-parent"><img [src]="userProfile.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+userProfile.profileImageUrl:'/assets/profile.png'">
         <ion-ripple-effect type=unbounded></ion-ripple-effect>
       </ion-avatar>
     </a>

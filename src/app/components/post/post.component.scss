@@ -90,12 +90,25 @@ ion-buttons{
   font-size: 10px;
 }
 .divImagens{
-  display:flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
 }
-
+$images:3;
+ion-grid{
+ ion-row{
+   height: 100%;
+  ion-col{
+    img{
+      width: 100%;
+      max-height: 100px;
+      border-radius: 8px;
+      padding-left: 3px;
+      padding-top: 3px;
+    }
+  }
+ }
+}
 .divMaior{
   width: 70%;
   min-height: 140px;
@@ -103,7 +116,12 @@ ion-buttons{
   background-size: cover;
   background-position: center;
 }
-
+.umaImagem{
+  width: 100%;
+  border-radius: 8px 8px 8px 8px;
+  background-size: cover;
+  background-position: center;
+}
 .linhaVertical{
   height: 120px;
   width: 2px;

@@ -71,6 +71,14 @@ const routes: Routes = [
     path: 'redigitar-senha',
     loadChildren: () => import('./redigitar-senha/redigitar-senha.module').then( m => m.RedigitarSenhaPageModule)
   },
+  {
+    path: 'alterar-id',
+    loadChildren: () => import('./alterar-id/alterar-id.module').then( m => m.AlterarIdPageModule)
+  },
+  {
+    path: 'alterar-nome',
+    loadChildren: () => import('./alterar-nome/alterar-nome.module').then( m => m.AlterarNomePageModule)
+  },
 ];
 
 @NgModule({

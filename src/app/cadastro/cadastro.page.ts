@@ -28,6 +28,9 @@ export class CadastroPage implements OnInit {
     return this.cadastroForm.get('ConfirmPassword');
   }
   confirmEmail:Boolean = false
+  confirmId:Boolean = false
+  verifyId:boolean = false
+  verifyEmail:boolean = false
   public errorMessages ={
     Id: [
       {type:'required', message:'Id é obrigatorio'}
@@ -52,7 +55,7 @@ export class CadastroPage implements OnInit {
     Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
     Password:  ['', [Validators.required, Validators.minLength(8)]],
     ConfirmPassword:  new FormControl('', Validators.compose([Validators.required])),
-  }, {validators:[this.matchPassword.bind(this), this.emailIsUsed.bind(this), this.idIsUsed.bind(this)]})
+  }, {validators:[this.matchPassword.bind(this)]})
 
   constructor(
     private router: Router,
@@ -64,28 +67,21 @@ export class CadastroPage implements OnInit {
     const { value: confirmPassword } = formGroup.get('ConfirmPassword');
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
-  idIsUsed(formGroup:FormGroup){
-    const campoId = formGroup.get('Id')
-    const {value:Id} = campoId
-    if(campoId.valid){
-      this.auth.idIsRegistered(Id).subscribe((res:any)=>{
-        console.log(res)
-        this.confirmEmail = res.result
+  idIsUsed(){
+    if(this.Id.valid){
+      this.auth.idIsRegistered(this.Id.value).subscribe((res:any)=>{
+         console.log(res)
+        this.confirmId = res.result
       })
-      return this.confirmEmail?{idIsUsed:true}:null
     }
   }
   emailIsUsed(formGroup:FormGroup){
-    const campoEmail = formGroup.get('Email')
-    const {value:email} = campoEmail
-    if(campoEmail.valid){
-      this.auth.emailIsRegistered(email).subscribe((res:any)=>{
-        console.log(res)
+    if(this.Email.valid){
+      this.auth.emailIsRegistered(this.Email.value).subscribe((res:any)=>{
+         console.log(res)
         this.confirmEmail = res.result
       })
-      return this.confirmEmail?{emailUsed:true}:null
-    }
-    
+    }    
   }
   ngOnInit() {
   }

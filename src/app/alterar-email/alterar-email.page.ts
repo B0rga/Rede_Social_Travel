@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -21,7 +22,7 @@ export class AlterarEmailPage implements OnInit {
     Email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
   })
   emailAnt:string = ""
-  constructor(private FormBuilder:FormBuilder, private user:UserService) { }
+  constructor(private FormBuilder:FormBuilder, private user:UserService, private router:Router) { }
   
   ngOnInit() {
     this.user.getUser().then(user=>{
@@ -30,7 +31,8 @@ export class AlterarEmailPage implements OnInit {
     })
   }
   public submit(){
-    
+    this.user.newEmail = this.email.value
+    this.router.navigate(['redigitar-senha'])
   }
 
 }

@@ -7,7 +7,7 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./tab2.page.scss'],
 })
 export class Tab2Page implements OnInit {
-  posts:object
+  posts:Array<any> = []
   constructor(private post:PostService) { }
 
   ngOnInit() {
@@ -15,8 +15,8 @@ export class Tab2Page implements OnInit {
   }
   loadPosts(){
     this.post.getPopular().then(post=>{
-      post.subscribe(res=>{
-        this.posts = res
+      post.subscribe((res:any)=>{
+        this.posts = res.publications
       })
     })
   }

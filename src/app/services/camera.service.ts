@@ -26,21 +26,19 @@ export class CameraService extends Camera{
     return this.photos
 
   }
-  getPhotos(){
+  async getPhotos(){
     const options: CameraOptions = {
       sourceType: this.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.DestinationType.DATA_URL,
       mediaType:0,
       correctOrientation: true
     }
-    
-    this.getPicture(options).then((imageData)=>{
-      this.photos.push({
-        data: 'data:image/jpeg;base64,' + imageData,
-        base64: imageData,
-        type: 'image/jpeg'
-      }) 
-    })
+    const imageData = await this.getPicture(options)
+    this.photos.push({
+      data: 'data:image/jpeg;base64,' + imageData,
+      base64: imageData,
+      type: 'image/jpeg'
+    }) 
     return this.photos
   }
   clearPhotos(){

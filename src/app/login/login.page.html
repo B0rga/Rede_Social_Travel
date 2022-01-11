@@ -38,7 +38,9 @@
           <small class="error-message">{{error.message}}</small>
         </ng-container>
       </div>
-
+      <ng-container *ngIf="loginForm.hasError('loginInvalid')">
+        <small class="error-message">Usuario ou senha incorretos</small>
+      </ng-container>
       <div id="divEsqueceuSenha">
         <a (click)="btnRecuperarSenha()">Esqueceu sua senha?</a>
       </div>

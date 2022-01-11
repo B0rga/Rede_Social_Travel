@@ -11,32 +11,25 @@
 </ion-header>
 
 <ion-content *ngIf="thread">
-
   <div class=divSuperior >
-
-    <div class="divEsquerda">
-      <div class="divAvatar"><ion-avatar><img [src]="thread.author.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+thread.author.profileImageUrl:'/assets/profile.png'"></ion-avatar></div>
-      <div class="divLine"></div>
-    </div>
-
     <div class="divDesc">
-      <div class="divHeadSuperior">
+      <div class="divHeadSuperior"  (click)="openProfile()">
         <div class="grid">
+          <div class="divEsquerda" (click)="openProfile()">
+            <div class="divAvatar"><ion-avatar><img [src]="thread.author.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+thread.author.profileImageUrl:'/assets/profile.png'"></ion-avatar></div>
+            <div class="divLine"></div>
+          </div>
           <div class="divTitulo">
             <p>{{thread.author.name}}</p>
-          </div>
-          <div class="divTempo">
             <p>X dias atrás</p>
-            <p class="lugar">&nbsp;em&nbsp;França</p>
-            <p class="lugar">,&nbsp;París</p>
+            <p class="lugar">em&nbsp;{{thread.locality}}</p>
           </div>
-        </div>
-
-        <ion-buttons slot="end">
-          <ion-button (click)="openPopover($event)">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </ion-button>
-        </ion-buttons>
+          <ion-buttons slot="end">
+            <ion-button (click)="openPopover($event)">
+              <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>       
       </div>
       <div class="title">
         <p>{{thread.title}}</p>
@@ -48,88 +41,62 @@
       </div>
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="6" *ngFor="let img of thread.images"><ion-img [src]="'https://storageapptravel.blob.core.windows.net/postimages/'+img"></ion-img></ion-col>
-        </ion-row>
+        <ng-container *ngFor="let img of thread.images; let last = last">
+          <ion-col [size]="(thread.images.length == 1) || (thread.images.length%2==1 && last)?'12':'6'">
+            <img [src]="'https://storageapptravel.blob.core.windows.net/postimages/'+img" alt="" [style]="thread.images.length == 1?'max-height: 200px;':''">
+          </ion-col>
+        </ng-container>     
+      </ion-row>
       </ion-grid>
+      
     </div>
   </div>
-
-  <div class="divPrincipal" *ngFor="let post of replacedThread">
-    <div class="divEsquerda">
-      <ion-icon name="ellipse-outline"></ion-icon>
-      <div class="divLine"></div>
-    </div>
-
+  <div class='divSuperior' *ngFor="let post of replacedThread">
     <div class="divDesc">
-      <div class="divHeadPrincipal">
-        <div class="divTitulo">
-            <p> &nbsp;</p>
+      <div class="divHeadSuperior"  (click)="openProfile()">
+        <div class="grid">
+          <div class="divEsquerda" (click)="openProfile()">
+            <div class="divAvatar"><ion-avatar><img [src]="thread.author.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+thread.author.profileImageUrl:'/assets/profile.png'"></ion-avatar></div>
+            <div class="divLine"></div>
+          </div>
+          <div class="divTitulo">
+            <p>{{post.author.name}}</p>
             <p>X dias atrás</p>
-        </div>
-        <ion-buttons slot="end">
-          <ion-button (click)="openPopover($event)">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </ion-button>
-        </ion-buttons>
+            <p class="lugar">em&nbsp;{{post.locality}}</p>
+          </div>
+          <ion-buttons slot="end">
+            <ion-button (click)="openPopover($event)">
+              <ion-icon name="ellipsis-horizontal"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </div>       
       </div>
-      
       <div class="title">
-        <p>
-          {{post.title}}
-        </p>
+        <p>{{post.title}}</p>
       </div>
       <div class="divSinopse">
         <p>
-          {{post.content}}
+        {{post.content}}
         </p>
       </div>
       <ion-grid fixed>
         <ion-row>
-          <ion-col size="6" *ngFor="let img of post.images"><ion-img [src]="'https://storageapptravel.blob.core.windows.net/postimages/'+img"></ion-img></ion-col>
-        </ion-row>
+        <ng-container *ngFor="let img of post.images; let last = last">
+          <ion-col [size]="(post.images.length == 1) || (post.images.length%2==1 && last)?'12':'6'">
+            <img [src]="'https://storageapptravel.blob.core.windows.net/postimages/'+img" alt="" [style]="post.images.length == 1?'max-height: 200px;':''">
+          </ion-col>
+        </ng-container>     
+      </ion-row>
       </ion-grid>
       
-
-    </div>
-  </div>
-  
-  <div class="divPrincipal" *ngIf="linkRote">
-    <div class="divEsquerda">
-      <ion-icon name="ellipse-outline"></ion-icon>
-      <div class="divLine"></div>
-    </div>
-
-    <div class="divDesc">
-      <div class="divHeadPrincipal">
-        <div class="divTitulo">
-            <p>Jesse Pinkman&nbsp;</p>
-            <p>X dias atrás</p>
-        </div>
-        <ion-buttons slot="end">
-          <ion-button (click)="openPopover($event)">
-            <ion-icon name="ellipsis-horizontal"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-      </div>
-      <div class="divLocal">
-        <p>Rota Completa&nbsp;</p>
-        
-      </div>
-      <div class="divSinopse">
-        <p>
-        </p>
-      </div>
-      <div class="divImg1">
-      </div>
-
     </div>
   </div>
 
   <ion-buttons class="stats">
     <ion-button (click)="openStars($event)">
-      <ion-icon name="star-outline" slot="icon-only"></ion-icon>
+      <ion-icon [name]="evalueted?'star':'star-outline'" slot="icon-only"></ion-icon>
     </ion-button>
-    <ion-button>
+    <ion-button (click)="comentar()">
       <ion-icon name="chatbubble-outline" slot="icon-only"></ion-icon>
     </ion-button>
     <ion-button (click)="btnSavePost()">
@@ -215,6 +182,12 @@
     </div>
   </div>
 
-  <h1>1240 Comentários</h1>
+  <h1> {{thread.totalComments}} Comentários</h1>
+  <ion-item lines="full" class="comentar">
+    <ion-textarea #content type="text" [rows]="commentLines" placeholder="Ótimo lugar para viajar!!" (ionChange)="updateRows($event)"></ion-textarea>
+    <ion-chip (click)="comentar()">comentar</ion-chip>
+  </ion-item>
+    <app-comentario [comment_data]="comment" *ngFor="let comment of comments">
+    </app-comentario>
 
 </ion-content>

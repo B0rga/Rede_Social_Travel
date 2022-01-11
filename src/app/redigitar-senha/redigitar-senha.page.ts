@@ -1,5 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-redigitar-senha',
@@ -15,12 +19,23 @@ export class RedigitarSenhaPage implements OnInit {
   }
   
   constructor(
-    private FormBuilder:FormBuilder
+    private FormBuilder:FormBuilder,
+    private user:UserService,
+    private router:Router,
+    private toast:ToastController
   ) { }
 
   ngOnInit() {
   }
-  public submit(){
-    
+  async submit(){
+    const user = await this.user.getUser()
+    const token = await this.user.getToken()
+    this.user.updateEmail(user.id,this.Password.value, token).subscribe(res=>{
+      this.router.navigate(['tabs'])
+    },(err:HttpErrorResponse)=>{
+      if(err.status == 400){
+        //informaç
+      }
+    })
   }
 }

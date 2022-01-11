@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ViagensPageRoutingModule } from './viagens-routing.module';
-
+import { SharedComponentsModule } from 'src/app/components/shared-components.module';
 import { ViagensPage } from './viagens.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { ViagensPage } from './viagens.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ViagensPageRoutingModule
+    ViagensPageRoutingModule,
+    SharedComponentsModule
   ],
   declarations: [ViagensPage]
 })

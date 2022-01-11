@@ -32,16 +32,16 @@
     </p>
   </div>
 
-  <div class="divImagens">
-    <div class="divMaior" [style]="images[0]?'background-image: url('+images[0]+')':''"></div>
-    <div class="linhaVertical"></div>
+  <ion-grid fixed>
+    <ion-row>
+      <ng-container *ngFor="let img of images; let last = last">
+        <ion-col [size]="(images.length == 1) || (images.length%2==1 && last)?'12':'6'">
+          <img [src]="img" alt="" [style]="images.length == 1?'max-height: 200px;':''">
+        </ion-col>
+      </ng-container>     
+    </ion-row>
 
-    <div class="divDireita">
-      <div class="divMenor" [style]="images[1]?'background-image: url('+images[1]+')':''"></div>
-      <div class="linhaHorizontal"></div>
-      <div class="divMenor2" [style]="images[2]?'background-image: url('+images[2]+')':''"></div>
-    </div>
-  </div>
+  </ion-grid>
 
 
   <div class="divRelevancia">

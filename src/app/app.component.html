@@ -4,7 +4,7 @@
       <ion-content>
       <div class="divHeader">
         <div class="divImagens">
-          <img class="imgFundo" src="/assets/monument2.jpg">
+          <img class="imgFundo" [src]="userProfile.profileBannerUrl?'https://storageapptravel.blob.core.windows.net/bannerimg/'+userProfile.profileBannerUrl:''">
           <ion-avatar><img [src]="userProfile.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+userProfile.profileImageUrl:'/assets/profile.png'"></ion-avatar>
         </div>
         <div class="divDados">

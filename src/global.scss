@@ -39,7 +39,13 @@
 .estrelaPopover .popover-content{
   --width: auto;
 }
-
+.publicado{
+  --min-width: 200px;
+  --max-width: 400px;
+  --height: 30px;
+  --border-radius: 200px;
+  text-align: center;
+}
 .customActionSheet{
 
   .action-sheet-group{

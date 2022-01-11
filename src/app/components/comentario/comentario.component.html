@@ -1,17 +1,13 @@
 <div class=divComment>
-
-  <div class="divEsquerda">
-    <div class="divAvatar"><ion-avatar><img src="/assets/jesse.jpg"></ion-avatar></div>
-  </div>
-
   <div class="divDesc">
     <div class="divHeadSuperior">
-      <div class="grid">
+      <div class="divEsquerda">
+        <div class="divAvatar"><ion-avatar><img [src]="data.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+data.profileImageUrl:'/assets/profile.png'"></ion-avatar></div>
         <div class="divTitulo">
-          <p>{{data.username}}</p>
+          <p>{{data.name}}</p>
         </div>
         <div class="divTempo">
-          <p>{{data.time}}</p>
+          <p></p>
         </div>
       </div>
 
@@ -32,7 +28,7 @@
         <table>
           <tr>
             <td>
-              <ion-button>
+              <ion-button (click)="upvoteComment()">
                 <ion-icon name="chevron-up-outline"></ion-icon>
               </ion-button>
             </td>
@@ -44,10 +40,10 @@
           </tr>
           <tr>
             <td>
-              <p>{{data.upvotes}}</p>
+              <p>{{data.upVotes}}</p>
             </td>
             <td>
-              <p>{{data.downvotes}}</p>
+              <p>{{data.downVotes}}</p>
             </td>
           </tr>
         </table>

@@ -4,29 +4,7 @@ import { Storage } from '@ionic/storage';
 import { tap } from 'rxjs/operators';
 import { CameraService } from './camera.service';
 import {apiAddress} from './api-address'
-interface Post{
-  author: string,
-  id: string,
-  publishedAt: string,
-  locality: string,
-  rote: string,
-  business: string,
-  title: string,
-  content: string,
-  images: Array<string>,
-  complement: Post,
-  evaluation: {
-      totalRate: Number,
-      evaluationsCount: Number,
-      rates: Number
-  },
-  totalComments: Number,
-  totalFiveStars: Number,
-  totalFourStars: Number,
-  totalThreeStars: Number,
-  totalTwoStars: Number,
-  totalOneStars: Number
-}
+import {Post} from '../post-interface'
 interface PostResponse{
   posts:Array<Post>
 }
@@ -58,6 +36,7 @@ export class PostService {
   }
   async getAllPublications(userId){
     const token = await this.getToken()
+    console.log(token)
     return this.http.get(`${this.apiAddress}/${userId}/publication/all`, {headers:{
       "Authorization": `Bearer ${token}`
     }})
@@ -106,31 +85,60 @@ export class PostService {
   }
   async getComments(user,postId){
     const token = await this.getToken()
-    return this.http.get(`${this.apiAddress}/${user}/${postId}/comments`, {headers:{
+    return this.http.get(`${this.apiAddress}/${user}/publication/${postId}/comments`, {headers:{
       "Authorization": token
     }}).pipe()
   }
   async getPopular(){
     let token = await this.getToken()
     return this.http.get(`${this.apiAddress}/home/popular`, {headers: {"Authorization": `Bearer ${token}`}})
-      .pipe(
-        tap(async (res:PostResponse)=>{
-          await this.storage.create()
-          await this.storage.set('POSTS', res.posts)
-        })
-    )
   }
   async getPosts(){
     let token = await this.getToken()
     let user = await this.getUser()
     return this.http.get(`${this.apiAddress}/home/recommended/${user.id}`, {headers: {"Authorization": `Bearer ${token}`}})
-      .pipe(
-        tap(async (res:PostResponse)=>{
-          await this.storage.create()
-          await this.storage.set('POSTS', res.posts)
-        })
-    )
-  }
-
  
+  }
+  evaluetePublication(user,rate,token){
+    return this.http.post(`${this.apiAddress}/${this.openPost.author.id}/publication/${this.openPost.id}/evaluate`, {UserId:user.id, PubId:this.openPost.id, Rate:rate}, {headers:{
+      "Authorization": `Bearer ${token}`
+    }})
+  }
+  async savePost(post?){
+    await this.storage.create()
+    let posts:Array<Post> = []
+    if(await this.storage.get("POSTS")){
+      posts = await this.storage.get("POSTS")
+    }
+    if(post){
+      posts.push(post)
+    }else{
+      posts.push(this.openPost)
+    }
+    await this.storage.set("POSTS", posts)
+  }
+  async getPostsSaved(){
+    await this.storage.create()
+    const posts = await this.storage.get("POSTS")
+    return posts
+  }
+  getOneEvaluetion(userid,token){
+    return this.http.get(`${apiAddress}/${this.openPost.id}/${this.openPost.author.id}/evaluetion/${userid}`, {headers:{
+      "Authorization": `Bearer ${token}`
+    }})
+  }
+  commentPublication(user, content, token){
+    console.log(this.openPost)
+    return this.http.post(`${this.apiAddress}/${this.openPost.author.id}/publication/${this.openPost.id}/comments`, {UserId: user, PubId: this.openPost.id, Content: content},{headers:{
+      "Authorization": `Bearer ${token}`
+    }})
+  }
+  upvoteComment(user,commentId, token){
+    return this.http.post(`${apiAddress}/${this.openPost.author.id}/publication/${this.openPost.id}/comment/${commentId}/upvote`,{
+      UserId:user,
+      CommentId:commentId
+    },{headers:{
+      "Authorization": `Bearer ${token}`
+    }})
+  }
 }

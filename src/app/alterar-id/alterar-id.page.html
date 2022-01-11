@@ -1,0 +1,37 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      travel
+      <img src= "/assets/logoprincipal.svg" id="logoPrincipal">
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="divPrincipal">
+    <h3>Alterar id</h3>
+    <p id="Descricao">Alterar id do usuario</p>
+    <ion-item lines="full">
+      <div id="antigo">
+        <ion-label>Antigo:</ion-label>
+        <ion-label>@{{userId}}</ion-label>
+      </div>
+    </ion-item>
+    <form [formGroup]="alterForm" (ngSubmit)="submit()">
+      <ion-item lines="full">
+        <ion-label position="floating">Novo:</ion-label>
+        <ion-input (ionChange)="idIsUsed()" formControlName="newId" type="text" placeholder="Digite aqui o id" required></ion-input>
+      </ion-item>
+      <ion-button type="submit" id="btnEntrarConta" expand="full" shape="round" [disabled]="alterForm.invalid || confirmId">
+        Pronto
+      </ion-button>
+    </form>
+    
+  </div>
+</ion-content>

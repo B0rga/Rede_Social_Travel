@@ -1,5 +1,7 @@
 import { AfterViewInit, Component,ElementRef,QueryList,ViewChild, ViewChildren } from '@angular/core';
 import {  PopoverController, Gesture, GestureController, IonIcon, IonRow } from '@ionic/angular';
+import { PostService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-estrelas',
   templateUrl: './estrelas.component.html',
@@ -12,7 +14,9 @@ export class EstrelasComponent implements AfterViewInit {
   @ViewChildren(IonIcon) Stars:QueryList<IonIcon>
   constructor(
     private popoverController: PopoverController,
-    private gestureCtrl: GestureController
+    private gestureCtrl: GestureController,
+    private user:UserService,
+    private post:PostService
     ) { 
       
   }
@@ -35,7 +39,15 @@ export class EstrelasComponent implements AfterViewInit {
     stars.forEach(star => {
       star.size = 'small' //diminui todos os ion-icons quando termina o gesto
     });
+    this.evaluetePublication()
     this.popoverController.dismiss()
+  }
+  async evaluetePublication(){
+    const token = await this.user.getToken()
+    const user = await this.user.getUser()
+    this.post.evaluetePublication(user,this.stars,token).subscribe((res)=>{
+      console.log(res)
+    })
   }
   onMove(detail){
     const currentX = detail.currentX;
@@ -46,6 +58,7 @@ export class EstrelasComponent implements AfterViewInit {
       if(currentX >= 100+(30*pos) && currentX <= 140+(30*pos)){
         star.size = 'large'
         star.name = 'star'
+        this.stars = pos +1
       }else if(currentX>140+(30*pos)){
         star.size = 'small'
         star.name = 'star'
@@ -54,5 +67,6 @@ export class EstrelasComponent implements AfterViewInit {
         star.name = 'star-outline'
       }
     })
+    console.log(this.stars)
   }
 }

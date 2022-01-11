@@ -1,6 +1,7 @@
 import { PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-popover',
@@ -9,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopoverComponent implements OnInit {
 
-  constructor(public router: Router, private popoverController: PopoverController) { }
+  constructor(public router: Router,
+    private popoverController: PopoverController,
+    private post:PostService
+    ) { }
 
   async btnPerfil(){
     this.router.navigate(['outro-perfil']);
@@ -17,6 +21,7 @@ export class PopoverComponent implements OnInit {
   }
 
   async btnSalvar(){
+    this.post.savePost()
     await this.popoverController.dismiss();
   }
 

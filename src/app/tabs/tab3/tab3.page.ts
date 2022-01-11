@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, IonInput } from '@ionic/angular';
+import { AlertController, IonInput, ToastController } from '@ionic/angular';
 import { CameraService } from 'src/app/services/camera.service';
 import { BlobStorageService } from 'src/app/services/blob-storage.service';
 import { PostService } from 'src/app/services/post.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import {postimages} from '../../api-keys'
 @Component({
   selector: 'app-tab3',
   templateUrl: './tab3.page.html',
@@ -22,7 +23,6 @@ export class Tab3Page implements OnInit, AfterViewInit {
   countrys:Array<string> = ['Brasil', "Reino Unido", "EUA", "Japão", "Portugal", "Italia", "Espanha"]
   citySelected:string=''
   linkRote:string
-  sas:string = 'sp=racwdl&st=2021-11-22T20:41:46Z&se=2022-01-01T04:41:46Z&spr=https&sv=2020-08-04&sr=c&sig=pHqODLIvQX%2BFPFcb6TiOggwJetm1smZavHmnsNuIMpk%3D'
   @ViewChild('local') local:IonInput
   @ViewChild('teste',{read:ElementRef}) div:ElementRef
   
@@ -48,7 +48,8 @@ export class Tab3Page implements OnInit, AfterViewInit {
       private blobService:BlobStorageService,
       private post:PostService,
       private formBuilder:FormBuilder,
-      private alert:AlertController
+      private alert:AlertController,
+      private toastController:ToastController
       ) {
    //
    }
@@ -81,7 +82,9 @@ export class Tab3Page implements OnInit, AfterViewInit {
   }
   galery(){
    //
-   this.photo = this.cam.getPhotos()
+   this.cam.getPhotos().then(photo=>{
+     this.photo = photo
+   })
   }
   clearPlaces(){
     this.places = []
@@ -91,7 +94,7 @@ export class Tab3Page implements OnInit, AfterViewInit {
       const thread = this.createThread()
       this.post.createPost(thread).then(post=>{
         post.subscribe((res)=>{
-          
+          this.threadPublicada()
         })
       })
       this.clearPost()
@@ -113,9 +116,18 @@ export class Tab3Page implements OnInit, AfterViewInit {
       this.clearPost()
     }
   }
+  async threadPublicada(){
+    const toast = await this.toastController.create({
+      cssClass: 'publicado',
+      message: 'Publicado com sucesso!',
+      duration: 1000,
+      translucent: true
+    });
+    toast.present();
+  }
   createThread(){
     if(this.photo.length>0){
-      this.images = this.blobService.upload(this.photo,'postimages',this.sas,()=>{
+      this.images = this.blobService.upload(this.photo,'postimages',postimages,()=>{
         console.log('imagens upadas')
       })
     }

@@ -10,9 +10,9 @@
         <ion-avatar></ion-avatar>
       </div>
       <div class="notificacao">
-        <p>{{not.texto}}&nbsp;</p>
-        <small *ngIf="not.conteudo">"{{not.conteudo}}"</small><br *ngIf="not.conteudo">
-        <small>{{not.tempo}}</small>
+        <p>{{not.text}}&nbsp;</p>
+        <small *ngIf="not.content">{{not.content}}</small><br *ngIf="not.content">
+        <small>{{not.time}}</small>
       </div> 
     </ion-item>
   </ion-list>
@@ -23,14 +23,14 @@
         Visualizadas
       </ion-label>
     </ion-item>
-    <ion-item class="divNotifica" *ngFor="let not of notifications;">
+    <ion-item class="divNotifica" *ngFor="let vis of visualizadas;">
       <div class="divAvatar"> 
         <ion-avatar></ion-avatar>
       </div>
       <div class="notificacao">
-        <p>{{not.texto}}&nbsp;</p>
-        <small *ngIf="not.conteudo">"{{not.conteudo}}"</small><br *ngIf="not.conteudo">
-        <small>{{not.tempo}}</small>
+        <p>{{vis.text}}&nbsp;</p>
+        <small>"{{vis.content}}"</small><br>
+        <small>{{vis.time}}</small>
       </div> 
     </ion-item>
   </ion-list>

@@ -2,57 +2,70 @@
   <ion-toolbar>
 
     <ion-buttons slot="start">
-      <ion-back-button icon="chevron-back-outline"></ion-back-button>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
 
-    <ion-title>Travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
+    <ion-title>travel<ion-icon src= "/assets/logoprincipal.svg" id="logoPrincipal"></ion-icon></ion-title>
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div id="divPaisagem" class="ion-activatable ripple-parent"></div>
+  <a>
+    <div id="divPaisagem" [style]="userProfile.profileBannerUrl?'background-image: url(https://storageapptravel.blob.core.windows.net/bannerimg/'+userProfile.profileBannerUrl+')':''" class="ion-activatable ripple-parent">
+      <ion-ripple-effect type=unbounded></ion-ripple-effect>
+    </div>
+  </a>
 
   <div class="divInfos">
-
-    <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img src="/assets/jesse.jpg"></ion-avatar>
-
+    <a>
+      <ion-avatar id="avatar" class="ion-activatable ripple-parent"><img [src]="userProfile.profileImageUrl?'https://storageapptravel.blob.core.windows.net/profilephotos/'+userProfile.profileImageUrl:'/assets/profile.png'">
+        <ion-ripple-effect type=unbounded></ion-ripple-effect>
+      </ion-avatar>
+    </a>
     <div class="divHead">
-      <div class="divId">
-        <p id="nome" class="ion-activatable ripple-parent">Jesse Pinkman</p>
-        <p id="usuario">@JesseBeach</p>
-        <div class="divLocal">
-          <ion-icon name="location-outline"></ion-icon>
-          <p>São Paulo, Brasil</p>
-        </div>
+       <div class="divId">
+      <a id="nome" class="ion-activatable ripple-parent">{{userProfile.name}}
+        <ion-ripple-effect type=unbounded></ion-ripple-effect>
+      </a>
+      <p id="usuario">@{{userProfile.id}}</p>
+      <div class="divLocal">
+        <ion-icon name="location-outline"></ion-icon>
+        <p>{{userProfile.location.locality}}, {{userProfile.location.country}}</p>
       </div>
-
-      <ion-chip>Seguir</ion-chip>
+      </div>
+    <ion-chip>
+      <ion-label (click)="followUser()">{{followed?'Seguindo':'Seguir'}}</ion-label>
+    </ion-chip>
     </div>
-
+   
 
   </div>
 
   <div class="divStats">
     <div>
-      <p>1</p>
+      <p>{{userProfile.publicationCount}}</p>
       <p>Posts</p>
     </div>
     <div>
-      <p>50</p>
+      <p>{{userProfile.followingCount}}</p>
       <p>Seguindo</p>
     </div>
     <div>
-      <p>87</p>
+      <p>{{userProfile.followersCount}}</p>
       <p>Seguidores</p>
     </div>
+    
   </div>
 
   <div class="divMeusPosts">
-    <p>Publicações</p>
+    <p>Publicações de {{userProfile.name}}</p>
 
     <ion-buttons>
 
+      <ion-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
       <ion-button>
         <ion-icon name="search-outline"></ion-icon>
       </ion-button>
@@ -61,7 +74,6 @@
 
   </div>
 
-  <app-post></app-post>
+  <app-post *ngFor="let post of userPosts" [post_data]="post"></app-post>
 
 </ion-content>
-

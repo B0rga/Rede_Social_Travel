@@ -9,22 +9,36 @@ import {apiAddress} from '../../services/api-address'
   styleUrls: ['./tab4.page.scss'],
 })
 export class Tab4Page implements OnInit {
-  notifications:Array<object> = []
+  notifications:Array<any> = []
+  vizualizadas:Array<any> = []
   constructor(
-    private http:HttpClient, private user:UserService
+    private user:UserService
   ) {
   }
 
   ngOnInit() {
     this.user.getToken().then(async (token)=>{
+      this.user.getNotificationsVisualised().then(notifications=>{
+       this.vizualizadas = notifications
+       console.log(this.vizualizadas)
+      })
+
       const user = await this.user.getUser()
-      this.http.get(`${apiAddress}/home/notifications/${user.id}`, {headers:{
-        "Authorization": `Bearer ${token}`
-      }}).subscribe(res=>{
-        console.log(res)
+      this.user.getNewNotifications(user, token).subscribe((notifications:any)=>{
+        console.log(notifications)
+        const {comments, evaluations, followers} = notifications
+        if(evaluations){
+          this.notifications.push({text: `${evaluations.name} avaliou sua publicação!`, content:`Você recebeu ${evaluations.evaluation.rate} estrelas.`})
+        }
+        if(followers){
+          this.notifications.push({text: `${followers.name} seguiu você!`, content:`siga de volta!`})
+        }
+        if(comments){
+          this.notifications.push({text: `${comments.name} comentou na sua publicação!`, content:comments.content})
+        }
+        this.user.setNotificationsVisualised(this.notifications)
       })
     })
-    
   }
 
 
