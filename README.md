@@ -1,7 +1,5 @@
 # Rede Social Travel (projeto de conclusão de curso, aplicativo)
 <p>A rede social Travel pretende facilitar as decisões dos turistas recomendando posts com experiências prévias e opiniões de usuários compartilhadas no aplicativo, afinal, os viajantes decidem os seus destinos de acordo com a expectativa de satisfação.<p>
-<br>
-
 <div style="display: inline_block">
 <h3> -Tecnologias Utilizadas:</h3>
     <img align="center" alt="travel-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
